@@ -34,4 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(s => sectionObserver.observe(s));
 
+  // Animar barras y corredores al hacer scroll
+  const animTargets = document.querySelectorAll('.bar-chart, .zones-list');
+  const animObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        animObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.25 });
+
+  animTargets.forEach(el => animObserver.observe(el));
+
 });

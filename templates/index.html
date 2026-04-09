@@ -3,39 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movilidad Bogota — Mineria de Datos</title>
+  <title>Movilidad Bogotá — Minería de Datos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">MDatos / Bogota 2024</div>
+    <div class="nav-logo">MDatos / Bogotá 2026</div>
     <ul class="nav-links">
       <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#problematica">Problematica</a></li>
+      <li><a href="#problematica">Problemática</a></li>
       <li><a href="#objetivos">Objetivos</a></li>
-      <li><a href="#metodologia">Metodologia</a></li>
+      <li><a href="#metodologia">Metodología</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section id="inicio">
     <div class="hero">
-      <div class="hero-bg-text">BOGOTA</div>
+      <div class="hero-bg-text">BOGOTÁ</div>
 
       <div class="hero-content">
-        <div class="hero-tag">Proyecto de Mineria de Datos</div>
+        <div class="hero-tag">Proyecto de Minería de Datos</div>
         <h1 class="hero-title">
           Inteligencia de Datos<br>
           para la <span>Movilidad</span><br>
-          en Bogota
+          en Bogotá
         </h1>
         <p class="hero-description">
-          Bienvenido a nuestra plataforma de analisis. Este proyecto aplica tecnicas avanzadas
-          de mineria de datos para decodificar, entender y predecir los patrones de movilidad
-          en Bogota. Al transformar grandes volumenes de datos crudos en informacion visual y
-          estructurada, buscamos ofrecer una perspectiva clara sobre como se mueve la ciudad.
+          Bienvenido a nuestra plataforma de análisis. Este proyecto aplica técnicas avanzadas
+          de minería de datos para decodificar, entender y predecir los patrones de movilidad
+          en Bogotá. Al transformar grandes volúmenes de datos crudos en información visual y
+          estructurada, buscamos ofrecer una perspectiva clara sobre cómo se mueve la ciudad.
         </p>
         <div class="hero-cta">
           <a href="#problematica" class="btn-primary">Explorar el proyecto</a>
@@ -50,7 +51,7 @@
         </div>
         <div class="stat-item">
           <div class="stat-number"><span>4</span></div>
-          <div class="stat-label">Tecnicas de mineria</div>
+          <div class="stat-label">Técnicas de minería</div>
         </div>
         <div class="stat-item">
           <div class="stat-number"><span>1</span></div>
@@ -62,27 +63,27 @@
     </div>
   </section>
 
-  <!-- PROBLEMATICA -->
+  <!-- PROBLEMÁTICA -->
   <section id="problematica">
     <div class="section-inner">
       <div class="section-label">02 — Contexto</div>
-      <h2 class="section-title reveal">El Desafio del<br>Trafico Bogotano</h2>
+      <h2 class="section-title reveal">El Desafío del<br>Tráfico Bogotano</h2>
 
       <div class="problem-grid">
         <div>
           <p class="problem-text reveal" data-delay="100">
-            Bogota es historicamente reconocida como una de las ciudades con mayor congestion
-            vehicular en el mundo. El crecimiento demografico, la topografia de la ciudad, los
-            frentes de obra simultaneos y la saturacion del transporte publico (TransMilenio y
+            Bogotá es históricamente reconocida como una de las ciudades con mayor congestión
+            vehicular en el mundo. El crecimiento demográfico, la topografía de la ciudad, los
+            frentes de obra simultáneos y la saturación del transporte público (TransMilenio y
             SITP) generan tiempos de desplazamiento excesivos.
           </p>
           <blockquote class="problem-highlight reveal" data-delay="200">
             La principal barrera actual no es la falta de datos, sino la ausencia de herramientas
-            centralizadas que analicen esta informacion historicamente.
+            centralizadas que analicen esta información históricamente.
           </blockquote>
           <p class="problem-text reveal" data-delay="300">
-            Esta realidad no solo representa una perdida millonaria en terminos de productividad
-            economica, sino que afecta drasticamente la calidad de vida de los ciudadanos y
+            Esta realidad no solo representa una pérdida millonaria en términos de productividad
+            económica, sino que afecta drásticamente la calidad de vida de los ciudadanos y
             aumenta la huella de carbono de la ciudad.
           </p>
         </div>
@@ -90,20 +91,20 @@
         <div class="problem-cards">
           <div class="problem-card reveal" data-delay="150">
             <div class="problem-card-icon">01</div>
-            <h4>Congestion historica</h4>
-            <p>Bogota figura consistentemente entre las ciudades con mayor tiempo perdido en
-            trafico a nivel mundial segun indices de movilidad urbana.</p>
+            <h4>Congestión histórica</h4>
+            <p>Bogotá figura consistentemente entre las ciudades con mayor tiempo perdido en
+            tráfico a nivel mundial, según índices de movilidad urbana.</p>
           </div>
           <div class="problem-card reveal" data-delay="250">
             <div class="problem-card-icon">02</div>
-            <h4>Impacto economico</h4>
-            <p>Los tiempos de desplazamiento excesivos representan perdidas significativas
+            <h4>Impacto económico</h4>
+            <p>Los tiempos de desplazamiento excesivos representan pérdidas significativas
             de productividad para empresas y trabajadores de la capital.</p>
           </div>
           <div class="problem-card reveal" data-delay="350">
             <div class="problem-card-icon">03</div>
             <h4>Datos sin centralizar</h4>
-            <p>Existen multiples fuentes de informacion vial (GPS, APIs, estadisticas
+            <p>Existen múltiples fuentes de información vial (GPS, APIs, estadísticas
             oficiales) que no se analizan de forma integrada ni predictiva.</p>
           </div>
         </div>
@@ -121,9 +122,9 @@
         <div class="general-obj reveal">
           <div class="obj-tag">Objetivo General</div>
           <p>
-            Analizar los patrones de movilidad y trafico en Bogota mediante algoritmos de
-            mineria de datos, con el fin de extraer conocimiento util que permita optimizar
-            los tiempos de desplazamiento y apoyar la planificacion urbana.
+            Analizar los patrones de movilidad y tráfico en Bogotá mediante algoritmos de
+            minería de datos, con el fin de extraer conocimiento útil que permita optimizar
+            los tiempos de desplazamiento y apoyar la planificación urbana.
           </p>
         </div>
 
@@ -137,19 +138,19 @@
           <div class="specific-item reveal" data-delay="200">
             <div class="specific-item-num">02</div>
             <h4>Modelado Predictivo</h4>
-            <p>Desarrollar modelos que permitan anticipar el comportamiento del trafico
-            basandose en datos historicos, clima y dias de la semana.</p>
+            <p>Desarrollar modelos que permitan anticipar el comportamiento del tráfico
+            basándose en datos históricos, clima y días de la semana.</p>
           </div>
           <div class="specific-item reveal" data-delay="300">
             <div class="specific-item-num">03</div>
-            <h4>Transporte Publico</h4>
+            <h4>Transporte Público</h4>
             <p>Analizar la eficiencia y los tiempos de espera en las principales troncales
             del sistema de transporte masivo de la ciudad.</p>
           </div>
           <div class="specific-item reveal" data-delay="400">
             <div class="specific-item-num">04</div>
-            <h4>Visualizacion Interactiva</h4>
-            <p>Proveer a los usuarios de un dashboard dinamico y accesible para interpretar
+            <h4>Visualización Interactiva</h4>
+            <p>Proveer a los usuarios de un dashboard dinámico y accesible para interpretar
             los hallazgos de manera intuitiva.</p>
           </div>
         </div>
@@ -157,53 +158,326 @@
     </div>
   </section>
 
-  <!-- METODOLOGIA E IMPACTO -->
+  <!-- METODOLOGÍA E IMPACTO -->
   <section id="metodologia">
     <div class="section-inner">
       <div class="section-label">04 — Enfoque</div>
-      <h2 class="section-title reveal">Como lo Hacemos<br>y Por Que Importa</h2>
+      <h2 class="section-title reveal">Cómo lo Hacemos<br>y Por Qué Importa</h2>
 
       <div class="method-grid">
         <div class="method-item reveal" data-delay="100">
           <div class="method-tag">Entrada de datos</div>
           <h4>Fuentes de Datos</h4>
-          <p>Nos alimentamos de conjuntos de datos publicos (Open Data Bogota), registros
-          de GPS, APIs de trafico y estadisticas de accidentalidad de la Secretaria de
-          Movilidad de Bogota.</p>
+          <p>Nos alimentamos de conjuntos de datos públicos (Open Data Bogotá), registros
+          de GPS, APIs de tráfico y estadísticas de accidentalidad de la Secretaría de
+          Movilidad de Bogotá.</p>
         </div>
 
         <div class="method-item reveal" data-delay="200">
           <div class="method-tag">Procesamiento</div>
-          <h4>Tecnicas de Mineria</h4>
-          <p>Aplicamos Clustering para identificar zonas calientes de trafico y analisis
-          de series de tiempo para la prediccion de la demanda vehicular en tiempo real.</p>
+          <h4>Técnicas de Minería</h4>
+          <p>Aplicamos clustering para identificar zonas críticas de tráfico y análisis
+          de series de tiempo para la predicción de la demanda vehicular en tiempo real.</p>
         </div>
 
         <div class="method-item reveal" data-delay="300">
-          <div class="method-tag">Proposito</div>
+          <div class="method-tag">Propósito</div>
           <h4>Impacto Social</h4>
-          <p>El proyecto busca empoderar al ciudadano comun para que planifique mejor
-          sus rutas, mientras ofrece un insumo tecnico invaluable para las autoridades
+          <p>El proyecto busca empoderar al ciudadano común para que planifique mejor
+          sus rutas, mientras ofrece un insumo técnico invaluable para las autoridades
           locales en la toma de decisiones sobre infraestructura.</p>
         </div>
 
         <div class="method-item reveal" data-delay="400">
-          <div class="method-tag">Vision</div>
+          <div class="method-tag">Visión</div>
           <h4>Escalabilidad</h4>
-          <p>Disenado bajo una arquitectura web moderna, el sistema esta preparado para
-          integrar nuevas variables como el impacto de la primera linea del Metro de
-          Bogota o nuevas ciclorrutas.</p>
+          <p>Diseñado bajo una arquitectura web moderna, el sistema está preparado para
+          integrar nuevas variables como el impacto de la primera línea del Metro de
+          Bogotá o nuevas ciclovías.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISTA PREVIA -->
+  <section id="preview">
+    <div class="section-inner">
+      <div class="section-label">05 — Dashboard</div>
+      <h2 class="section-title reveal">Vista Previa<br>del Análisis</h2>
+      <p class="preview-subtitle reveal">
+        Representación conceptual del panel en desarrollo. Las visualizaciones mostrarán
+        en tiempo real los patrones de movilidad identificados por los algoritmos de minería.
+      </p>
+
+      <div class="dashboard-frame reveal" data-delay="200">
+
+        <!-- Barra de título -->
+        <div class="dash-header">
+          <div class="dash-header-left">
+            <span class="dash-dot" style="background:#ef4444"></span>
+            <span class="dash-dot" style="background:#f59e0b"></span>
+            <span class="dash-dot" style="background:#22c55e"></span>
+            <span class="dash-title-text">Panel de Movilidad — Bogotá 2026</span>
+          </div>
+          <div class="dash-header-right">
+            <span class="dash-badge">● En desarrollo</span>
+          </div>
+        </div>
+
+        <!-- Métricas -->
+        <div class="dash-metrics">
+          <div class="dash-metric">
+            <div class="dash-metric-num">18<span>km/h</span></div>
+            <div class="dash-metric-label">Velocidad promedio en hora pico</div>
+          </div>
+          <div class="dash-metric accent-green">
+            <div class="dash-metric-num">89<span>%</span></div>
+            <div class="dash-metric-label">Ocupación TransMilenio — hora pico</div>
+          </div>
+          <div class="dash-metric accent-sky">
+            <div class="dash-metric-num">14</div>
+            <div class="dash-metric-label">Zonas críticas identificadas</div>
+          </div>
+          <div class="dash-metric accent-red">
+            <div class="dash-metric-num">1.240</div>
+            <div class="dash-metric-label">Incidentes registrados / semana</div>
+          </div>
+        </div>
+
+        <!-- Gráficas -->
+        <div class="dash-charts">
+
+          <!-- Gráfica de barras -->
+          <div class="dash-chart-box">
+            <div class="chart-title">Nivel de congestión por franja horaria</div>
+            <div class="bar-chart">
+              <div class="bar-wrap"><div class="bar" data-level="low"  style="--h:20%"></div><span>06h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="high" style="--h:75%"></div><span>07h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="peak" style="--h:95%"></div><span>08h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="mid"  style="--h:50%"></div><span>12h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="high" style="--h:85%"></div><span>17h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="peak" style="--h:100%"></div><span>18h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="high" style="--h:72%"></div><span>19h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="low"  style="--h:28%"></div><span>21h</span></div>
+            </div>
+            <div class="chart-legend">
+              <span class="leg-item low">Fluido</span>
+              <span class="leg-item mid">Moderado</span>
+              <span class="leg-item high">Congestionado</span>
+              <span class="leg-item peak">Crítico</span>
+            </div>
+          </div>
+
+          <!-- Panel derecho -->
+          <div class="dash-right">
+
+            <!-- Gráfica de línea -->
+            <div class="dash-chart-box">
+              <div class="chart-title">Incidentes por día de la semana</div>
+              <svg class="line-chart" viewBox="0 0 280 80" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path class="line-area" d="M0,20 L46.7,28 L93.3,16 L140,32 L186.7,8 L233.3,52 L280,62 L280,80 L0,80 Z"/>
+                <polyline class="line-path" points="0,20 46.7,28 93.3,16 140,32 186.7,8 233.3,52 280,62"/>
+                <circle class="line-dot" cx="0"     cy="20" r="3"/>
+                <circle class="line-dot" cx="46.7"  cy="28" r="3"/>
+                <circle class="line-dot" cx="93.3"  cy="16" r="3"/>
+                <circle class="line-dot" cx="140"   cy="32" r="3"/>
+                <circle class="line-dot peak-dot"   cx="186.7" cy="8"  r="4.5"/>
+                <circle class="line-dot" cx="233.3" cy="52" r="3"/>
+                <circle class="line-dot" cx="280"   cy="62" r="3"/>
+              </svg>
+              <div class="line-days">
+                <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+              </div>
+            </div>
+
+            <!-- Estado de corredores -->
+            <div class="dash-chart-box">
+              <div class="chart-title">Estado de corredores viales</div>
+              <div class="zones-list">
+                <div class="zone-row peak"><span class="zone-name">Calle 80</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:92%"></div></div><span class="zone-val">Crítico</span></div>
+                <div class="zone-row peak"><span class="zone-name">Autopista Norte</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:88%"></div></div><span class="zone-val">Crítico</span></div>
+                <div class="zone-row high"><span class="zone-name">Av. Caracas</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:74%"></div></div><span class="zone-val">Alto</span></div>
+                <div class="zone-row mid"><span class="zone-name">NQS</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:55%"></div></div><span class="zone-val">Moderado</span></div>
+                <div class="zone-row low"><span class="zone-name">Av. Suba</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:32%"></div></div><span class="zone-val">Fluido</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECNOLOGÍAS -->
+  <section id="tecnologias">
+    <div class="section-inner">
+      <div class="section-label">06 — Stack</div>
+      <h2 class="section-title reveal">Tecnologías<br>Utilizadas</h2>
+
+      <!-- Frontend -->
+      <div class="tech-group-label reveal">Interfaz y visualización</div>
+      <div class="tech-grid reveal" data-delay="100">
+        <div class="tech-item">
+          <div class="tech-icon" style="background:var(--accent-3)">HT</div>
+          <div class="tech-info">
+            <div class="tech-name">HTML5 / CSS3</div>
+            <div class="tech-desc">Estructura semántica y estilos avanzados para una interfaz limpia y accesible.</div>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" style="background:#7c3aed">BS</div>
+          <div class="tech-info">
+            <div class="tech-name">Bootstrap 5</div>
+            <div class="tech-desc">Framework CSS para un diseño responsivo, consistente y fácil de mantener.</div>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" style="background:#ca8a04">JS</div>
+          <div class="tech-info">
+            <div class="tech-name">JavaScript ES6</div>
+            <div class="tech-desc">Interactividad del dashboard, animaciones y comunicación con el servidor Flask.</div>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" style="background:#db2777">CJ</div>
+          <div class="tech-info">
+            <div class="tech-name">Chart.js</div>
+            <div class="tech-desc">Librería para renderizar las gráficas interactivas de los resultados de minería.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend y datos -->
+      <div class="tech-group-label reveal" data-delay="100">Análisis de datos y servidor</div>
+      <div class="tech-grid reveal" data-delay="200">
+        <div class="tech-item">
+          <div class="tech-icon">PY</div>
+          <div class="tech-info">
+            <div class="tech-name">Python 3.11</div>
+            <div class="tech-desc">Lenguaje principal para el procesamiento, análisis y modelado de datos de movilidad.</div>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">PD</div>
+          <div class="tech-info">
+            <div class="tech-name">Pandas</div>
+            <div class="tech-desc">Manipulación y limpieza de los conjuntos de datos de la Secretaría de Movilidad.</div>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">SK</div>
+          <div class="tech-info">
+            <div class="tech-name">Scikit-learn</div>
+            <div class="tech-desc">Implementación de algoritmos de clustering K-Means y modelos de clasificación predictiva.</div>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">FL</div>
+          <div class="tech-info">
+            <div class="tech-name">Flask</div>
+            <div class="tech-desc">Framework web ligero para servir la aplicación y las rutas del dashboard interactivo.</div>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">NP</div>
+          <div class="tech-info">
+            <div class="tech-name">NumPy</div>
+            <div class="tech-desc">Cómputo numérico y operaciones vectoriales de alta eficiencia sobre los datos.</div>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon">OD</div>
+          <div class="tech-info">
+            <div class="tech-name">Open Data Bogotá</div>
+            <div class="tech-desc">Fuente principal de datos públicos: accidentalidad, tráfico y estadísticas de movilidad.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELOS -->
+  <section id="modelos">
+    <div class="section-inner">
+      <div class="section-label">07 — Modelos</div>
+      <h2 class="section-title reveal">Modelos de Minería<br>Aplicables al Proyecto</h2>
+      <p class="preview-subtitle reveal">
+        Técnicas de minería de datos seleccionadas según la naturaleza del problema de movilidad.
+        Cada modelo aporta un ángulo distinto de análisis sobre los datos de tráfico bogotano.
+      </p>
+
+      <div class="models-grid">
+
+        <div class="model-card reveal" data-delay="100">
+          <div class="model-type clustering">Clustering</div>
+          <h4 class="model-name">K-Means</h4>
+          <p class="model-desc">Agrupa zonas geográficas de Bogotá según sus patrones de congestión, identificando clusters de alto, medio y bajo tráfico a lo largo del día.</p>
+          <div class="model-footer">
+            <span class="model-use">Segmentación zonal</span>
+            <span class="model-status">Propuesto</span>
+          </div>
+        </div>
+
+        <div class="model-card reveal" data-delay="150">
+          <div class="model-type clustering">Clustering</div>
+          <h4 class="model-name">DBSCAN</h4>
+          <p class="model-desc">Detecta zonas de alta densidad de accidentes e incidentes viales sin necesidad de definir el número de grupos previamente, ideal para datos con ruido.</p>
+          <div class="model-footer">
+            <span class="model-use">Zonas críticas</span>
+            <span class="model-status">Propuesto</span>
+          </div>
+        </div>
+
+        <div class="model-card reveal" data-delay="200">
+          <div class="model-type prediccion">Predicción</div>
+          <h4 class="model-name">Regresión Lineal</h4>
+          <p class="model-desc">Estima los tiempos de desplazamiento en función de variables como la hora, el día de la semana, condiciones climáticas y eventos especiales.</p>
+          <div class="model-footer">
+            <span class="model-use">Tiempos de viaje</span>
+            <span class="model-status">Propuesto</span>
+          </div>
+        </div>
+
+        <div class="model-card reveal" data-delay="250">
+          <div class="model-type clasificacion">Clasificación</div>
+          <h4 class="model-name">Random Forest</h4>
+          <p class="model-desc">Clasifica el nivel de riesgo vial por corredor y franja horaria, combinando múltiples árboles de decisión para una predicción más robusta y precisa.</p>
+          <div class="model-footer">
+            <span class="model-use">Riesgo vial</span>
+            <span class="model-status">Propuesto</span>
+          </div>
+        </div>
+
+        <div class="model-card reveal" data-delay="300">
+          <div class="model-type series">Series de Tiempo</div>
+          <h4 class="model-name">ARIMA</h4>
+          <p class="model-desc">Pronostica la demanda vehicular por franjas horarias usando patrones históricos, estacionalidad semanal y tendencias de largo plazo en el tráfico.</p>
+          <div class="model-footer">
+            <span class="model-use">Demanda vehicular</span>
+            <span class="model-status">Propuesto</span>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-left">Proyecto Mineria de Datos — Universidad 2024</div>
-    <div class="footer-right">Bogota, Colombia</div>
+    <div class="footer-left">Proyecto Minería de Datos — Universidad de Cundinamarca 2026</div>
+    <div class="footer-team">Luis Alejandro Chabur Guevara · Santiago Tellez Ochoa</div>
+    <div class="footer-right">Bogotá, Colombia</div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
