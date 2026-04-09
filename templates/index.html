@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movilidad Bogota — Mineria de Datos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">MDatos / Bogota 2024</div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#problematica">Problematica</a></li>
+      <li><a href="#objetivos">Objetivos</a></li>
+      <li><a href="#metodologia">Metodologia</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio">
+    <div class="hero">
+      <div class="hero-bg-text">BOGOTA</div>
+
+      <div class="hero-content">
+        <div class="hero-tag">Proyecto de Mineria de Datos</div>
+        <h1 class="hero-title">
+          Inteligencia de Datos<br>
+          para la <span>Movilidad</span><br>
+          en Bogota
+        </h1>
+        <p class="hero-description">
+          Bienvenido a nuestra plataforma de analisis. Este proyecto aplica tecnicas avanzadas
+          de mineria de datos para decodificar, entender y predecir los patrones de movilidad
+          en Bogota. Al transformar grandes volumenes de datos crudos en informacion visual y
+          estructurada, buscamos ofrecer una perspectiva clara sobre como se mueve la ciudad.
+        </p>
+        <div class="hero-cta">
+          <a href="#problematica" class="btn-primary">Explorar el proyecto</a>
+          <a href="#objetivos" class="btn-secondary">Ver objetivos</a>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">+<span>8M</span></div>
+          <div class="stat-label">Habitantes analizados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span>4</span></div>
+          <div class="stat-label">Tecnicas de mineria</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span>1</span></div>
+          <div class="stat-label">Dashboard interactivo</div>
+        </div>
+      </div>
+
+      <div class="hero-line"></div>
+    </div>
+  </section>
+
+  <!-- PROBLEMATICA -->
+  <section id="problematica">
+    <div class="section-inner">
+      <div class="section-label">02 — Contexto</div>
+      <h2 class="section-title reveal">El Desafio del<br>Trafico Bogotano</h2>
+
+      <div class="problem-grid">
+        <div>
+          <p class="problem-text reveal" data-delay="100">
+            Bogota es historicamente reconocida como una de las ciudades con mayor congestion
+            vehicular en el mundo. El crecimiento demografico, la topografia de la ciudad, los
+            frentes de obra simultaneos y la saturacion del transporte publico (TransMilenio y
+            SITP) generan tiempos de desplazamiento excesivos.
+          </p>
+          <blockquote class="problem-highlight reveal" data-delay="200">
+            La principal barrera actual no es la falta de datos, sino la ausencia de herramientas
+            centralizadas que analicen esta informacion historicamente.
+          </blockquote>
+          <p class="problem-text reveal" data-delay="300">
+            Esta realidad no solo representa una perdida millonaria en terminos de productividad
+            economica, sino que afecta drasticamente la calidad de vida de los ciudadanos y
+            aumenta la huella de carbono de la ciudad.
+          </p>
+        </div>
+
+        <div class="problem-cards">
+          <div class="problem-card reveal" data-delay="150">
+            <div class="problem-card-icon">01</div>
+            <h4>Congestion historica</h4>
+            <p>Bogota figura consistentemente entre las ciudades con mayor tiempo perdido en
+            trafico a nivel mundial segun indices de movilidad urbana.</p>
+          </div>
+          <div class="problem-card reveal" data-delay="250">
+            <div class="problem-card-icon">02</div>
+            <h4>Impacto economico</h4>
+            <p>Los tiempos de desplazamiento excesivos representan perdidas significativas
+            de productividad para empresas y trabajadores de la capital.</p>
+          </div>
+          <div class="problem-card reveal" data-delay="350">
+            <div class="problem-card-icon">03</div>
+            <h4>Datos sin centralizar</h4>
+            <p>Existen multiples fuentes de informacion vial (GPS, APIs, estadisticas
+            oficiales) que no se analizan de forma integrada ni predictiva.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJETIVOS -->
+  <section id="objetivos">
+    <div class="section-inner">
+      <div class="section-label">03 — Metas</div>
+      <h2 class="section-title reveal">Objetivos<br>del Proyecto</h2>
+
+      <div class="objectives-layout">
+        <div class="general-obj reveal">
+          <div class="obj-tag">Objetivo General</div>
+          <p>
+            Analizar los patrones de movilidad y trafico en Bogota mediante algoritmos de
+            mineria de datos, con el fin de extraer conocimiento util que permita optimizar
+            los tiempos de desplazamiento y apoyar la planificacion urbana.
+          </p>
+        </div>
+
+        <div class="specific-list">
+          <div class="specific-item reveal" data-delay="100">
+            <div class="specific-item-num">01</div>
+            <h4>Identificar Patrones</h4>
+            <p>Detectar las zonas de mayor criticidad y los horarios pico con mayor
+            incidencia de accidentes o embotellamientos.</p>
+          </div>
+          <div class="specific-item reveal" data-delay="200">
+            <div class="specific-item-num">02</div>
+            <h4>Modelado Predictivo</h4>
+            <p>Desarrollar modelos que permitan anticipar el comportamiento del trafico
+            basandose en datos historicos, clima y dias de la semana.</p>
+          </div>
+          <div class="specific-item reveal" data-delay="300">
+            <div class="specific-item-num">03</div>
+            <h4>Transporte Publico</h4>
+            <p>Analizar la eficiencia y los tiempos de espera en las principales troncales
+            del sistema de transporte masivo de la ciudad.</p>
+          </div>
+          <div class="specific-item reveal" data-delay="400">
+            <div class="specific-item-num">04</div>
+            <h4>Visualizacion Interactiva</h4>
+            <p>Proveer a los usuarios de un dashboard dinamico y accesible para interpretar
+            los hallazgos de manera intuitiva.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODOLOGIA E IMPACTO -->
+  <section id="metodologia">
+    <div class="section-inner">
+      <div class="section-label">04 — Enfoque</div>
+      <h2 class="section-title reveal">Como lo Hacemos<br>y Por Que Importa</h2>
+
+      <div class="method-grid">
+        <div class="method-item reveal" data-delay="100">
+          <div class="method-tag">Entrada de datos</div>
+          <h4>Fuentes de Datos</h4>
+          <p>Nos alimentamos de conjuntos de datos publicos (Open Data Bogota), registros
+          de GPS, APIs de trafico y estadisticas de accidentalidad de la Secretaria de
+          Movilidad de Bogota.</p>
+        </div>
+
+        <div class="method-item reveal" data-delay="200">
+          <div class="method-tag">Procesamiento</div>
+          <h4>Tecnicas de Mineria</h4>
+          <p>Aplicamos Clustering para identificar zonas calientes de trafico y analisis
+          de series de tiempo para la prediccion de la demanda vehicular en tiempo real.</p>
+        </div>
+
+        <div class="method-item reveal" data-delay="300">
+          <div class="method-tag">Proposito</div>
+          <h4>Impacto Social</h4>
+          <p>El proyecto busca empoderar al ciudadano comun para que planifique mejor
+          sus rutas, mientras ofrece un insumo tecnico invaluable para las autoridades
+          locales en la toma de decisiones sobre infraestructura.</p>
+        </div>
+
+        <div class="method-item reveal" data-delay="400">
+          <div class="method-tag">Vision</div>
+          <h4>Escalabilidad</h4>
+          <p>Disenado bajo una arquitectura web moderna, el sistema esta preparado para
+          integrar nuevas variables como el impacto de la primera linea del Metro de
+          Bogota o nuevas ciclorrutas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">Proyecto Mineria de Datos — Universidad 2024</div>
+    <div class="footer-right">Bogota, Colombia</div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
