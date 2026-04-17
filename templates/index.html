@@ -35,9 +35,9 @@
         </h1>
         <p class="hero-description">
           Bienvenido a nuestra plataforma de análisis. Este proyecto aplica técnicas avanzadas
-          de minería de datos para decodificar, entender y predecir los patrones de movilidad
-          en Bogotá. Al transformar grandes volúmenes de datos crudos en información visual y
-          estructurada, buscamos ofrecer una perspectiva clara sobre cómo se mueve la ciudad.
+          de minería de datos sobre el histórico de siniestros viales de Bogotá para identificar
+          patrones de accidentalidad, zonas críticas y factores de riesgo. Transformamos más de
+          199.000 registros oficiales en conocimiento útil para la seguridad vial de la ciudad.
         </p>
         <div class="hero-cta">
           <a href="#problematica" class="btn-primary">Explorar el proyecto</a>
@@ -47,8 +47,8 @@
 
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-number">+<span>8M</span></div>
-          <div class="stat-label">Habitantes analizados</div>
+          <div class="stat-number">+<span>199K</span></div>
+          <div class="stat-label">Siniestros analizados</div>
         </div>
         <div class="stat-item">
           <div class="stat-number"><span>4</span></div>
@@ -68,45 +68,46 @@
   <section id="problematica">
     <div class="section-inner">
       <div class="section-label">02 — Contexto</div>
-      <h2 class="section-title reveal">El Desafío del<br>Tráfico Bogotano</h2>
+      <h2 class="section-title reveal">La Accidentalidad<br>Vial en Bogotá</h2>
 
       <div class="problem-grid">
         <div>
           <p class="problem-text reveal" data-delay="100">
-            Bogotá es históricamente reconocida como una de las ciudades con mayor congestión
-            vehicular en el mundo. El crecimiento demográfico, la topografía de la ciudad, los
-            frentes de obra simultáneos y la saturación del transporte público (TransMilenio y
-            SITP) generan tiempos de desplazamiento excesivos.
+            Bogotá registra miles de siniestros viales cada año. Choques, atropellos y
+            volcamientos dejan víctimas fatales y heridos en todas las localidades de la ciudad,
+            con una marcada concentración en zonas como Kennedy, Suba y Engativá durante
+            las franjas horarias de mayor flujo vehicular.
           </p>
           <blockquote class="problem-highlight reveal" data-delay="200">
-            La principal barrera actual no es la falta de datos, sino la ausencia de herramientas
-            centralizadas que analicen esta información históricamente.
+            Con más de 199.000 siniestros registrados entre 2015 y 2025, la Secretaría de
+            Movilidad dispone de datos suficientes para anticipar patrones — pero estos aún
+            no se explotan con técnicas modernas de minería de datos.
           </blockquote>
           <p class="problem-text reveal" data-delay="300">
-            Esta realidad no solo representa una pérdida millonaria en términos de productividad
-            económica, sino que afecta drásticamente la calidad de vida de los ciudadanos y
-            aumenta la huella de carbono de la ciudad.
+            Comprender qué factores elevan la gravedad de un siniestro —hora, localidad, tipo
+            de accidente— permite priorizar intervenciones, optimizar recursos de atención y
+            reducir la mortalidad vial en la ciudad.
           </p>
         </div>
 
         <div class="problem-cards">
           <div class="problem-card reveal" data-delay="150">
             <div class="problem-card-icon">01</div>
-            <h4>Congestión histórica</h4>
-            <p>Bogotá figura consistentemente entre las ciudades con mayor tiempo perdido en
-            tráfico a nivel mundial, según índices de movilidad urbana.</p>
+            <h4>Alta accidentalidad</h4>
+            <p>Bogotá registra en promedio 383 siniestros viales por semana, con picos críticos
+            en horas pico de lunes a viernes en múltiples localidades.</p>
           </div>
           <div class="problem-card reveal" data-delay="250">
             <div class="problem-card-icon">02</div>
-            <h4>Impacto económico</h4>
-            <p>Los tiempos de desplazamiento excesivos representan pérdidas significativas
-            de productividad para empresas y trabajadores de la capital.</p>
+            <h4>Impacto humano y económico</h4>
+            <p>Los siniestros con heridos y víctimas fatales generan costos sociales y
+            económicos enormes, además de afectar la calidad de vida de las familias bogotanas.</p>
           </div>
           <div class="problem-card reveal" data-delay="350">
             <div class="problem-card-icon">03</div>
-            <h4>Datos sin centralizar</h4>
-            <p>Existen múltiples fuentes de información vial (GPS, APIs, estadísticas
-            oficiales) que no se analizan de forma integrada ni predictiva.</p>
+            <h4>Datos sin explotar</h4>
+            <p>El histórico oficial de siniestros de la Secretaría de Movilidad existe desde
+            2015 pero no se analiza con técnicas predictivas ni de clustering espacial.</p>
           </div>
         </div>
       </div>
@@ -123,9 +124,10 @@
         <div class="general-obj reveal">
           <div class="obj-tag">Objetivo General</div>
           <p>
-            Analizar los patrones de movilidad y tráfico en Bogotá mediante algoritmos de
-            minería de datos, con el fin de extraer conocimiento útil que permita optimizar
-            los tiempos de desplazamiento y apoyar la planificación urbana.
+            Aplicar técnicas de minería de datos sobre el histórico de siniestros viales de
+            Bogotá para identificar patrones de accidentalidad, zonas de alto riesgo y factores
+            asociados a la gravedad de los incidentes, apoyando la toma de decisiones en
+            seguridad vial.
           </p>
         </div>
 
@@ -139,8 +141,8 @@
           <div class="specific-item reveal" data-delay="200">
             <div class="specific-item-num">02</div>
             <h4>Modelado Predictivo</h4>
-            <p>Desarrollar modelos que permitan anticipar el comportamiento del tráfico
-            basándose en datos históricos, clima y días de la semana.</p>
+            <p>Desarrollar modelos que estimen la gravedad de un siniestro vial a partir de
+            variables como la hora, el día de la semana, la localidad y el tipo de accidente.</p>
           </div>
           <div class="specific-item reveal" data-delay="300">
             <div class="specific-item-num">03</div>
@@ -169,9 +171,9 @@
         <div class="method-item reveal" data-delay="100">
           <div class="method-tag">Entrada de datos</div>
           <h4>Fuentes de Datos</h4>
-          <p>Nos alimentamos de conjuntos de datos públicos (Open Data Bogotá), registros
-          de GPS, APIs de tráfico y estadísticas de accidentalidad de la Secretaría de
-          Movilidad de Bogotá.</p>
+          <p>Utilizamos el dataset oficial de siniestros viales publicado por la Secretaría
+          Distrital de Movilidad en el portal de Datos Abiertos Bogotá, con registros
+          georreferenciados desde 2015 hasta 2025.</p>
         </div>
 
         <div class="method-item reveal" data-delay="200">
@@ -184,17 +186,17 @@
         <div class="method-item reveal" data-delay="300">
           <div class="method-tag">Propósito</div>
           <h4>Impacto Social</h4>
-          <p>El proyecto busca empoderar al ciudadano común para que planifique mejor
-          sus rutas, mientras ofrece un insumo técnico invaluable para las autoridades
-          locales en la toma de decisiones sobre infraestructura.</p>
+          <p>Los resultados del análisis buscan apoyar a las autoridades distritales en la
+          identificación de zonas críticas y franjas horarias de mayor riesgo, contribuyendo
+          a reducir la accidentalidad y la mortalidad vial en Bogotá.</p>
         </div>
 
         <div class="method-item reveal" data-delay="400">
           <div class="method-tag">Visión</div>
           <h4>Escalabilidad</h4>
-          <p>Diseñado bajo una arquitectura web moderna, el sistema está preparado para
-          integrar nuevas variables como el impacto de la primera línea del Metro de
-          Bogotá o nuevas ciclovías.</p>
+          <p>La arquitectura del proyecto permite incorporar nuevas variables al análisis,
+          como condiciones climáticas, datos de cámaras de tráfico o registros de
+          infraestructura vial, para enriquecer los modelos en futuras iteraciones.</p>
         </div>
       </div>
     </div>
@@ -218,7 +220,7 @@
             <span class="dash-dot" style="background:#ef4444"></span>
             <span class="dash-dot" style="background:#f59e0b"></span>
             <span class="dash-dot" style="background:#22c55e"></span>
-            <span class="dash-title-text">Panel de Movilidad — Bogotá 2026</span>
+            <span class="dash-title-text">Panel de Accidentalidad — Bogotá 2026</span>
           </div>
           <div class="dash-header-right">
             <span class="dash-badge">● En desarrollo</span>
@@ -418,7 +420,7 @@
         <div class="model-card reveal" data-delay="100">
           <div class="model-type clustering">Clustering</div>
           <h4 class="model-name">K-Means</h4>
-          <p class="model-desc">Agrupa zonas geográficas de Bogotá según sus patrones de congestión, identificando clusters de alto, medio y bajo tráfico a lo largo del día.</p>
+          <p class="model-desc">Agrupa localidades y sectores de Bogotá según su frecuencia e intensidad de accidentalidad, identificando clusters de alto, medio y bajo riesgo vial.</p>
           <div class="model-footer">
             <span class="model-use">Segmentación zonal</span>
             <span class="model-status">Propuesto</span>
@@ -437,8 +439,8 @@
 
         <div class="model-card reveal" data-delay="200">
           <div class="model-type prediccion">Predicción</div>
-          <h4 class="model-name">Regresión Lineal</h4>
-          <p class="model-desc">Estima la probabilidad de que un siniestro genere heridos o víctimas fatales según variables como la hora, la localidad, el tipo de accidente y el día de la semana.</p>
+          <h4 class="model-name">Regresión Logística</h4>
+          <p class="model-desc">Estima la probabilidad de que un siniestro resulte en heridos o víctimas fatales según variables como la hora, la localidad, el tipo de accidente y el día de la semana.</p>
           <div class="model-footer">
             <span class="model-use">Predicción de gravedad</span>
             <span class="model-status">Propuesto</span>
@@ -448,7 +450,7 @@
         <div class="model-card reveal" data-delay="250">
           <div class="model-type clasificacion">Clasificación</div>
           <h4 class="model-name">Random Forest</h4>
-          <p class="model-desc">Clasifica el nivel de riesgo vial por corredor y franja horaria, combinando múltiples árboles de decisión para una predicción más robusta y precisa.</p>
+          <p class="model-desc">Clasifica la gravedad de un siniestro (solo daños, con heridos, con muertos) a partir de CLASE_ACC, LOCALIDAD, hora y día, combinando múltiples árboles de decisión para mayor precisión.</p>
           <div class="model-footer">
             <span class="model-use">Riesgo vial</span>
             <span class="model-status">Propuesto</span>
@@ -505,7 +507,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td>FECHA_OCURRENCIA_ACC</td><td>Fecha</td><td>Fecha del siniestro vial</td><td>Series de tiempo, patrones semanales</td></tr>
+                <tr><td>FECHA_OCURRENCIA_ACC</td><td>Fecha</td><td>Fecha del siniestro vial</td><td>Análisis temporal, patrones por día y mes</td></tr>
                 <tr><td>FECHA_HORA_ACC</td><td>DateTime</td><td>Fecha y hora exacta del incidente</td><td>Análisis de franjas horarias críticas</td></tr>
                 <tr><td>ANO_OCURRENCIA_ACC</td><td>Entero</td><td>Año de ocurrencia</td><td>Tendencias históricas anuales</td></tr>
                 <tr><td>GRAVEDAD</td><td>Texto</td><td>Severidad: Solo daños / Con heridos / Con muertos</td><td>Variable objetivo en clasificación (Random Forest)</td></tr>
