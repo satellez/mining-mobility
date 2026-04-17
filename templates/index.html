@@ -17,6 +17,7 @@
       <li><a href="#problematica">Problemática</a></li>
       <li><a href="#objetivos">Objetivos</a></li>
       <li><a href="#metodologia">Metodología</a></li>
+      <li><a href="#dataset">Dataset</a></li>
     </ul>
   </nav>
 
@@ -456,6 +457,67 @@
 
 
 
+      </div>
+    </div>
+  </section>
+
+  <!-- DATASET -->
+  <section id="dataset">
+    <div class="section-inner">
+      <div class="section-label">08 — Datos</div>
+      <h2 class="section-title reveal">Dataset Utilizado</h2>
+      <p class="preview-subtitle reveal">
+        Los análisis del proyecto se basan en el dataset oficial <strong>Histórico de Siniestros Viales — Bogotá D.C.</strong>,
+        publicado por la Secretaría Distrital de Movilidad a través del portal de Datos Abiertos Bogotá.
+        Contiene registros georreferenciados de incidentes viales desde 2015 hasta la fecha.
+      </p>
+
+      <div class="dataset-info reveal" data-delay="100">
+        <div class="dataset-meta">
+          <div class="dataset-meta-item">
+            <span class="dataset-meta-label">Fuente</span>
+            <span class="dataset-meta-value">Secretaría Distrital de Movilidad</span>
+          </div>
+          <div class="dataset-meta-item">
+            <span class="dataset-meta-label">Portal</span>
+            <span class="dataset-meta-value">datosabiertos.bogota.gov.co</span>
+          </div>
+          <div class="dataset-meta-item">
+            <span class="dataset-meta-label">Cobertura</span>
+            <span class="dataset-meta-value">2015 — 2025</span>
+          </div>
+          <div class="dataset-meta-item">
+            <span class="dataset-meta-label">Registros</span>
+            <span class="dataset-meta-value">+199.000 siniestros</span>
+          </div>
+        </div>
+
+        <div class="dataset-table-wrap">
+          <div class="dataset-table-title">Estructura del dataset — columnas principales</div>
+          <div class="dataset-table-scroll">
+            <table class="dataset-table">
+              <thead>
+                <tr>
+                  <th>Campo</th>
+                  <th>Tipo</th>
+                  <th>Descripción</th>
+                  <th>Uso en el modelo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>FECHA_OCURRENCIA_ACC</td><td>Fecha</td><td>Fecha del siniestro vial</td><td>Series de tiempo, patrones semanales</td></tr>
+                <tr><td>FECHA_HORA_ACC</td><td>DateTime</td><td>Fecha y hora exacta del incidente</td><td>Análisis de franjas horarias críticas</td></tr>
+                <tr><td>ANO_OCURRENCIA_ACC</td><td>Entero</td><td>Año de ocurrencia</td><td>Tendencias históricas anuales</td></tr>
+                <tr><td>GRAVEDAD</td><td>Texto</td><td>Severidad: Solo daños / Con heridos / Con muertos</td><td>Variable objetivo en clasificación (Random Forest)</td></tr>
+                <tr><td>CLASE_ACC</td><td>Texto</td><td>Tipo: Choque, Atropello, Volcamiento, etc.</td><td>Clasificación de patrones de accidente</td></tr>
+                <tr><td>LOCALIDAD</td><td>Texto</td><td>Localidad de Bogotá donde ocurrió</td><td>Clustering por zonas (K-Means, DBSCAN)</td></tr>
+                <tr><td>DIRECCION</td><td>Texto</td><td>Dirección aproximada del evento</td><td>Identificación de corredores críticos</td></tr>
+                <tr><td>LATITUD / LONGITUD</td><td>Float</td><td>Coordenadas geográficas del incidente</td><td>Geolocalización y mapas de calor</td></tr>
+                <tr><td>X / Y</td><td>Float</td><td>Coordenadas en sistema de proyección</td><td>Clustering espacial DBSCAN</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </section>
