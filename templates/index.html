@@ -144,9 +144,9 @@
           </div>
           <div class="specific-item reveal" data-delay="300">
             <div class="specific-item-num">03</div>
-            <h4>Transporte Público</h4>
-            <p>Analizar la eficiencia y los tiempos de espera en las principales troncales
-            del sistema de transporte masivo de la ciudad.</p>
+            <h4>Clasificación de Gravedad</h4>
+            <p>Clasificar los siniestros viales por nivel de gravedad (solo daños, con heridos,
+            con muertos) para priorizar intervenciones según el riesgo real de cada zona.</p>
           </div>
           <div class="specific-item reveal" data-delay="400">
             <div class="specific-item-num">04</div>
@@ -177,8 +177,8 @@
         <div class="method-item reveal" data-delay="200">
           <div class="method-tag">Procesamiento</div>
           <h4>Técnicas de Minería</h4>
-          <p>Aplicamos clustering para identificar zonas críticas de tráfico y análisis
-          de series de tiempo para la predicción de la demanda vehicular en tiempo real.</p>
+          <p>Aplicamos clustering para identificar zonas y franjas horarias críticas, y
+          modelos de clasificación para predecir la gravedad de los siniestros viales.</p>
         </div>
 
         <div class="method-item reveal" data-delay="300">
@@ -228,20 +228,20 @@
         <!-- Métricas -->
         <div class="dash-metrics">
           <div class="dash-metric">
-            <div class="dash-metric-num">18<span>km/h</span></div>
-            <div class="dash-metric-label">Velocidad promedio en hora pico</div>
+            <div class="dash-metric-num">+<span>199K</span></div>
+            <div class="dash-metric-label">Siniestros registrados (2015–2025)</div>
           </div>
           <div class="dash-metric accent-green">
-            <div class="dash-metric-num">89<span>%</span></div>
-            <div class="dash-metric-label">Ocupación TransMilenio — hora pico</div>
+            <div class="dash-metric-num">20</div>
+            <div class="dash-metric-label">Localidades de Bogotá analizadas</div>
           </div>
           <div class="dash-metric accent-sky">
-            <div class="dash-metric-num">14</div>
-            <div class="dash-metric-label">Zonas críticas identificadas</div>
+            <div class="dash-metric-num">3</div>
+            <div class="dash-metric-label">Niveles de gravedad clasificados</div>
           </div>
           <div class="dash-metric accent-red">
-            <div class="dash-metric-num">1.240</div>
-            <div class="dash-metric-label">Incidentes registrados / semana</div>
+            <div class="dash-metric-num">383</div>
+            <div class="dash-metric-label">Siniestros promedio por semana</div>
           </div>
         </div>
 
@@ -250,7 +250,7 @@
 
           <!-- Gráfica de barras -->
           <div class="dash-chart-box">
-            <div class="chart-title">Nivel de congestión por franja horaria</div>
+            <div class="chart-title">Siniestros viales por franja horaria</div>
             <div class="bar-chart">
               <div class="bar-wrap"><div class="bar" data-level="low"  style="--h:20%"></div><span>06h</span></div>
               <div class="bar-wrap"><div class="bar" data-level="high" style="--h:75%"></div><span>07h</span></div>
@@ -299,13 +299,13 @@
 
             <!-- Estado de corredores -->
             <div class="dash-chart-box">
-              <div class="chart-title">Estado de corredores viales</div>
+              <div class="chart-title">Localidades con mayor accidentalidad</div>
               <div class="zones-list">
-                <div class="zone-row peak"><span class="zone-name">Calle 80</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:92%"></div></div><span class="zone-val">Crítico</span></div>
-                <div class="zone-row peak"><span class="zone-name">Autopista Norte</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:88%"></div></div><span class="zone-val">Crítico</span></div>
-                <div class="zone-row high"><span class="zone-name">Av. Caracas</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:74%"></div></div><span class="zone-val">Alto</span></div>
-                <div class="zone-row mid"><span class="zone-name">NQS</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:55%"></div></div><span class="zone-val">Moderado</span></div>
-                <div class="zone-row low"><span class="zone-name">Av. Suba</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:32%"></div></div><span class="zone-val">Fluido</span></div>
+                <div class="zone-row peak"><span class="zone-name">Kennedy</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:92%"></div></div><span class="zone-val">Crítico</span></div>
+                <div class="zone-row peak"><span class="zone-name">Suba</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:87%"></div></div><span class="zone-val">Crítico</span></div>
+                <div class="zone-row high"><span class="zone-name">Engativá</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:73%"></div></div><span class="zone-val">Alto</span></div>
+                <div class="zone-row mid"><span class="zone-name">Bosa</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:54%"></div></div><span class="zone-val">Moderado</span></div>
+                <div class="zone-row low"><span class="zone-name">Puente Aranda</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:31%"></div></div><span class="zone-val">Bajo</span></div>
               </div>
             </div>
 
@@ -360,7 +360,7 @@
         <div class="tech-item">
           <div class="tech-icon">PY</div>
           <div class="tech-info">
-            <div class="tech-name">Python 3.11</div>
+            <div class="tech-name">Python 3.12</div>
             <div class="tech-desc">Lenguaje principal para el procesamiento, análisis y modelado de datos de movilidad.</div>
           </div>
         </div>
@@ -438,9 +438,9 @@
         <div class="model-card reveal" data-delay="200">
           <div class="model-type prediccion">Predicción</div>
           <h4 class="model-name">Regresión Lineal</h4>
-          <p class="model-desc">Estima los tiempos de desplazamiento en función de variables como la hora, el día de la semana, condiciones climáticas y eventos especiales.</p>
+          <p class="model-desc">Estima la probabilidad de que un siniestro genere heridos o víctimas fatales según variables como la hora, la localidad, el tipo de accidente y el día de la semana.</p>
           <div class="model-footer">
-            <span class="model-use">Tiempos de viaje</span>
+            <span class="model-use">Predicción de gravedad</span>
             <span class="model-status">Propuesto</span>
           </div>
         </div>
