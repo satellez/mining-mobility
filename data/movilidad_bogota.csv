@@ -1,0 +1,301 @@
+fecha,hora,dia_semana,tipo_dia,localidad,corredor,condicion_climatica,nivel_congestion,indice_congestion_pct,velocidad_promedio_kmh,tiempo_desplazamiento_min,num_incidentes,ocupacion_transmilenio_pct,latitud,longitud
+2024-01-02,8,Tuesday,Laboral,Usaquén,Carrera 7,Lluvia leve,Critico,104,5,61.5,7,92,4.55416,-74.00295
+2024-01-02,12,Tuesday,Laboral,Suba,Av. Ciudad de Cali,Despejado,Moderado,53,27.9,39.0,3,37,4.72638,-74.08845
+2024-01-04,11,Thursday,Laboral,Usaquén,Av. El Dorado,Despejado,Fluido,23,42.6,24.7,1,47,4.51292,-73.99835
+2024-01-05,21,Friday,Laboral,Kennedy,Av. Caracas,Lluvia leve,Moderado,43,32.0,34.0,5,48,4.66014,-74.09523
+2024-01-07,13,Sunday,Domingo,Teusaquillo,Calle 80,Despejado,Fluido,16,41.0,24.0,1,42,4.68246,-74.03039
+2024-01-10,14,Wednesday,Laboral,Chapinero,NQS,Nublado,Fluido,33,35.0,31.0,3,44,4.51895,-74.14452
+2024-01-10,18,Wednesday,Laboral,Teusaquillo,Calle 26,Nublado,Critico,102,5,61.2,8,91,4.55461,-74.19549
+2024-01-16,13,Tuesday,Laboral,Engativá,NQS,Nublado,Moderado,49,26.2,37.7,4,49,4.65758,-74.01769
+2024-01-17,9,Wednesday,Laboral,Engativá,NQS,Despejado,Alto,70,17.1,47.3,7,80,4.69919,-74.02515
+2024-01-17,17,Wednesday,Laboral,Teusaquillo,NQS,Despejado,Critico,94,10.8,55.7,8,93,4.70612,-74.04699
+2024-01-18,15,Thursday,Laboral,Usaquén,Calle 80,Despejado,Fluido,20,38.6,22.7,4,40,4.66539,-74.07046
+2024-01-19,18,Friday,Laboral,Chapinero,Carrera 7,Lluvia fuerte,Critico,101,7.8,58.5,6,99,4.72563,-74.13346
+2024-01-20,18,Saturday,Sábado,Kennedy,Calle 26,Despejado,Fluido,37,36.2,33.2,2,35,4.68588,-74.12902
+2024-01-21,15,Sunday,Domingo,Engativá,Carrera 7,Nublado,Fluido,16,40.5,21.4,4,30,4.5379,-74.01299
+2024-01-23,6,Tuesday,Laboral,Chapinero,Calle 26,Nublado,Alto,65,19.4,44.0,7,65,4.51656,-73.97494
+2024-01-23,19,Tuesday,Laboral,Barrios Unidos,Calle 80,Lluvia fuerte,Critico,93,8.3,55.1,8,75,4.64892,-74.17184
+2024-01-24,13,Wednesday,Laboral,Puente Aranda,Av. El Dorado,Despejado,Moderado,48,27.7,35.4,4,43,4.55918,-74.17295
+2024-01-27,12,Saturday,Sábado,Barrios Unidos,Av. Suba,Despejado,Moderado,56,25.0,41.0,3,25,4.72327,-74.05562
+2024-01-28,17,Sunday,Domingo,Fontibón,Calle 80,Despejado,Fluido,27,36.3,25.3,2,45,4.55974,-74.18209
+2024-01-29,13,Monday,Laboral,Usaquén,Calle 80,Despejado,Moderado,44,28.9,36.6,4,41,4.64702,-74.1068
+2024-01-29,17,Monday,Laboral,Suba,Calle 100,Despejado,Critico,101,5,59.9,8,86,4.64443,-73.96718
+2024-01-31,14,Wednesday,Laboral,Chapinero,Av. Caracas,Despejado,Fluido,27,40.1,28.2,4,50,4.52383,-74.04997
+2024-02-01,10,Thursday,Laboral,Kennedy,Calle 100,Nublado,Fluido,32,36.1,28.7,3,49,4.70862,-74.11959
+2024-02-01,18,Thursday,Laboral,Kennedy,Av. Suba,Lluvia fuerte,Critico,106,5,61.5,7,85,4.67854,-74.14329
+2024-02-01,20,Thursday,Laboral,Usaquén,Autopista Norte,Lluvia fuerte,Fluido,39,32.9,31.2,3,49,4.72755,-74.07597
+2024-02-02,9,Friday,Laboral,Chapinero,Calle 100,Despejado,Moderado,63,22.0,42.4,7,75,4.63298,-74.05504
+2024-02-04,8,Sunday,Domingo,Barrios Unidos,Av. El Dorado,Despejado,Fluido,22,42.5,25.0,1,44,4.63073,-74.01415
+2024-02-05,16,Monday,Laboral,Fontibón,Calle 80,Lluvia leve,Alto,80,14.4,50.4,8,69,4.59423,-74.02564
+2024-02-11,7,Sunday,Domingo,Usaquén,Av. El Dorado,Nublado,Fluido,12,42.3,22.2,0,33,4.62801,-74.0186
+2024-02-12,21,Monday,Laboral,Usaquén,Av. El Dorado,Nublado,Fluido,20,43.6,25.7,2,41,4.70602,-74.0356
+2024-02-13,9,Tuesday,Laboral,Usaquén,Av. Caracas,Despejado,Alto,71,20.5,47.0,6,80,4.51314,-74.02847
+2024-02-14,14,Wednesday,Laboral,Kennedy,Carrera 7,Lluvia leve,Fluido,39,31.9,32.5,4,40,4.60672,-74.11659
+2024-02-15,9,Thursday,Laboral,Usaquén,Autopista Norte,Despejado,Alto,66,18.8,45.8,5,69,4.50613,-74.06656
+2024-02-16,13,Friday,Laboral,Fontibón,Calle 26,Nublado,Moderado,51,26.1,39.9,3,47,4.69481,-74.06832
+2024-02-16,18,Friday,Laboral,Puente Aranda,Carrera 7,Nublado,Critico,88,11.0,55.8,6,90,4.63491,-74.08142
+2024-02-17,11,Saturday,Sábado,Puente Aranda,Av. Ciudad de Cali,Despejado,Moderado,57,27.0,40.9,3,27,4.50062,-74.0478
+2024-02-17,16,Saturday,Sábado,Engativá,Av. El Dorado,Despejado,Fluido,34,36.7,31.2,3,43,4.61478,-74.03727
+2024-02-17,16,Saturday,Sábado,Puente Aranda,Av. Ciudad de Cali,Lluvia leve,Fluido,32,35.5,30.0,5,30,4.50256,-74.12229
+2024-02-18,18,Sunday,Domingo,Bosa,Av. Suba,Nublado,Fluido,16,42.0,22.5,2,36,4.56417,-74.0443
+2024-02-19,7,Monday,Laboral,Fontibón,Av. Suba,Lluvia leve,Critico,105,5,63.7,8,98,4.56829,-74.06311
+2024-02-20,9,Tuesday,Laboral,Chapinero,Carrera 7,Nublado,Moderado,57,22.2,41.8,5,76,4.57967,-74.16681
+2024-02-20,16,Tuesday,Laboral,Chapinero,Av. Caracas,Despejado,Alto,82,15.1,50.5,8,79,4.63739,-73.98434
+2024-02-22,6,Thursday,Laboral,Bosa,Av. Ciudad de Cali,Despejado,Alto,71,17.8,48.8,6,80,4.51709,-74.18607
+2024-02-25,13,Sunday,Domingo,Kennedy,NQS,Nublado,Fluido,16,42.5,21.3,2,27,4.59606,-73.99503
+2024-02-25,20,Sunday,Domingo,Kennedy,Calle 100,Lluvia fuerte,Fluido,33,36.8,31.5,4,39,4.64411,-74.19427
+2024-02-27,19,Tuesday,Laboral,Chapinero,Av. Caracas,Nublado,Alto,70,21.7,46.8,4,74,4.6979,-73.99052
+2024-02-28,6,Wednesday,Laboral,Teusaquillo,Av. Caracas,Nublado,Moderado,60,22.2,41.0,7,71,4.72884,-74.13321
+2024-02-29,15,Thursday,Laboral,Teusaquillo,Av. El Dorado,Despejado,Fluido,25,36.5,26.4,2,46,4.70223,-74.11309
+2024-02-29,18,Thursday,Laboral,Engativá,Calle 100,Nublado,Critico,101,5,59.2,8,94,4.67126,-74.05165
+2024-03-01,21,Friday,Laboral,Puente Aranda,Calle 80,Nublado,Fluido,19,41.5,22.3,1,47,4.61687,-74.1026
+2024-03-04,18,Monday,Laboral,Fontibón,Calle 26,Despejado,Critico,91,8.4,56.5,7,93,4.63395,-74.02867
+2024-03-05,12,Tuesday,Laboral,Barrios Unidos,Autopista Norte,Despejado,Moderado,48,30.8,35.5,4,54,4.49039,-73.99573
+2024-03-07,16,Thursday,Laboral,Usaquén,Av. Caracas,Despejado,Alto,71,19.3,48.6,4,76,4.72024,-74.11209
+2024-03-08,17,Friday,Laboral,Kennedy,Autopista Norte,Despejado,Critico,92,9.1,56.6,8,94,4.72583,-74.00805
+2024-03-09,7,Saturday,Sábado,Barrios Unidos,Calle 26,Despejado,Fluido,27,40.1,27.9,4,45,4.53346,-74.16939
+2024-03-11,10,Monday,Laboral,Bosa,Autopista Norte,Lluvia leve,Fluido,30,36.8,28.7,2,45,4.70004,-74.05342
+2024-03-12,21,Tuesday,Laboral,Kennedy,Calle 26,Despejado,Fluido,29,35.7,29.1,3,44,4.6295,-74.06426
+2024-03-13,16,Wednesday,Laboral,Kennedy,Autopista Norte,Despejado,Alto,77,14.1,51.2,5,75,4.5969,-74.1381
+2024-03-14,12,Thursday,Laboral,Barrios Unidos,Av. Ciudad de Cali,Despejado,Moderado,43,28.4,32.9,4,50,4.61435,-74.166
+2024-03-14,19,Thursday,Laboral,Suba,Av. Caracas,Despejado,Alto,75,16.0,49.5,5,75,4.69427,-73.99551
+2024-03-15,10,Friday,Laboral,Bosa,Calle 100,Lluvia leve,Fluido,30,37.8,26.6,2,46,4.67931,-74.14465
+2024-03-15,15,Friday,Laboral,Bosa,Calle 80,Lluvia fuerte,Fluido,39,31.9,32.3,4,50,4.54107,-74.00304
+2024-03-16,6,Saturday,Sábado,Kennedy,Calle 80,Lluvia fuerte,Moderado,44,30.4,36.3,3,37,4.60836,-74.14319
+2024-03-17,13,Sunday,Domingo,Puente Aranda,NQS,Nublado,Fluido,23,38.5,24.9,3,37,4.59987,-74.14338
+2024-03-19,21,Tuesday,Laboral,Barrios Unidos,Av. Suba,Nublado,Fluido,30,38.8,30.4,3,49,4.62201,-74.10969
+2024-03-19,21,Tuesday,Laboral,Suba,Autopista Norte,Lluvia leve,Fluido,29,36.8,29.0,3,39,4.62324,-74.061
+2024-03-21,20,Thursday,Laboral,Bosa,Calle 80,Lluvia fuerte,Moderado,42,31.6,32.3,4,55,4.61155,-74.15401
+2024-03-25,15,Monday,Laboral,Puente Aranda,Av. Ciudad de Cali,Lluvia fuerte,Moderado,51,25.3,38.7,6,43,4.60982,-74.08324
+2024-03-26,8,Tuesday,Laboral,Engativá,Av. Ciudad de Cali,Lluvia leve,Critico,99,5.2,58.6,8,87,4.67709,-74.06599
+2024-03-26,9,Tuesday,Laboral,Bosa,Av. Caracas,Despejado,Moderado,57,27.5,41.0,6,77,4.71566,-74.15415
+2024-03-26,12,Tuesday,Laboral,Chapinero,NQS,Despejado,Moderado,44,33.6,34.5,3,54,4.5516,-73.98316
+2024-03-27,8,Wednesday,Laboral,Barrios Unidos,Av. Suba,Nublado,Critico,92,7.1,58.2,7,95,4.56421,-74.00817
+2024-03-27,10,Wednesday,Laboral,Teusaquillo,Calle 100,Despejado,Fluido,18,42.2,24.5,1,36,4.67315,-74.10278
+2024-03-27,10,Wednesday,Laboral,Bosa,Av. Suba,Despejado,Fluido,21,38.1,24.2,4,44,4.60593,-74.18329
+2024-03-30,19,Saturday,Sábado,Teusaquillo,Calle 100,Despejado,Fluido,33,38.1,30.5,4,38,4.58769,-74.12978
+2024-03-30,21,Saturday,Sábado,Teusaquillo,Calle 100,Lluvia fuerte,Moderado,47,32.3,35.9,6,27,4.60251,-74.10375
+2024-03-31,6,Sunday,Domingo,Fontibón,Av. Ciudad de Cali,Lluvia leve,Fluido,23,38.0,24.6,2,45,4.62544,-73.97694
+2024-04-01,13,Monday,Laboral,Engativá,Calle 100,Lluvia fuerte,Moderado,64,24.1,45.3,6,45,4.51044,-74.09213
+2024-04-01,14,Monday,Laboral,Suba,Calle 80,Nublado,Fluido,28,39.1,26.9,1,47,4.70559,-74.15613
+2024-04-04,21,Thursday,Laboral,Kennedy,NQS,Despejado,Fluido,21,42.6,26.1,4,48,4.62346,-74.16957
+2024-04-05,21,Friday,Laboral,Chapinero,Calle 100,Nublado,Fluido,32,34.7,28.1,5,54,4.50258,-74.11558
+2024-04-07,9,Sunday,Domingo,Kennedy,Carrera 7,Nublado,Fluido,18,41.5,22.1,3,34,4.58107,-74.07367
+2024-04-07,19,Sunday,Domingo,Barrios Unidos,Calle 100,Despejado,Fluido,21,39.5,22.8,4,43,4.62163,-74.08392
+2024-04-13,10,Saturday,Sábado,Suba,Av. Ciudad de Cali,Despejado,Fluido,27,37.8,26.4,1,42,4.5757,-74.01687
+2024-04-15,19,Monday,Laboral,Puente Aranda,Av. El Dorado,Lluvia fuerte,Critico,87,13.9,55.2,8,80,4.49113,-74.11733
+2024-04-16,10,Tuesday,Laboral,Suba,Av. El Dorado,Despejado,Fluido,24,39.8,27.2,3,47,4.67106,-74.16816
+2024-04-18,10,Thursday,Laboral,Kennedy,Carrera 7,Lluvia leve,Fluido,38,35.4,31.6,4,53,4.54399,-74.09876
+2024-04-18,12,Thursday,Laboral,Fontibón,Av. Suba,Lluvia fuerte,Alto,73,17.5,47.9,4,42,4.54364,-74.12061
+2024-04-18,19,Thursday,Laboral,Barrios Unidos,Carrera 7,Lluvia leve,Alto,78,15.8,48.7,7,77,4.52227,-73.99744
+2024-04-19,11,Friday,Laboral,Bosa,Av. Suba,Despejado,Fluido,21,38.0,24.9,2,55,4.56054,-74.10287
+2024-04-20,19,Saturday,Sábado,Kennedy,Carrera 7,Despejado,Fluido,36,33.6,32.1,4,38,4.56472,-74.14058
+2024-04-21,13,Sunday,Domingo,Puente Aranda,Calle 100,Despejado,Fluido,18,43.4,23.9,4,32,4.59752,-74.13498
+2024-04-25,17,Thursday,Laboral,Bosa,Calle 100,Lluvia leve,Critico,100,5,61.8,8,87,4.63972,-74.05429
+2024-04-25,18,Thursday,Laboral,Usaquén,Calle 100,Despejado,Critico,99,5,59.7,9,90,4.65119,-74.04039
+2024-04-29,12,Monday,Laboral,Chapinero,Calle 80,Nublado,Moderado,51,26.0,39.6,5,53,4.63321,-74.04034
+2024-05-02,11,Thursday,Laboral,Barrios Unidos,Av. Suba,Despejado,Fluido,30,34.4,30.5,2,49,4.717,-74.0463
+2024-05-03,12,Friday,Laboral,Usaquén,Av. Ciudad de Cali,Despejado,Moderado,51,27.5,39.5,6,44,4.61852,-73.99843
+2024-05-04,14,Saturday,Sábado,Usaquén,NQS,Nublado,Fluido,36,36.2,29.6,3,26,4.55414,-74.04007
+2024-05-05,10,Sunday,Domingo,Fontibón,Calle 80,Despejado,Fluido,23,40.7,26.1,1,35,4.49006,-74.044
+2024-05-06,7,Monday,Laboral,Suba,Av. Ciudad de Cali,Despejado,Critico,98,5.8,58.1,8,88,4.55346,-74.17034
+2024-05-06,8,Monday,Laboral,Bosa,Autopista Norte,Despejado,Critico,86,13.6,53.0,5,86,4.49096,-74.12777
+2024-05-07,8,Tuesday,Laboral,Bosa,Calle 26,Lluvia leve,Critico,92,6.8,56.2,9,87,4.702,-74.08341
+2024-05-07,9,Tuesday,Laboral,Barrios Unidos,Calle 26,Lluvia leve,Alto,80,17.6,52.0,6,70,4.724,-74.00716
+2024-05-08,13,Wednesday,Laboral,Puente Aranda,Carrera 7,Nublado,Moderado,56,23.0,39.4,6,45,4.6917,-74.11058
+2024-05-09,8,Thursday,Laboral,Engativá,Carrera 7,Nublado,Alto,83,16.5,51.7,5,97,4.71946,-74.19209
+2024-05-12,11,Sunday,Domingo,Suba,Calle 26,Despejado,Fluido,19,43.1,22.8,3,36,4.55224,-74.13118
+2024-05-12,13,Sunday,Domingo,Barrios Unidos,Av. Suba,Despejado,Fluido,19,40.3,21.9,3,32,4.55492,-74.12502
+2024-05-12,16,Sunday,Domingo,Puente Aranda,Av. Suba,Nublado,Fluido,20,41.5,24.1,2,27,4.54764,-74.10421
+2024-05-13,17,Monday,Laboral,Engativá,NQS,Nublado,Critico,101,5,60.1,8,96,4.51789,-73.98188
+2024-05-16,7,Thursday,Laboral,Puente Aranda,NQS,Lluvia leve,Critico,104,5,63.2,7,87,4.54648,-74.12543
+2024-05-16,8,Thursday,Laboral,Chapinero,Av. Ciudad de Cali,Nublado,Critico,89,8.8,54.6,6,95,4.56754,-74.01735
+2024-05-17,9,Friday,Laboral,Usaquén,Calle 80,Lluvia leve,Alto,75,17.1,47.8,5,80,4.59896,-74.11532
+2024-05-18,14,Saturday,Sábado,Suba,Av. Caracas,Nublado,Fluido,29,35.7,28.7,2,45,4.54559,-74.1777
+2024-05-20,17,Monday,Laboral,Barrios Unidos,Carrera 7,Despejado,Critico,90,11.5,54.5,9,94,4.59677,-73.97123
+2024-05-23,21,Thursday,Laboral,Kennedy,Autopista Norte,Despejado,Fluido,31,38.0,28.2,5,54,4.64464,-74.15665
+2024-05-24,12,Friday,Laboral,Kennedy,Calle 26,Nublado,Moderado,50,28.0,36.5,3,37,4.64194,-74.00271
+2024-05-24,20,Friday,Laboral,Kennedy,Autopista Norte,Lluvia fuerte,Moderado,43,30.6,34.5,3,43,4.6881,-74.18461
+2024-05-25,6,Saturday,Sábado,Kennedy,Av. Suba,Nublado,Fluido,38,31.4,31.7,2,32,4.60848,-74.17469
+2024-05-26,13,Sunday,Domingo,Usaquén,Av. Ciudad de Cali,Despejado,Fluido,18,42.8,23.8,2,45,4.51303,-74.05116
+2024-05-26,19,Sunday,Domingo,Chapinero,Av. Caracas,Lluvia leve,Fluido,35,33.8,32.3,5,37,4.57986,-74.03789
+2024-05-27,16,Monday,Laboral,Engativá,Av. Suba,Lluvia fuerte,Critico,89,11.8,54.0,5,70,4.59,-74.00072
+2024-05-31,17,Friday,Laboral,Kennedy,Av. Ciudad de Cali,Despejado,Critico,91,9.8,55.8,8,91,4.65818,-73.98268
+2024-06-02,15,Sunday,Domingo,Usaquén,Av. El Dorado,Despejado,Fluido,21,41.1,23.2,4,30,4.63743,-74.12952
+2024-06-06,9,Thursday,Laboral,Barrios Unidos,NQS,Lluvia fuerte,Critico,90,10.4,53.7,7,73,4.51204,-73.98064
+2024-06-07,11,Friday,Laboral,Engativá,Autopista Norte,Nublado,Fluido,17,40.5,24.5,3,40,4.57896,-74.0218
+2024-06-08,16,Saturday,Sábado,Puente Aranda,Av. Ciudad de Cali,Despejado,Fluido,23,37.8,26.4,1,27,4.55501,-74.04288
+2024-06-09,9,Sunday,Domingo,Bosa,NQS,Despejado,Fluido,23,41.0,25.4,4,44,4.5228,-74.10966
+2024-06-09,12,Sunday,Domingo,Teusaquillo,Av. Caracas,Lluvia fuerte,Moderado,46,29.8,34.9,3,27,4.71657,-74.08044
+2024-06-11,11,Tuesday,Laboral,Puente Aranda,Calle 100,Lluvia leve,Fluido,34,36.0,31.6,5,44,4.66587,-74.13107
+2024-06-12,15,Wednesday,Laboral,Puente Aranda,Carrera 7,Lluvia leve,Fluido,37,33.0,32.9,5,46,4.51704,-74.06643
+2024-06-12,17,Wednesday,Laboral,Chapinero,Av. El Dorado,Lluvia leve,Critico,108,5,62.9,10,86,4.5539,-74.14225
+2024-06-13,9,Thursday,Laboral,Usaquén,Av. Caracas,Despejado,Alto,72,17.0,49.2,4,79,4.51084,-74.14117
+2024-06-13,13,Thursday,Laboral,Chapinero,Av. Suba,Lluvia fuerte,Alto,78,14.0,49.3,5,52,4.71735,-73.99062
+2024-06-14,6,Friday,Laboral,Bosa,Av. Caracas,Despejado,Alto,70,19.4,47.5,7,79,4.67643,-74.07857
+2024-06-15,11,Saturday,Sábado,Teusaquillo,Av. Ciudad de Cali,Lluvia leve,Alto,68,17.6,47.0,5,38,4.63104,-74.076
+2024-06-17,14,Monday,Laboral,Bosa,Autopista Norte,Despejado,Fluido,33,34.9,31.8,4,35,4.51739,-73.96885
+2024-06-17,20,Monday,Laboral,Fontibón,Calle 26,Lluvia leve,Fluido,31,35.2,29.4,3,50,4.56511,-73.97025
+2024-06-18,9,Tuesday,Laboral,Teusaquillo,Calle 80,Despejado,Alto,70,21.1,46.1,4,77,4.65368,-74.16028
+2024-06-18,21,Tuesday,Laboral,Chapinero,Autopista Norte,Despejado,Fluido,22,39.8,26.6,4,50,4.64584,-74.02033
+2024-06-21,10,Friday,Laboral,Teusaquillo,Av. Ciudad de Cali,Lluvia leve,Fluido,28,35.0,28.1,4,35,4.51953,-73.99591
+2024-06-21,15,Friday,Laboral,Kennedy,Av. Ciudad de Cali,Despejado,Fluido,29,39.2,28.1,1,47,4.65033,-74.1574
+2024-06-29,13,Saturday,Sábado,Fontibón,Av. Ciudad de Cali,Despejado,Moderado,49,28.6,36.5,3,37,4.69931,-74.1913
+2024-06-30,11,Sunday,Domingo,Engativá,Av. Ciudad de Cali,Nublado,Fluido,24,42.2,25.1,4,28,4.49224,-74.13965
+2024-06-30,14,Sunday,Domingo,Teusaquillo,Av. Ciudad de Cali,Despejado,Fluido,19,40.3,22.7,3,34,4.65889,-74.03609
+2024-06-30,19,Sunday,Domingo,Teusaquillo,Av. El Dorado,Lluvia leve,Fluido,23,40.9,27.3,1,26,4.58634,-74.12032
+2024-07-02,15,Tuesday,Laboral,Usaquén,Av. Suba,Nublado,Fluido,32,35.7,30.6,5,45,4.70915,-74.11278
+2024-07-03,11,Wednesday,Laboral,Engativá,Av. Suba,Nublado,Fluido,21,39.4,26.3,3,39,4.6428,-74.02108
+2024-07-03,14,Wednesday,Laboral,Chapinero,Autopista Norte,Despejado,Fluido,30,36.5,28.7,5,38,4.49601,-74.11681
+2024-07-06,14,Saturday,Sábado,Bosa,Av. Caracas,Lluvia fuerte,Moderado,57,27.7,39.8,5,28,4.60211,-74.18368
+2024-07-07,12,Sunday,Domingo,Puente Aranda,Av. Suba,Lluvia leve,Fluido,29,37.0,28.4,4,31,4.6655,-74.07058
+2024-07-09,9,Tuesday,Laboral,Suba,Calle 100,Despejado,Moderado,62,21.4,44.5,5,78,4.51172,-73.98323
+2024-07-09,11,Tuesday,Laboral,Fontibón,Calle 80,Nublado,Fluido,24,39.0,24.2,1,35,4.54093,-74.18304
+2024-07-10,11,Wednesday,Laboral,Barrios Unidos,Calle 100,Lluvia fuerte,Moderado,47,29.3,34.6,5,44,4.54718,-74.14394
+2024-07-10,15,Wednesday,Laboral,Suba,Av. Suba,Despejado,Fluido,27,41.1,27.7,3,43,4.64718,-73.97322
+2024-07-12,17,Friday,Laboral,Fontibón,Calle 100,Despejado,Critico,102,6.9,61.2,7,87,4.59802,-74.00994
+2024-07-13,13,Saturday,Sábado,Barrios Unidos,Carrera 7,Nublado,Moderado,57,23.5,41.9,6,39,4.53009,-74.01096
+2024-07-13,16,Saturday,Sábado,Barrios Unidos,Carrera 7,Despejado,Fluido,24,37.8,26.5,3,32,4.66893,-74.0976
+2024-07-14,7,Sunday,Domingo,Kennedy,Carrera 7,Despejado,Fluido,26,37.7,28.0,2,32,4.49539,-74.1554
+2024-07-17,17,Wednesday,Laboral,Engativá,Av. Suba,Despejado,Critico,89,9.9,56.0,5,97,4.62937,-74.02015
+2024-07-18,19,Thursday,Laboral,Barrios Unidos,Calle 100,Lluvia leve,Alto,84,13.0,51.9,8,65,4.58304,-74.04122
+2024-07-21,15,Sunday,Domingo,Kennedy,Calle 26,Despejado,Fluido,17,40.0,23.2,2,36,4.57397,-73.97178
+2024-07-24,7,Wednesday,Laboral,Fontibón,Av. Caracas,Despejado,Critico,94,7.2,58.4,9,89,4.59123,-73.97199
+2024-07-24,19,Wednesday,Laboral,Engativá,Calle 100,Lluvia leve,Critico,88,12.5,55.8,5,68,4.67426,-74.04393
+2024-07-26,11,Friday,Laboral,Chapinero,Carrera 7,Lluvia fuerte,Fluido,37,36.2,32.0,2,37,4.64397,-74.16918
+2024-07-28,21,Sunday,Domingo,Bosa,Av. Caracas,Despejado,Fluido,16,44.3,23.4,1,39,4.72748,-74.08673
+2024-07-29,6,Monday,Laboral,Barrios Unidos,Calle 80,Nublado,Alto,66,18.1,46.0,7,70,4.51539,-74.17863
+2024-07-29,14,Monday,Laboral,Teusaquillo,Av. El Dorado,Nublado,Fluido,32,33.1,28.5,3,54,4.63579,-74.03527
+2024-07-30,6,Tuesday,Laboral,Usaquén,Av. Caracas,Lluvia leve,Alto,80,16.6,52.5,6,73,4.52792,-74.03344
+2024-07-30,7,Tuesday,Laboral,Kennedy,Av. Ciudad de Cali,Nublado,Alto,82,12.5,53.6,8,89,4.52629,-74.12258
+2024-07-31,19,Wednesday,Laboral,Suba,Av. El Dorado,Nublado,Alto,71,17.4,46.2,5,69,4.61844,-74.10797
+2024-08-08,10,Thursday,Laboral,Usaquén,Av. Suba,Lluvia leve,Fluido,38,30.6,30.3,3,46,4.62248,-74.1841
+2024-08-08,11,Thursday,Laboral,Bosa,Calle 100,Despejado,Fluido,19,40.6,22.7,4,54,4.66195,-74.16176
+2024-08-09,18,Friday,Laboral,Puente Aranda,Calle 80,Lluvia leve,Critico,106,5,62.3,8,88,4.55651,-74.03285
+2024-08-11,6,Sunday,Domingo,Suba,Carrera 7,Lluvia leve,Fluido,35,35.0,31.6,5,34,4.51735,-74.19674
+2024-08-13,18,Tuesday,Laboral,Chapinero,Calle 26,Despejado,Critico,102,5,62.1,8,97,4.50954,-74.09987
+2024-08-13,20,Tuesday,Laboral,Fontibón,Av. Suba,Nublado,Fluido,30,39.6,29.8,3,43,4.50223,-74.08641
+2024-08-13,20,Tuesday,Laboral,Fontibón,Calle 80,Despejado,Fluido,21,43.1,23.7,3,37,4.64681,-74.14166
+2024-08-15,17,Thursday,Laboral,Engativá,Carrera 7,Nublado,Critico,98,7.6,58.8,6,86,4.65079,-74.10426
+2024-08-16,7,Friday,Laboral,Chapinero,Carrera 7,Nublado,Critico,96,8.1,58.4,8,96,4.49493,-74.14068
+2024-08-16,7,Friday,Laboral,Teusaquillo,Av. Suba,Despejado,Critico,89,12.9,55.3,6,97,4.65686,-74.17854
+2024-08-18,17,Sunday,Domingo,Fontibón,Calle 80,Despejado,Fluido,28,36.9,27.1,1,36,4.5436,-74.12527
+2024-08-18,21,Sunday,Domingo,Usaquén,NQS,Nublado,Fluido,24,39.0,26.5,4,27,4.67503,-74.13086
+2024-08-19,15,Monday,Laboral,Bosa,Carrera 7,Lluvia leve,Fluido,29,35.2,28.8,1,41,4.69033,-74.12308
+2024-08-19,16,Monday,Laboral,Bosa,Autopista Norte,Despejado,Alto,70,16.3,45.9,4,70,4.71289,-74.02403
+2024-08-20,17,Tuesday,Laboral,Fontibón,Calle 100,Nublado,Critico,91,12.3,56.6,9,94,4.58766,-73.97338
+2024-08-22,7,Thursday,Laboral,Kennedy,Av. Suba,Despejado,Critico,88,13.6,53.9,7,93,4.58528,-74.00605
+2024-08-23,14,Friday,Laboral,Teusaquillo,NQS,Despejado,Fluido,33,37.4,29.4,2,35,4.61247,-74.04278
+2024-08-24,11,Saturday,Sábado,Bosa,Calle 80,Despejado,Moderado,53,26.4,38.2,6,33,4.67019,-74.00209
+2024-08-24,14,Saturday,Sábado,Bosa,Carrera 7,Nublado,Fluido,36,36.6,31.9,3,27,4.59573,-74.11881
+2024-08-25,15,Sunday,Domingo,Suba,Av. El Dorado,Despejado,Fluido,13,43.1,20.8,0,32,4.70265,-74.16919
+2024-08-25,19,Sunday,Domingo,Fontibón,Calle 100,Lluvia leve,Fluido,29,37.0,26.7,2,28,4.49744,-74.0433
+2024-08-25,20,Sunday,Domingo,Puente Aranda,Av. Ciudad de Cali,Despejado,Fluido,22,38.2,23.2,4,45,4.56239,-74.13583
+2024-08-27,14,Tuesday,Laboral,Engativá,Calle 100,Nublado,Fluido,20,42.3,24.1,3,55,4.57135,-74.13131
+2024-08-29,8,Thursday,Laboral,Puente Aranda,Calle 80,Despejado,Critico,90,8.7,57.2,9,93,4.55847,-74.03072
+2024-08-30,14,Friday,Laboral,Kennedy,Calle 80,Despejado,Fluido,18,44.3,22.4,1,46,4.59458,-74.10574
+2024-08-30,17,Friday,Laboral,Chapinero,Calle 26,Lluvia leve,Critico,100,7.5,60.8,8,85,4.58249,-74.16265
+2024-09-02,18,Monday,Laboral,Suba,Av. El Dorado,Despejado,Critico,101,5,58.8,7,86,4.52,-74.05191
+2024-09-02,19,Monday,Laboral,Puente Aranda,Av. El Dorado,Despejado,Alto,77,17.0,49.4,7,69,4.70042,-74.01449
+2024-09-05,12,Thursday,Laboral,Chapinero,Calle 100,Nublado,Moderado,57,23.4,40.5,6,41,4.51235,-74.04359
+2024-09-05,20,Thursday,Laboral,Bosa,Av. El Dorado,Despejado,Fluido,33,33.2,29.6,4,53,4.6065,-74.04164
+2024-09-07,16,Saturday,Sábado,Usaquén,Carrera 7,Nublado,Fluido,30,35.5,28.8,5,37,4.68612,-73.97264
+2024-09-08,8,Sunday,Domingo,Engativá,Av. Ciudad de Cali,Despejado,Fluido,21,38.3,23.4,4,44,4.63278,-74.05333
+2024-09-08,12,Sunday,Domingo,Chapinero,Autopista Norte,Lluvia leve,Fluido,36,32.2,32.1,2,35,4.64999,-74.03146
+2024-09-09,6,Monday,Laboral,Barrios Unidos,Calle 26,Nublado,Alto,71,20.6,47.2,4,67,4.56394,-73.96185
+2024-09-09,15,Monday,Laboral,Teusaquillo,Av. Caracas,Despejado,Fluido,18,40.5,22.0,4,35,4.56933,-74.05436
+2024-09-10,9,Tuesday,Laboral,Suba,Av. Ciudad de Cali,Despejado,Alto,68,20.3,46.6,7,71,4.72726,-74.17717
+2024-09-11,19,Wednesday,Laboral,Chapinero,Av. Caracas,Despejado,Alto,74,17.4,49.6,6,67,4.58501,-74.02366
+2024-09-12,8,Thursday,Laboral,Engativá,Calle 100,Lluvia fuerte,Critico,102,5,62.3,9,90,4.62084,-74.16029
+2024-09-12,11,Thursday,Laboral,Chapinero,Calle 26,Despejado,Fluido,20,43.6,24.7,1,42,4.6675,-74.20113
+2024-09-15,20,Sunday,Domingo,Bosa,Calle 100,Lluvia leve,Fluido,25,36.8,24.6,3,35,4.62359,-74.114
+2024-09-17,21,Tuesday,Laboral,Engativá,Autopista Norte,Lluvia leve,Fluido,31,37.1,30.1,5,54,4.50496,-74.11016
+2024-09-18,13,Wednesday,Laboral,Usaquén,Carrera 7,Despejado,Moderado,58,22.4,43.1,6,38,4.56061,-73.98082
+2024-09-19,11,Thursday,Laboral,Chapinero,Calle 80,Lluvia leve,Moderado,41,29.2,31.7,4,46,4.5816,-74.06561
+2024-09-20,10,Friday,Laboral,Puente Aranda,Calle 26,Despejado,Fluido,29,40.2,29.0,3,53,4.57044,-74.00296
+2024-09-21,11,Saturday,Sábado,Chapinero,Calle 100,Despejado,Moderado,60,26.4,40.9,7,45,4.53398,-74.04804
+2024-09-23,19,Monday,Laboral,Teusaquillo,Calle 26,Lluvia fuerte,Critico,89,11.3,55.1,8,67,4.63176,-74.1868
+2024-09-24,18,Tuesday,Laboral,Teusaquillo,Carrera 7,Despejado,Critico,100,5,60.5,6,97,4.53958,-74.1511
+2024-09-27,6,Friday,Laboral,Bosa,Calle 100,Lluvia fuerte,Alto,80,17.4,49.5,5,68,4.66789,-74.16444
+2024-09-28,11,Saturday,Sábado,Barrios Unidos,Calle 80,Despejado,Moderado,52,24.5,36.7,4,37,4.51848,-73.98808
+2024-09-28,16,Saturday,Sábado,Puente Aranda,Carrera 7,Lluvia leve,Moderado,48,28.4,38.2,6,30,4.66819,-74.08783
+2024-09-28,19,Saturday,Sábado,Chapinero,Av. Ciudad de Cali,Despejado,Fluido,24,40.1,25.3,2,40,4.70879,-74.1674
+2024-09-29,21,Sunday,Domingo,Bosa,Av. Ciudad de Cali,Despejado,Fluido,12,43.9,21.1,3,43,4.56355,-73.98605
+2024-09-30,21,Monday,Laboral,Barrios Unidos,Calle 26,Despejado,Fluido,22,42.4,26.4,2,44,4.51313,-74.17104
+2024-10-01,11,Tuesday,Laboral,Kennedy,NQS,Nublado,Fluido,25,40.3,28.2,3,38,4.68954,-74.13065
+2024-10-02,11,Wednesday,Laboral,Bosa,Calle 26,Despejado,Fluido,25,41.7,26.3,1,39,4.72078,-74.01318
+2024-10-02,12,Wednesday,Laboral,Puente Aranda,NQS,Lluvia leve,Moderado,54,26.4,39.4,5,37,4.70985,-74.17482
+2024-10-03,8,Thursday,Laboral,Chapinero,Av. Caracas,Despejado,Critico,86,13.4,52.0,8,90,4.61994,-74.10196
+2024-10-07,6,Monday,Laboral,Bosa,Av. Suba,Despejado,Alto,67,20.3,44.9,5,80,4.68021,-73.97139
+2024-10-07,12,Monday,Laboral,Barrios Unidos,Av. Ciudad de Cali,Despejado,Moderado,52,29.2,38.2,4,53,4.60703,-73.98602
+2024-10-08,9,Tuesday,Laboral,Barrios Unidos,Calle 80,Lluvia leve,Alto,69,22.2,47.4,5,78,4.60626,-74.15045
+2024-10-08,13,Tuesday,Laboral,Teusaquillo,Autopista Norte,Despejado,Moderado,46,27.5,33.9,4,39,4.53726,-74.10561
+2024-10-08,15,Tuesday,Laboral,Chapinero,Av. Suba,Nublado,Fluido,22,42.1,24.9,1,41,4.67981,-74.14493
+2024-10-08,21,Tuesday,Laboral,Suba,Calle 80,Despejado,Fluido,21,40.3,25.0,2,55,4.72829,-74.07127
+2024-10-10,17,Thursday,Laboral,Barrios Unidos,Av. El Dorado,Despejado,Critico,101,5,59.5,6,96,4.53593,-74.17306
+2024-10-11,13,Friday,Laboral,Teusaquillo,Carrera 7,Despejado,Moderado,42,29.1,32.8,3,44,4.64906,-74.11319
+2024-10-11,21,Friday,Laboral,Kennedy,Av. Caracas,Despejado,Fluido,18,42.6,23.3,3,36,4.50174,-74.08732
+2024-10-14,6,Monday,Laboral,Bosa,Av. Ciudad de Cali,Despejado,Alto,65,22.6,43.5,6,76,4.49118,-73.99298
+2024-10-14,16,Monday,Laboral,Fontibón,Autopista Norte,Despejado,Alto,80,17.0,51.9,7,74,4.57411,-74.06305
+2024-10-16,18,Wednesday,Laboral,Chapinero,Autopista Norte,Nublado,Critico,87,9.3,54.3,8,91,4.59858,-74.16397
+2024-10-17,8,Thursday,Laboral,Teusaquillo,Autopista Norte,Lluvia leve,Critico,96,5.5,58.1,7,89,4.61635,-74.05617
+2024-10-17,21,Thursday,Laboral,Engativá,Av. Suba,Lluvia fuerte,Moderado,45,32.6,35.5,3,40,4.71261,-74.12627
+2024-10-18,6,Friday,Laboral,Kennedy,Av. Caracas,Lluvia leve,Alto,73,19.9,46.8,7,66,4.71004,-74.03264
+2024-10-19,12,Saturday,Sábado,Kennedy,NQS,Nublado,Moderado,55,26.7,39.8,3,40,4.70847,-74.04638
+2024-10-20,13,Sunday,Domingo,Bosa,Carrera 7,Despejado,Fluido,13,44.3,22.5,1,28,4.71753,-74.09398
+2024-10-21,15,Monday,Laboral,Engativá,Av. Suba,Lluvia fuerte,Moderado,49,27.1,37.3,3,54,4.66855,-74.00187
+2024-10-22,14,Tuesday,Laboral,Puente Aranda,NQS,Despejado,Fluido,17,42.5,23.2,3,55,4.71931,-74.08584
+2024-10-26,16,Saturday,Sábado,Puente Aranda,Av. El Dorado,Nublado,Fluido,36,34.2,30.9,2,45,4.64593,-74.0172
+2024-10-26,18,Saturday,Sábado,Suba,Calle 26,Nublado,Fluido,37,30.9,33.2,4,44,4.54284,-74.18658
+2024-10-27,9,Sunday,Domingo,Usaquén,Calle 26,Lluvia leve,Fluido,27,40.0,28.0,3,44,4.63135,-74.04044
+2024-10-27,15,Sunday,Domingo,Bosa,Av. El Dorado,Despejado,Fluido,21,39.0,24.0,4,28,4.54664,-74.06449
+2024-10-27,21,Sunday,Domingo,Teusaquillo,Av. Caracas,Nublado,Fluido,23,38.9,26.4,4,39,4.71359,-73.99305
+2024-10-28,13,Monday,Laboral,Kennedy,Av. Ciudad de Cali,Despejado,Moderado,43,29.5,36.0,4,37,4.61311,-74.13492
+2024-10-30,11,Wednesday,Laboral,Engativá,Calle 100,Lluvia fuerte,Moderado,51,30.2,36.8,5,37,4.68626,-74.01079
+2024-10-30,13,Wednesday,Laboral,Bosa,Autopista Norte,Lluvia leve,Moderado,55,27.6,40.0,3,46,4.61757,-74.04298
+2024-10-30,13,Wednesday,Laboral,Teusaquillo,Calle 100,Despejado,Moderado,52,29.0,40.4,6,39,4.60436,-74.1468
+2024-11-01,13,Friday,Laboral,Bosa,Calle 80,Despejado,Moderado,57,25.1,41.7,4,40,4.51374,-74.0441
+2024-11-01,18,Friday,Laboral,Chapinero,Av. Caracas,Despejado,Critico,92,10.8,54.6,8,95,4.66241,-73.96905
+2024-11-02,10,Saturday,Sábado,Bosa,Autopista Norte,Lluvia leve,Moderado,45,29.2,36.4,5,25,4.55759,-74.1301
+2024-11-03,6,Sunday,Domingo,Bosa,NQS,Nublado,Fluido,21,42.0,25.3,3,38,4.70463,-73.99737
+2024-11-04,7,Monday,Laboral,Kennedy,Autopista Norte,Lluvia leve,Critico,98,6.8,60.6,8,89,4.71939,-74.19807
+2024-11-05,10,Tuesday,Laboral,Usaquén,Carrera 7,Despejado,Fluido,19,42.1,23.7,4,45,4.6456,-74.14184
+2024-11-05,14,Tuesday,Laboral,Teusaquillo,Calle 80,Nublado,Fluido,29,34.7,27.2,3,53,4.53586,-74.18506
+2024-11-08,11,Friday,Laboral,Usaquén,Calle 26,Lluvia fuerte,Moderado,49,27.9,36.4,3,55,4.64506,-74.18593
+2024-11-08,11,Friday,Laboral,Usaquén,Carrera 7,Nublado,Fluido,21,43.3,24.9,4,41,4.51052,-74.17764
+2024-11-08,15,Friday,Laboral,Kennedy,Carrera 7,Nublado,Fluido,26,41.4,27.8,2,46,4.6525,-74.06485
+2024-11-10,6,Sunday,Domingo,Kennedy,NQS,Despejado,Fluido,13,44.0,21.5,0,32,4.66744,-74.10521
+2024-11-17,19,Sunday,Domingo,Teusaquillo,Av. El Dorado,Despejado,Fluido,14,43.3,22.3,2,39,4.71777,-74.1232
+2024-11-18,13,Monday,Laboral,Chapinero,Autopista Norte,Despejado,Moderado,58,24.2,39.3,6,50,4.49349,-74.07402
+2024-11-20,8,Wednesday,Laboral,Fontibón,Av. Suba,Nublado,Critico,89,8.2,53.4,8,86,4.59852,-74.05563
+2024-11-23,9,Saturday,Sábado,Bosa,Calle 80,Despejado,Fluido,26,40.0,27.4,1,43,4.59097,-74.1946
+2024-11-23,11,Saturday,Sábado,Fontibón,Av. Caracas,Nublado,Moderado,48,30.9,36.7,5,30,4.52858,-73.97741
+2024-11-23,20,Saturday,Sábado,Suba,Autopista Norte,Lluvia leve,Moderado,47,29.9,34.2,4,29,4.55962,-74.20137
+2024-11-24,21,Sunday,Domingo,Barrios Unidos,Av. Caracas,Despejado,Fluido,18,43.9,22.4,4,45,4.55145,-74.15706
+2024-11-25,20,Monday,Laboral,Bosa,Av. Caracas,Despejado,Fluido,25,40.5,26.0,4,46,4.54235,-73.96234
+2024-11-26,10,Tuesday,Laboral,Suba,NQS,Despejado,Fluido,23,37.9,24.0,1,40,4.71802,-74.05104
+2024-11-26,15,Tuesday,Laboral,Usaquén,Carrera 7,Lluvia fuerte,Fluido,39,29.9,33.0,2,37,4.61874,-74.08034
+2024-11-29,10,Friday,Laboral,Engativá,Carrera 7,Despejado,Fluido,27,40.3,28.6,4,38,4.61594,-74.09209
+2024-11-29,14,Friday,Laboral,Barrios Unidos,Av. Ciudad de Cali,Lluvia leve,Moderado,41,31.6,34.4,4,45,4.69412,-74.00237
+2024-11-29,15,Friday,Laboral,Chapinero,NQS,Nublado,Fluido,24,41.8,27.0,4,45,4.65309,-74.02864
+2024-11-30,13,Saturday,Sábado,Engativá,Av. Suba,Despejado,Moderado,58,26.7,39.4,3,32,4.54008,-74.02472
+2024-12-01,6,Sunday,Domingo,Fontibón,Autopista Norte,Despejado,Fluido,28,37.5,27.8,1,39,4.52171,-74.09024
+2024-12-01,19,Sunday,Domingo,Usaquén,NQS,Despejado,Fluido,22,38.9,23.2,3,28,4.6102,-73.98528
+2024-12-01,21,Sunday,Domingo,Bosa,Av. Suba,Lluvia fuerte,Moderado,44,30.0,32.9,3,35,4.66408,-74.14838
+2024-12-04,8,Wednesday,Laboral,Kennedy,Av. Caracas,Despejado,Alto,84,11.0,52.4,8,89,4.49754,-74.1326
+2024-12-04,10,Wednesday,Laboral,Suba,Calle 26,Despejado,Fluido,29,37.4,29.0,2,35,4.67119,-73.96691
+2024-12-04,13,Wednesday,Laboral,Suba,Av. Suba,Lluvia leve,Moderado,55,25.1,39.6,5,40,4.57855,-74.15147
+2024-12-05,10,Thursday,Laboral,Bosa,NQS,Despejado,Fluido,27,40.7,26.7,3,45,4.59837,-74.14568
+2024-12-05,18,Thursday,Laboral,Puente Aranda,Av. Caracas,Nublado,Critico,89,9.7,54.6,7,98,4.52038,-74.03307
+2024-12-05,18,Thursday,Laboral,Suba,Av. Ciudad de Cali,Despejado,Critico,97,5.1,57.3,9,97,4.64313,-74.08482
+2024-12-08,17,Sunday,Domingo,Fontibón,Calle 100,Lluvia fuerte,Fluido,39,33.2,33.9,5,42,4.65461,-73.97702
+2024-12-16,8,Monday,Laboral,Barrios Unidos,Av. El Dorado,Despejado,Critico,93,7.9,58.7,8,97,4.60642,-74.14738
+2024-12-16,18,Monday,Laboral,Teusaquillo,Av. Suba,Despejado,Critico,88,9.2,54.3,8,88,4.57136,-74.16727
+2024-12-17,8,Tuesday,Laboral,Puente Aranda,Av. Ciudad de Cali,Despejado,Alto,84,10.2,51.1,8,97,4.52062,-73.98453
+2024-12-18,6,Wednesday,Laboral,Teusaquillo,Av. Ciudad de Cali,Despejado,Moderado,64,23.2,44.1,5,77,4.52518,-74.03838
+2024-12-18,8,Wednesday,Laboral,Usaquén,Calle 100,Despejado,Critico,95,6.6,56.1,9,97,4.56804,-74.04956
+2024-12-18,17,Wednesday,Laboral,Fontibón,Av. Ciudad de Cali,Despejado,Critico,91,11.7,57.2,6,94,4.57391,-74.13429
+2024-12-19,10,Thursday,Laboral,Engativá,Calle 100,Lluvia leve,Fluido,31,35.9,27.1,4,36,4.70545,-74.15133
+2024-12-22,13,Sunday,Domingo,Suba,Av. Suba,Nublado,Fluido,13,41.8,20.4,3,26,4.64253,-74.03307
+2024-12-23,13,Monday,Laboral,Fontibón,Av. Ciudad de Cali,Despejado,Moderado,55,23.1,40.7,6,47,4.72693,-74.01158
+2024-12-23,17,Monday,Laboral,Engativá,Av. Ciudad de Cali,Nublado,Critico,98,9.6,59.4,7,98,4.72683,-73.99016
