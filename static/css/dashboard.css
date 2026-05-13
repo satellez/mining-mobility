@@ -226,15 +226,28 @@
   max-height: 280px;
 }
 
+/* ─── GRID ANALISIS (3 cols, dentro de modelo-main) ─────────────────────────── */
+.analisis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.analisis-span-2 { grid-column: span 2; }
+.analisis-span-3 { grid-column: span 3; }
+
 /* ─── RESPONSIVE ────────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .dash-main { grid-template-columns: repeat(2, 1fr); }
-  .chart-span-2 { grid-column: 1 / -1; }
+  .chart-span-2, .chart-span-3 { grid-column: 1 / -1; }
+  .analisis-grid { grid-template-columns: repeat(2, 1fr); }
+  .analisis-span-2, .analisis-span-3 { grid-column: 1 / -1; }
   .kpi-row { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
   .dash-main { grid-template-columns: 1fr; padding: 4rem 1rem 2rem; }
+  .analisis-grid { grid-template-columns: 1fr; }
   .kpi-row { grid-template-columns: 1fr 1fr; }
   .dash-page-header { flex-direction: column; gap: 0.8rem; }
   .topbar { padding: 0 1rem; }

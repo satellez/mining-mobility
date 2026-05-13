@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Víctimas &amp; Seguridad Vial — Bogotá</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body class="dash-body">
+
+  <header class="topbar">
+    <div class="topbar-logo">MDatos / Bogotá 2026</div>
+    <nav class="topbar-nav">
+      <a class="topbar-link" href="/">Inicio</a>
+      <a class="topbar-link" href="/dashboard">Dashboard</a>
+      <a class="topbar-link" href="/analisis">Análisis</a>
+      <a class="topbar-link active" href="/victimas">Víctimas</a>
+    </nav>
+  </header>
+
+  <main class="dash-main">
+
+    <div class="dash-page-header">
+      <div>
+        <div class="dash-page-tag">Seguridad Vial — Análisis de Víctimas</div>
+        <h1 class="dash-page-title">¿Quiénes son<br>las víctimas?</h1>
+      </div>
+      <div class="dash-page-meta">
+        <span class="dash-page-source">Modelo multidimensional · Supabase</span>
+        <span class="dash-page-period">Bogotá D.C. · 2015 — 2020</span>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-row">
+      <div class="kpi-card kpi-red">
+        <div class="kpi-label">Accidentes mortales</div>
+        <div class="kpi-value" id="kpi-mortales">—</div>
+        <div class="kpi-sub" id="kpi-mortales-pct">% del total</div>
+      </div>
+      <div class="kpi-card kpi-amber">
+        <div class="kpi-label">Actor más vulnerable</div>
+        <div class="kpi-value" id="kpi-actor">—</div>
+        <div class="kpi-sub" id="kpi-actor-sub">muertes registradas</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Localidad más peligrosa</div>
+        <div class="kpi-value" id="kpi-localidad">—</div>
+        <div class="kpi-sub" id="kpi-localidad-sub">muertes por cada 1.000 accidentes</div>
+      </div>
+      <div class="kpi-card kpi-green">
+        <div class="kpi-label">Hora de mayor mortalidad</div>
+        <div class="kpi-value" id="kpi-hora">—</div>
+        <div class="kpi-sub" id="kpi-hora-sub">accidentes mortales</div>
+      </div>
+    </div>
+
+    <!-- FILA 1: Evolución por gravedad + Días de la semana -->
+    <div class="chart-card chart-span-2">
+      <div class="chart-card-header">
+        <span class="chart-card-title">Evolución anual por gravedad (2015–2020)</span>
+        <span class="chart-card-note">fact_siniestros ⋈ dim_fecha ⋈ dim_gravedad</span>
+      </div>
+      <div class="chart-wrap chart-wrap-tall">
+        <canvas id="chart-evolucion"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-card-header">
+        <span class="chart-card-title">Siniestros por día de la semana</span>
+        <span class="chart-card-note">dim_fecha.dia_semana</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="chart-diasemana"></canvas>
+      </div>
+    </div>
+
+    <!-- FILA 2: Tasa mortalidad por localidad (full width) -->
+    <div class="chart-card chart-span-3">
+      <div class="chart-card-header">
+        <span class="chart-card-title">Tasa de mortalidad por localidad — muertes por cada 1.000 accidentes</span>
+        <span class="chart-card-note">fact_siniestros ⋈ dim_localidad ⋈ dim_gravedad</span>
+      </div>
+      <div class="chart-wrap chart-wrap-tall">
+        <canvas id="chart-tasa"></canvas>
+      </div>
+    </div>
+
+    <!-- FILA 3: Actores por estado + Causas fatales -->
+    <div class="chart-card">
+      <div class="chart-card-header">
+        <span class="chart-card-title">Estado de actores viales</span>
+        <span class="chart-card-note">bridge_siniestro_actor ⋈ dim_condicion_actor</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="chart-actores"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-card chart-span-2">
+      <div class="chart-card-header">
+        <span class="chart-card-title">Causas más frecuentes en accidentes mortales (top 10)</span>
+        <span class="chart-card-note">bridge_siniestro_hipotesis ⋈ dim_hipotesis — filtrado por Con Muertos</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="chart-causas"></canvas>
+      </div>
+    </div>
+
+    <!-- FILA 4: Hora fatal + Vehículo fatal -->
+    <div class="chart-card chart-span-2">
+      <div class="chart-card-header">
+        <span class="chart-card-title">Mortalidad por franja horaria — fatales vs. total</span>
+        <span class="chart-card-note">fact_siniestros.hora cruzado con dim_gravedad.nivel = 1</span>
+      </div>
+      <div class="chart-wrap chart-wrap-tall">
+        <canvas id="chart-horafatal"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-card-header">
+        <span class="chart-card-title">Vehículos involucrados en muertes</span>
+        <span class="chart-card-note">bridge_siniestro_vehiculo — top 10 por muertes</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="chart-vehiculofatal"></canvas>
+      </div>
+    </div>
+
+    <!-- FILA 5: Estacionalidad -->
+    <div class="chart-card chart-span-3">
+      <div class="chart-card-header">
+        <span class="chart-card-title">Estacionalidad mensual — promedio de accidentes por mes (2015–2020)</span>
+        <span class="chart-card-note">Promedio del conteo mensual consolidado entre todos los años del dataset</span>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="chart-estacionalidad"></canvas>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    const DATA_TASA_LOC      = {{ tasa_localidad   | tojson }};
+    const DATA_ACTORES_ESTADO= {{ actores_estado    | tojson }};
+    const DATA_DIA_SEMANA    = {{ por_dia_semana    | tojson }};
+    const DATA_ESTACIONALIDAD= {{ estacionalidad    | tojson }};
+    const DATA_CAUSAS_FATALES= {{ causas_fatales    | tojson }};
+    const DATA_EVOLUCION     = {{ evolucion_gravedad| tojson }};
+    const DATA_HORA_FATAL    = {{ hora_fatal        | tojson }};
+    const DATA_VEH_FATAL     = {{ vehiculo_fatal    | tojson }};
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="{{ url_for('static', filename='js/victimas.js') }}"></script>
+</body>
+</html>

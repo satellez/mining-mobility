@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelo &amp; Análisis — Siniestros Bogotá</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/modelo.css') }}">
+</head>
+<body class="dash-body">
+
+  <header class="topbar">
+    <div class="topbar-logo">MDatos / Bogotá 2026</div>
+    <nav class="topbar-nav">
+      <a class="topbar-link" href="/">Inicio</a>
+      <a class="topbar-link" href="/dashboard">Dashboard</a>
+      <a class="topbar-link active" href="/analisis">Análisis</a>
+      <a class="topbar-link" href="/victimas">Víctimas</a>
+    </nav>
+  </header>
+
+  <main class="modelo-main">
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         SECCIÓN 1 — MODELO MULTIDIMENSIONAL
+         ══════════════════════════════════════════════════════════════════════ -->
+    <section id="modelo">
+
+      <div class="modelo-header">
+        <div>
+          <div class="dash-page-tag">Arquitectura de Datos — Supabase</div>
+          <h1 class="dash-page-title">Modelo Multidimensional<br>en Estrella</h1>
+        </div>
+        <div class="dash-page-meta">
+          <span class="dash-page-source">Siniestros Viales Consolidados — Bogotá D.C.</span>
+          <span class="dash-page-period">1 tabla de hechos · 7 dimensiones · 3 bridges</span>
+        </div>
+      </div>
+
+      <!-- DIAGRAMA ESTRELLA -->
+      <div class="star-section">
+        <div class="star-label">Diagrama del esquema</div>
+        <div class="star-diagram">
+
+          <div class="star-top">
+            <div class="dim-card">
+              <div class="dim-card-name">dim_fecha</div>
+              <div class="dim-card-rows">{{ conteos['dim_fecha'] | int | format_miles }} filas</div>
+              <div class="dim-card-fields">fecha · anio · mes · trimestre · dia_semana</div>
+            </div>
+          </div>
+
+          <div class="star-middle">
+            <div class="star-dims-left">
+              <div class="dim-card">
+                <div class="dim-card-name">dim_localidad</div>
+                <div class="dim-card-rows">{{ conteos['dim_localidad'] }} filas</div>
+                <div class="dim-card-fields">codigo_localidad · nombre</div>
+              </div>
+              <div class="dim-card">
+                <div class="dim-card-name">dim_gravedad</div>
+                <div class="dim-card-rows">{{ conteos['dim_gravedad'] }} filas</div>
+                <div class="dim-card-fields">descripcion · nivel</div>
+              </div>
+            </div>
+
+            <div class="fact-card">
+              <div class="fact-card-label">Tabla de Hechos</div>
+              <div class="fact-card-name">fact_siniestros</div>
+              <div class="fact-card-rows">{{ conteos['fact_siniestros'] | int | format_miles }} registros</div>
+              <div class="fact-card-divider"></div>
+              <div class="fact-fields">
+                <div class="fact-field pk">siniestro_id <span>PK</span></div>
+                <div class="fact-field fk">fecha_id <span>FK</span></div>
+                <div class="fact-field fk">localidad_id <span>FK</span></div>
+                <div class="fact-field fk">gravedad_id <span>FK</span></div>
+                <div class="fact-field fk">clase_id <span>FK</span></div>
+                <div class="fact-field">hora</div>
+                <div class="fact-field">direccion</div>
+                <div class="fact-field muted">n_vehiculos · n_actores</div>
+              </div>
+            </div>
+
+            <div class="star-dims-right">
+              <div class="dim-card">
+                <div class="dim-card-name">dim_clase</div>
+                <div class="dim-card-rows">{{ conteos['dim_clase'] }} filas</div>
+                <div class="dim-card-fields">descripcion</div>
+              </div>
+              <div class="dim-card">
+                <div class="dim-card-name">dim_hipotesis</div>
+                <div class="dim-card-rows">{{ conteos['dim_hipotesis'] }} filas</div>
+                <div class="dim-card-fields">descripcion</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="star-bottom">
+            <div class="bridge-col">
+              <div class="bridge-arrow">↓ 1:N</div>
+              <div class="bridge-card">
+                <div class="bridge-card-name">bridge_siniestro_hipotesis</div>
+                <div class="bridge-card-rows">{{ conteos['bridge_siniestro_hipotesis'] | int | format_miles }} filas</div>
+              </div>
+            </div>
+            <div class="bridge-col">
+              <div class="bridge-arrow">↓ 1:N</div>
+              <div class="bridge-card">
+                <div class="bridge-card-name">bridge_siniestro_vehiculo</div>
+                <div class="bridge-card-rows">{{ conteos['bridge_siniestro_vehiculo'] | int | format_miles }} filas</div>
+              </div>
+              <div class="dim-card bridge-dim">
+                <div class="dim-card-name">dim_vehiculo_clase</div>
+                <div class="dim-card-rows">{{ conteos['dim_vehiculo_clase'] }} filas</div>
+                <div class="dim-card-fields">descripcion</div>
+              </div>
+            </div>
+            <div class="bridge-col">
+              <div class="bridge-arrow">↓ 1:N</div>
+              <div class="bridge-card">
+                <div class="bridge-card-name">bridge_siniestro_actor</div>
+                <div class="bridge-card-rows">{{ conteos['bridge_siniestro_actor'] | int | format_miles }} filas</div>
+              </div>
+              <div class="dim-card bridge-dim">
+                <div class="dim-card-name">dim_condicion_actor</div>
+                <div class="dim-card-rows">{{ conteos['dim_condicion_actor'] }} filas</div>
+                <div class="dim-card-fields">descripcion</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DESCRIPCIÓN DE TABLAS -->
+      <div class="tables-section">
+        <div class="star-label">Descripción de tablas</div>
+        <div class="tables-grid">
+
+          <div class="table-desc-card fact-desc">
+            <div class="table-desc-type">Hechos</div>
+            <div class="table-desc-name">fact_siniestros</div>
+            <p>Tabla central del modelo. Cada fila representa un siniestro vial registrado en Bogotá. Contiene las métricas del evento (hora, cantidad de vehículos y actores) y las llaves foráneas que la conectan con todas las dimensiones.</p>
+            <div class="table-desc-stat">{{ conteos['fact_siniestros'] | int | format_miles }} registros — fuente: SINIESTROS (Open Data Bogotá)</div>
+          </div>
+
+          <div class="table-desc-card">
+            <div class="table-desc-type">Dimensión temporal</div>
+            <div class="table-desc-name">dim_fecha</div>
+            <p>Desglosa cada fecha en atributos jerárquicos: año, mes, día, trimestre, nombre del mes y día de la semana. Permite análisis temporales sin cálculos en la consulta.</p>
+            <div class="table-desc-stat">{{ conteos['dim_fecha'] | int | format_miles }} fechas únicas</div>
+          </div>
+
+          <div class="table-desc-card">
+            <div class="table-desc-type">Dimensión geográfica</div>
+            <div class="table-desc-name">dim_localidad</div>
+            <p>Las 20 localidades de Bogotá D.C., cada una con su código oficial y nombre. Compatible con capas SIG del Distrito para análisis geoespacial.</p>
+            <div class="table-desc-stat">{{ conteos['dim_localidad'] }} localidades</div>
+          </div>
+
+          <div class="table-desc-card">
+            <div class="table-desc-type">Dimensión de severidad</div>
+            <div class="table-desc-name">dim_gravedad</div>
+            <p>Tres niveles de gravedad ordenados: Con Muertos (1), Con Heridos (2) y Solo Daños (3). El campo <code>nivel</code> permite ordenar y filtrar por criticidad.</p>
+            <div class="table-desc-stat">{{ conteos['dim_gravedad'] }} niveles</div>
+          </div>
+
+          <div class="table-desc-card">
+            <div class="table-desc-type">Dimensión de tipo</div>
+            <div class="table-desc-name">dim_clase</div>
+            <p>Categoría del siniestro: Choque, Atropello, Caída de ocupante, Volcamiento, Incendio, entre otros. Derivada del campo CLASE de la fuente original.</p>
+            <div class="table-desc-stat">{{ conteos['dim_clase'] }} clases</div>
+          </div>
+
+          <div class="table-desc-card">
+            <div class="table-desc-type">Tabla puente M:N</div>
+            <div class="table-desc-name">bridge_siniestro_hipotesis</div>
+            <p>Resuelve la relación muchos-a-muchos entre siniestros e hipótesis de causa. Un mismo evento puede tener múltiples causas registradas.</p>
+            <div class="table-desc-stat">{{ conteos['bridge_siniestro_hipotesis'] | int | format_miles }} relaciones</div>
+          </div>
+
+          <div class="table-desc-card">
+            <div class="table-desc-type">Tabla puente M:N</div>
+            <div class="table-desc-name">bridge_siniestro_vehiculo</div>
+            <p>Registra cada vehículo involucrado en un siniestro con su tipo (automóvil, moto, bus…). Un siniestro puede involucrar múltiples vehículos.</p>
+            <div class="table-desc-stat">{{ conteos['bridge_siniestro_vehiculo'] | int | format_miles }} relaciones</div>
+          </div>
+
+          <div class="table-desc-card">
+            <div class="table-desc-type">Tabla puente M:N</div>
+            <div class="table-desc-name">bridge_siniestro_actor</div>
+            <p>Cada actor vial involucrado: conductor, motociclista, peatón, ciclista o pasajero. Incluye su estado (ileso, herido, muerto) y sexo.</p>
+            <div class="table-desc-stat">{{ conteos['bridge_siniestro_actor'] | int | format_miles }} relaciones</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- QUERIES DE EJEMPLO -->
+      <div class="queries-section">
+        <div class="star-label">Preguntas que responde el modelo</div>
+        <div class="queries-grid">
+
+          <div class="query-card">
+            <div class="query-q">¿Cuáles localidades tienen más siniestros con muertos?</div>
+            <pre class="query-sql">SELECT l.nombre, COUNT(*) AS total
+FROM fact_siniestros s
+JOIN dim_localidad l USING (localidad_id)
+JOIN dim_gravedad  g USING (gravedad_id)
+WHERE g.nivel = 1  -- Con Muertos
+GROUP BY l.nombre
+ORDER BY total DESC LIMIT 5;</pre>
+          </div>
+
+          <div class="query-card">
+            <div class="query-q">¿En qué franja horaria ocurren más siniestros?</div>
+            <pre class="query-sql">SELECT hora,
+       COUNT(*) AS total,
+       ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (), 1) AS pct
+FROM fact_siniestros
+WHERE hora IS NOT NULL
+GROUP BY hora
+ORDER BY total DESC LIMIT 5;</pre>
+          </div>
+
+          <div class="query-card">
+            <div class="query-q">¿Cuál es la hipótesis de causa más frecuente por año?</div>
+            <pre class="query-sql">SELECT f.anio, h.descripcion, COUNT(*) AS total
+FROM bridge_siniestro_hipotesis bh
+JOIN fact_siniestros s  USING (siniestro_id)
+JOIN dim_hipotesis   h  USING (hipotesis_id)
+JOIN dim_fecha       f  USING (fecha_id)
+GROUP BY f.anio, h.descripcion
+ORDER BY f.anio, total DESC;</pre>
+          </div>
+
+          <div class="query-card">
+            <div class="query-q">¿Qué tipo de actor vial tiene más muertes?</div>
+            <pre class="query-sql">SELECT ca.descripcion, COUNT(*) AS muertos
+FROM bridge_siniestro_actor ba
+JOIN dim_condicion_actor ca USING (condicion_id)
+WHERE ba.estado = 'MUERTO'
+GROUP BY ca.descripcion
+ORDER BY muertos DESC;</pre>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         SECCIÓN 2 — ANÁLISIS EN VIVO
+         ══════════════════════════════════════════════════════════════════════ -->
+    <section id="analisis-vivo">
+
+      <div class="modelo-header">
+        <div>
+          <div class="dash-page-tag">Consultas en vivo — Supabase / PostgreSQL</div>
+          <h2 class="dash-page-title">Análisis de Siniestros Viales</h2>
+        </div>
+        <div class="dash-page-meta">
+          <span class="dash-page-source">Modelo multidimensional en estrella</span>
+          <span class="dash-page-period">Bogotá D.C. · 2015 — 2020</span>
+        </div>
+      </div>
+
+      <!-- KPI CARDS -->
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-label">Total siniestros</div>
+          <div class="kpi-value" id="kpi-total">—</div>
+          <div class="kpi-sub">fact_siniestros</div>
+        </div>
+        <div class="kpi-card kpi-red">
+          <div class="kpi-label">Con muertos</div>
+          <div class="kpi-value" id="kpi-muertos">—</div>
+          <div class="kpi-sub" id="kpi-muertos-pct">% del total</div>
+        </div>
+        <div class="kpi-card kpi-amber">
+          <div class="kpi-label">Con heridos</div>
+          <div class="kpi-value" id="kpi-heridos">—</div>
+          <div class="kpi-sub" id="kpi-heridos-pct">% del total</div>
+        </div>
+        <div class="kpi-card kpi-green">
+          <div class="kpi-label">Solo daños</div>
+          <div class="kpi-value" id="kpi-danos">—</div>
+          <div class="kpi-sub" id="kpi-danos-pct">% del total</div>
+        </div>
+      </div>
+
+      <!-- FILA 1: Tendencia + Hora -->
+      <div class="analisis-grid">
+
+        <div class="chart-card analisis-span-2">
+          <div class="chart-card-header">
+            <span class="chart-card-title">Tendencia mensual de siniestros (2015–2020)</span>
+            <span class="chart-card-note">fact_siniestros ⋈ dim_fecha</span>
+          </div>
+          <div class="chart-wrap chart-wrap-tall">
+            <canvas id="chart-tendencia"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <span class="chart-card-title">Siniestros por franja horaria</span>
+            <span class="chart-card-note">fact_siniestros.hora</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-hora"></canvas>
+          </div>
+        </div>
+
+        <!-- FILA 2: Localidades -->
+        <div class="chart-card analisis-span-3">
+          <div class="chart-card-header">
+            <span class="chart-card-title">Top 10 localidades — desglose por gravedad</span>
+            <span class="chart-card-note">fact_siniestros ⋈ dim_localidad ⋈ dim_gravedad</span>
+          </div>
+          <div class="chart-wrap chart-wrap-tall">
+            <canvas id="chart-localidades"></canvas>
+          </div>
+        </div>
+
+        <!-- FILA 3: Clase + Hipótesis -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <span class="chart-card-title">Clase de siniestro</span>
+            <span class="chart-card-note">fact_siniestros ⋈ dim_clase</span>
+          </div>
+          <div class="chart-wrap chart-wrap-doughnut">
+            <canvas id="chart-clase"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card analisis-span-2">
+          <div class="chart-card-header">
+            <span class="chart-card-title">Principales hipótesis de causa (top 10)</span>
+            <span class="chart-card-note">bridge_siniestro_hipotesis ⋈ dim_hipotesis</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-hipotesis"></canvas>
+          </div>
+        </div>
+
+        <!-- FILA 4: Vehículo + Condición -->
+        <div class="chart-card analisis-span-2">
+          <div class="chart-card-header">
+            <span class="chart-card-title">Tipo de vehículo involucrado (top 8)</span>
+            <span class="chart-card-note">bridge_siniestro_vehiculo ⋈ dim_vehiculo_clase</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-vehiculo"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <span class="chart-card-title">Condición del actor vial</span>
+            <span class="chart-card-note">bridge_siniestro_actor ⋈ dim_condicion_actor</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-condicion"></canvas>
+          </div>
+        </div>
+
+      </div><!-- /.analisis-grid -->
+
+    </section>
+
+  </main>
+
+  <!-- DATA EMBEBIDA desde Flask / Supabase -->
+  <script>
+    const DATA_GRAVEDAD    = {{ gravedad    | tojson }};
+    const DATA_TENDENCIA   = {{ tendencia   | tojson }};
+    const DATA_LOCALIDADES = {{ localidades | tojson }};
+    const DATA_HORA        = {{ por_hora    | tojson }};
+    const DATA_CLASE       = {{ por_clase   | tojson }};
+    const DATA_HIPOTESIS   = {{ hipotesis   | tojson }};
+    const DATA_VEHICULOS   = {{ vehiculos   | tojson }};
+    const DATA_CONDICION   = {{ condicion   | tojson }};
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="{{ url_for('static', filename='js/analisis.js') }}"></script>
+</body>
+</html>
