@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -18,14 +18,14 @@
       <a class="topbar-link" href="/">Inicio</a>
       <a class="topbar-link" href="/dashboard">Dashboard</a>
       <a class="topbar-link active" href="/modelado">Modelado</a>
+      <a class="topbar-link" href="/mineria">Minería</a>
+      <a class="topbar-link" href="/spark">Spark</a>
     </nav>
   </header>
 
   <main class="modelado-main">
 
-    <!-- ══════════════════════════════════════════════════════════════
-         § 1  ESQUEMA EN ESTRELLA
-         ══════════════════════════════════════════════════════════════ -->
+    
     <section id="schema" class="modelado-section">
 
       <div class="modelado-section-header">
@@ -34,7 +34,7 @@
           <h1 class="dash-page-title">Modelo Multidimensional en Estrella</h1>
         </div>
         <div class="dash-page-meta">
-          <span class="dash-page-source">1 tabla de hechos · 7 dimensiones · 3 bridges</span>
+          <span class="dash-page-source">1 tabla de hechos · 7 dimensiones</span>
           <span class="dash-page-period">{{ conteos['fact_siniestros'] | int | format_miles }} registros cargados</span>
         </div>
       </div>
@@ -52,7 +52,9 @@
             directas sin encadenar múltiples JOINs intermedios, y porque facilita la integración con herramientas
             de BI. La fuente original era un CSV plano de
             <strong>{{ conteos['fact_siniestros'] | int | format_miles }} registros</strong>; el proceso ETL
-            lo transformó en <strong>11 tablas</strong> con relaciones explícitas almacenadas en Supabase.
+            lo transformó en <strong>8 tablas</strong> con relaciones directas almacenadas en Supabase.
+            Las dimensiones de tipo múltiple (hipótesis, vehículos, actores) tienen FK directo a la tabla
+            de hechos, eliminando la capa intermedia de tablas bridge.
           </p>
         </div>
         <div class="schema-intro-stats">
@@ -61,15 +63,15 @@
             <span class="intro-stat-label">siniestros</span>
           </div>
           <div class="intro-stat">
-            <span class="intro-stat-n">{{ conteos['bridge_siniestro_actor'] | int | format_miles }}</span>
+            <span class="intro-stat-n">{{ conteos['dim_actor'] | int | format_miles }}</span>
             <span class="intro-stat-label">actores viales</span>
           </div>
           <div class="intro-stat">
-            <span class="intro-stat-n">{{ conteos['bridge_siniestro_vehiculo'] | int | format_miles }}</span>
+            <span class="intro-stat-n">{{ conteos['dim_vehiculo'] | int | format_miles }}</span>
             <span class="intro-stat-label">vehículos</span>
           </div>
           <div class="intro-stat">
-            <span class="intro-stat-n">{{ conteos['bridge_siniestro_hipotesis'] | int | format_miles }}</span>
+            <span class="intro-stat-n">{{ conteos['dim_hipotesis'] | int | format_miles }}</span>
             <span class="intro-stat-label">hipótesis de causa</span>
           </div>
         </div>
@@ -97,14 +99,14 @@
           <div class="concept-example">7 dimensiones · {{ conteos['dim_fecha'] | int | format_miles }} fechas · 20 localidades</div>
         </div>
         <div class="concept-card concept-bridge">
-          <div class="concept-icon">⇌</div>
-          <div class="concept-title">Tablas Bridge</div>
+          <div class="concept-icon">⋈</div>
+          <div class="concept-title">Dimensiones 1:N</div>
           <div class="concept-body">
-            Resuelven relaciones <strong>muchos a muchos</strong>. Un siniestro puede tener múltiples hipótesis,
-            varios vehículos y varios actores. Una FK simple no alcanza; la tabla bridge registra cada par
-            (siniestro ↔ entidad) como una fila independiente.
+            Las dimensiones de tipo múltiple (hipótesis, vehículos, actores) tienen
+            <strong>FK directo a fact_siniestros</strong>. Un siniestro puede tener varias filas
+            en cada una. Esto elimina la capa bridge y reduce los JOINs de 3 a 2 en cualquier consulta.
           </div>
-          <div class="concept-example">3 bridges · {{ (conteos['bridge_siniestro_actor'] | int + conteos['bridge_siniestro_vehiculo'] | int + conteos['bridge_siniestro_hipotesis'] | int) | format_miles }} relaciones totales</div>
+          <div class="concept-example">dim_hipotesis · dim_vehiculo · dim_actor — FK → siniestro_id</div>
         </div>
       </div>
 
@@ -151,43 +153,33 @@
               <div class="dim-card-rows">{{ conteos['dim_clase'] }} filas</div>
               <div class="dim-card-fields">descripcion</div>
             </div>
-            <div class="dim-card">
-              <div class="dim-card-name">dim_hipotesis</div>
-              <div class="dim-card-rows">{{ conteos['dim_hipotesis'] }} filas</div>
-              <div class="dim-card-fields">descripcion</div>
-            </div>
           </div>
         </div>
+
+        
         <div class="star-bottom">
           <div class="bridge-col">
             <div class="bridge-arrow">↓ 1:N</div>
-            <div class="bridge-card">
-              <div class="bridge-card-name">bridge_siniestro_hipotesis</div>
-              <div class="bridge-card-rows">{{ conteos['bridge_siniestro_hipotesis'] | int | format_miles }} filas</div>
+            <div class="dim-card" style="min-width:200px;text-align:center">
+              <div class="dim-card-name">dim_hipotesis</div>
+              <div class="dim-card-rows">{{ conteos['dim_hipotesis'] | int | format_miles }} filas</div>
+              <div class="dim-card-fields">siniestro_id · descripcion</div>
             </div>
           </div>
           <div class="bridge-col">
             <div class="bridge-arrow">↓ 1:N</div>
-            <div class="bridge-card">
-              <div class="bridge-card-name">bridge_siniestro_vehiculo</div>
-              <div class="bridge-card-rows">{{ conteos['bridge_siniestro_vehiculo'] | int | format_miles }} filas</div>
-            </div>
-            <div class="dim-card bridge-dim">
-              <div class="dim-card-name">dim_vehiculo_clase</div>
-              <div class="dim-card-rows">{{ conteos['dim_vehiculo_clase'] }} filas</div>
-              <div class="dim-card-fields">descripcion</div>
+            <div class="dim-card" style="min-width:200px;text-align:center">
+              <div class="dim-card-name">dim_vehiculo</div>
+              <div class="dim-card-rows">{{ conteos['dim_vehiculo'] | int | format_miles }} filas</div>
+              <div class="dim-card-fields">siniestro_id · clase</div>
             </div>
           </div>
           <div class="bridge-col">
             <div class="bridge-arrow">↓ 1:N</div>
-            <div class="bridge-card">
-              <div class="bridge-card-name">bridge_siniestro_actor</div>
-              <div class="bridge-card-rows">{{ conteos['bridge_siniestro_actor'] | int | format_miles }} filas</div>
-            </div>
-            <div class="dim-card bridge-dim">
-              <div class="dim-card-name">dim_condicion_actor</div>
-              <div class="dim-card-rows">{{ conteos['dim_condicion_actor'] }} filas</div>
-              <div class="dim-card-fields">descripcion</div>
+            <div class="dim-card" style="min-width:200px;text-align:center">
+              <div class="dim-card-name">dim_actor</div>
+              <div class="dim-card-rows">{{ conteos['dim_actor'] | int | format_miles }} filas</div>
+              <div class="dim-card-fields">siniestro_id · condicion · estado · sexo</div>
             </div>
           </div>
         </div>
@@ -198,7 +190,7 @@
         <div class="table-desc-card fact-desc">
           <div class="table-desc-type">Hechos</div>
           <div class="table-desc-name">fact_siniestros</div>
-          <p>Núcleo del modelo. Cada fila representa <strong>un siniestro vial único</strong>. Almacena únicamente IDs de dimensión (nunca texto descriptivo) y las métricas cuantitativas: hora, número de vehículos y número de actores. Las relaciones M:N se resuelven en las tres tablas bridge.</p>
+          <p>Núcleo del modelo. Cada fila representa <strong>un siniestro vial único</strong>. Almacena únicamente IDs de dimensión y las métricas cuantitativas: hora, número de vehículos y número de actores. Las dimensiones 1:N (hipótesis, vehículos, actores) apuntan directamente a esta tabla mediante <code>siniestro_id</code>.</p>
           <div class="table-desc-stat">{{ conteos['fact_siniestros'] | int | format_miles }} registros — fuente: SINIESTROS, Open Data Bogotá</div>
         </div>
         <div class="table-desc-card">
@@ -220,16 +212,22 @@
           <div class="table-desc-stat">{{ conteos['dim_gravedad'] }} niveles — ordenados por criticidad</div>
         </div>
         <div class="table-desc-card">
-          <div class="table-desc-type">Bridge M:N — causas</div>
-          <div class="table-desc-name">bridge_siniestro_hipotesis</div>
-          <p>Un siniestro puede tener <strong>varias hipótesis de causa simultáneas</strong>. Esta tabla registra cada par <em>(siniestro ↔ hipótesis)</em>. Una FK simple solo permitiría una causa por evento.</p>
-          <div class="table-desc-stat">{{ conteos['bridge_siniestro_hipotesis'] | int | format_miles }} relaciones · {{ conteos['dim_hipotesis'] }} hipótesis</div>
+          <div class="table-desc-type">Dimensión 1:N — causas</div>
+          <div class="table-desc-name">dim_hipotesis</div>
+          <p>Cada fila asocia un siniestro con una hipótesis de causa. Un evento puede tener varias filas (exceso de velocidad, semáforo en rojo, etc.). El JOIN es directo: <code>JOIN dim_hipotesis h ON s.siniestro_id = h.siniestro_id</code>, sin tabla intermedia.</p>
+          <div class="table-desc-stat">{{ conteos['dim_hipotesis'] | int | format_miles }} filas</div>
         </div>
         <div class="table-desc-card">
-          <div class="table-desc-type">Bridge M:N — actores</div>
-          <div class="table-desc-name">bridge_siniestro_actor</div>
-          <p>La tabla más grande del modelo. Cada actor vial involucrado tiene su fila con <strong>condición</strong> (tipo de actor), <strong>estado</strong> (ileso/herido/muerto) y <strong>sexo</strong>. Única fuente para calcular mortalidad real por usuario vial.</p>
-          <div class="table-desc-stat">{{ conteos['bridge_siniestro_actor'] | int | format_miles }} actores · {{ conteos['dim_condicion_actor'] }} condiciones</div>
+          <div class="table-desc-type">Dimensión 1:N — vehículos</div>
+          <div class="table-desc-name">dim_vehiculo</div>
+          <p>Registra cada vehículo involucrado en un siniestro con su tipo (automóvil, moto, bus…). Un choque entre dos motos produce dos filas apuntando al mismo <code>siniestro_id</code>. Consulta directa sin capa bridge.</p>
+          <div class="table-desc-stat">{{ conteos['dim_vehiculo'] | int | format_miles }} filas</div>
+        </div>
+        <div class="table-desc-card">
+          <div class="table-desc-type">Dimensión 1:N — actores</div>
+          <div class="table-desc-name">dim_actor</div>
+          <p>La dimensión más grande del modelo. Cada actor vial tiene su fila con <strong>condición</strong> (conductor, peatón, ciclista…), <strong>estado</strong> (ileso/herido/muerto) y <strong>sexo</strong>. Única fuente para calcular mortalidad por tipo de usuario.</p>
+          <div class="table-desc-stat">{{ conteos['dim_actor'] | int | format_miles }} filas</div>
         </div>
       </div>
 
@@ -241,8 +239,8 @@
             <div class="decision-a">El copo de nieve normaliza aún más las dimensiones. Para este dataset son pequeñas y estables; añadir capas extra solo aumentaría la complejidad de las consultas sin beneficio analítico real.</div>
           </div>
           <div class="decision-item">
-            <div class="decision-q">¿Por qué bridges en lugar de columnas JSON?</div>
-            <div class="decision-a">Guardar listas en JSON impide filtrar y agrupar con SQL estándar. Las tablas bridge mantienen cada relación como una fila indexable para <code>GROUP BY</code> y <code>JOIN</code> eficientes.</div>
+            <div class="decision-q">¿Por qué dimensiones 1:N en lugar de bridges?</div>
+            <div class="decision-a">Las tablas bridge requerían dos JOINs por consulta (fact → bridge → dim). Al fusionar bridge + dimensión en una sola tabla con <code>siniestro_id FK</code>, cada consulta necesita un solo JOIN directo, el código es más legible y el plan de ejecución más simple.</div>
           </div>
           <div class="decision-item">
             <div class="decision-q">¿Por qué <code>nivel</code> en dim_gravedad?</div>
@@ -257,9 +255,7 @@
 
     </section>
 
-    <!-- ══════════════════════════════════════════════════════════════
-         § 2  ANÁLISIS — KPIs + GRÁFICOS + TABLA UNIFICADOS
-         ══════════════════════════════════════════════════════════════ -->
+    
     <section id="analisis" class="modelado-section">
 
       <div class="modelado-section-header">
@@ -273,7 +269,7 @@
         </div>
       </div>
 
-      <!-- KPIs -->
+      
       <div class="kpi-row">
         <div class="kpi-card">
           <div class="kpi-label">Total siniestros</div>
@@ -297,10 +293,10 @@
         </div>
       </div>
 
-      <!-- Gráficos -->
+      
       <div class="analisis-grid">
 
-        <!-- Tendencia mensual — full width -->
+        
         <div class="chart-card analisis-span-3">
           <div class="chart-card-header">
             <span class="chart-card-title">Tendencia mensual de siniestros (2015–2020)</span>
@@ -311,7 +307,7 @@
           </div>
         </div>
 
-        <!-- Mortalidad por hora dual axis -->
+        
         <div class="chart-card analisis-span-2">
           <div class="chart-card-header">
             <span class="chart-card-title">Mortalidad por franja horaria</span>
@@ -322,7 +318,7 @@
           </div>
         </div>
 
-        <!-- Evolución anual por gravedad -->
+        
         <div class="chart-card">
           <div class="chart-card-header">
             <span class="chart-card-title">Evolución anual por gravedad</span>
@@ -333,7 +329,7 @@
           </div>
         </div>
 
-        <!-- Causas fatales -->
+        
         <div class="chart-card analisis-span-2">
           <div class="chart-card-header">
             <span class="chart-card-title">Causas en accidentes con muertos — top 10</span>
@@ -344,7 +340,7 @@
           </div>
         </div>
 
-        <!-- Estado actores -->
+        
         <div class="chart-card">
           <div class="chart-card-header">
             <span class="chart-card-title">Estado por actor vial</span>
@@ -355,7 +351,7 @@
           </div>
         </div>
 
-        <!-- Hipótesis generales — full width -->
+        
         <div class="chart-card analisis-span-3">
           <div class="chart-card-header">
             <span class="chart-card-title">Hipótesis de causa más frecuentes — top 10 (todos los siniestros)</span>
@@ -368,7 +364,7 @@
 
       </div>
 
-      <!-- TABLA CON FILTROS -->
+      
       <div class="table-block">
 
         <div class="table-block-header">
@@ -472,7 +468,7 @@
           </div>
         </div>
 
-      </div><!-- /.table-block -->
+      </div>
 
     </section>
 

@@ -1,0 +1,12 @@
+{
+  "algoritmo": "Random Forest (MLlib)",
+  "num_arboles": 100,
+  "max_depth": 8,
+  "train_size": 156769,
+  "test_size": 39383,
+  "accuracy": 0.8218,
+  "f1": 0.8012,
+  "weighted_precision": 0.8219,
+  "weighted_recall": 0.8218,
+  "tiempo_entrenamiento_s": 101.2
+}

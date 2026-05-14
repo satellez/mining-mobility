@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -23,9 +23,7 @@
 
   <main class="modelo-main">
 
-    <!-- ══════════════════════════════════════════════════════════════════════
-         SECCIÓN 1 — MODELO MULTIDIMENSIONAL
-         ══════════════════════════════════════════════════════════════════════ -->
+    
     <section id="modelo">
 
       <div class="modelo-header">
@@ -39,7 +37,7 @@
         </div>
       </div>
 
-      <!-- DIAGRAMA ESTRELLA -->
+      
       <div class="star-section">
         <div class="star-label">Diagrama del esquema</div>
         <div class="star-diagram">
@@ -134,7 +132,7 @@
         </div>
       </div>
 
-      <!-- DESCRIPCIÓN DE TABLAS -->
+      
       <div class="tables-section">
         <div class="star-label">Descripción de tablas</div>
         <div class="tables-grid">
@@ -198,7 +196,7 @@
         </div>
       </div>
 
-      <!-- QUERIES DE EJEMPLO -->
+      
       <div class="queries-section">
         <div class="star-label">Preguntas que responde el modelo</div>
         <div class="queries-grid">
@@ -251,9 +249,7 @@ ORDER BY muertos DESC;</pre>
 
     </section>
 
-    <!-- ══════════════════════════════════════════════════════════════════════
-         SECCIÓN 2 — ANÁLISIS EN VIVO
-         ══════════════════════════════════════════════════════════════════════ -->
+    
     <section id="analisis-vivo">
 
       <div class="modelo-header">
@@ -267,7 +263,7 @@ ORDER BY muertos DESC;</pre>
         </div>
       </div>
 
-      <!-- KPI CARDS -->
+      
       <div class="kpi-row">
         <div class="kpi-card">
           <div class="kpi-label">Total siniestros</div>
@@ -291,7 +287,7 @@ ORDER BY muertos DESC;</pre>
         </div>
       </div>
 
-      <!-- FILA 1: Tendencia + Hora -->
+      
       <div class="analisis-grid">
 
         <div class="chart-card analisis-span-2">
@@ -314,7 +310,7 @@ ORDER BY muertos DESC;</pre>
           </div>
         </div>
 
-        <!-- FILA 2: Localidades -->
+        
         <div class="chart-card analisis-span-3">
           <div class="chart-card-header">
             <span class="chart-card-title">Top 10 localidades — desglose por gravedad</span>
@@ -325,7 +321,7 @@ ORDER BY muertos DESC;</pre>
           </div>
         </div>
 
-        <!-- FILA 3: Clase + Hipótesis -->
+        
         <div class="chart-card">
           <div class="chart-card-header">
             <span class="chart-card-title">Clase de siniestro</span>
@@ -346,7 +342,7 @@ ORDER BY muertos DESC;</pre>
           </div>
         </div>
 
-        <!-- FILA 4: Vehículo + Condición -->
+        
         <div class="chart-card analisis-span-2">
           <div class="chart-card-header">
             <span class="chart-card-title">Tipo de vehículo involucrado (top 8)</span>
@@ -367,13 +363,13 @@ ORDER BY muertos DESC;</pre>
           </div>
         </div>
 
-      </div><!-- /.analisis-grid -->
+      </div>
 
     </section>
 
   </main>
 
-  <!-- DATA EMBEBIDA desde Flask / Supabase -->
+  
   <script>
     const DATA_GRAVEDAD    = {{ gravedad    | tojson }};
     const DATA_TENDENCIA   = {{ tendencia   | tojson }};

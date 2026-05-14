@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minería — Siniestros Viales Bogotá</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mineria.css') }}">
+</head>
+<body class="dash-body">
+
+  <header class="topbar">
+    <div class="topbar-logo">MDatos / Bogotá 2026</div>
+    <nav class="topbar-nav">
+      <a class="topbar-link" href="/">Inicio</a>
+      <a class="topbar-link" href="/dashboard">Dashboard</a>
+      <a class="topbar-link" href="/modelado">Modelado</a>
+      <a class="topbar-link active" href="/mineria">Minería</a>
+      <a class="topbar-link" href="/spark">Spark</a>
+    </nav>
+  </header>
+
+  <main class="mineria-main">
+
+    
+    <section class="mineria-section">
+      <div class="mineria-section-header">
+        <div>
+          <span class="mineria-eyebrow">Proceso</span>
+          <h1 class="mineria-title">Minería de Datos — Orange</h1>
+        </div>
+        <span class="mineria-badge">Orange 3.40.0 · Python 3.12</span>
+      </div>
+
+      <div class="mineria-intro">
+        <p>
+          El proceso de minería se ejecutó sobre el dataset
+          <code>siniestros_detalle_completo.json</code> usando
+          <strong>Orange Data Mining</strong>. El JSON contiene una estructura anidada
+          (hipótesis, vehículos y actores como arrays por siniestro) que fue aplanada
+          mediante un script Python antes de alimentar los algoritmos.
+        </p>
+        <p>
+          Se aplicaron dos técnicas complementarias: una supervisada para predecir la
+          gravedad de cada siniestro, y una no supervisada para descubrir patrones
+          latentes de accidentalidad sin usar etiquetas previas.
+        </p>
+      </div>
+    </section>
+
+    
+    <section class="mineria-section">
+      <div class="mineria-section-header">
+        <span class="mineria-eyebrow">Algoritmos aplicados</span>
+      </div>
+
+      <div class="algo-grid">
+
+        <div class="algo-card algo-supervised">
+          <div class="algo-card-header">
+            <span class="algo-tag">Supervisado</span>
+            <h2 class="algo-name">Random Forest</h2>
+          </div>
+          <div class="algo-body">
+            <p><strong>Objetivo:</strong> clasificar la gravedad del siniestro
+              (<em>Con Muertos</em>, <em>Con Heridos</em>, <em>Solo Daños</em>)
+              a partir de variables del evento.</p>
+            <div class="algo-features">
+              <span class="feat-label">Variables de entrada</span>
+              <ul>
+                <li><code>hora</code> — hora del día (0–23)</li>
+                <li><code>clase_siniestro</code> — tipo de accidente</li>
+                <li><code>localidad</code> — código de localidad</li>
+                <li><code>hipotesis</code> — causa principal registrada</li>
+                <li><code>tipo_vehiculo</code> — primer vehículo involucrado</li>
+                <li><code>num_vehiculos</code> y <code>num_actores</code></li>
+              </ul>
+            </div>
+            <div class="algo-params">
+              <span class="param-item"><span class="param-k">Árboles</span><span class="param-v">100</span></span>
+              <span class="param-item"><span class="param-k">Evaluación</span><span class="param-v">5-fold CV</span></span>
+              <span class="param-item"><span class="param-k">Métrica</span><span class="param-v">AUC / Matriz de confusión / ROC</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="algo-card algo-unsupervised">
+          <div class="algo-card-header">
+            <span class="algo-tag">No supervisado</span>
+            <h2 class="algo-name">k-Means Clustering</h2>
+          </div>
+          <div class="algo-body">
+            <p><strong>Objetivo:</strong> agrupar siniestros en clusters según
+              sus características sin usar la etiqueta de gravedad, para descubrir
+              perfiles de accidentalidad recurrentes.</p>
+            <div class="algo-features">
+              <span class="feat-label">Variables usadas</span>
+              <ul>
+                <li>Las mismas 7 variables de entrada que Random Forest</li>
+                <li>La variable <code>gravedad</code> <em>no</em> interviene en el agrupamiento</li>
+              </ul>
+            </div>
+            <div class="algo-params">
+              <span class="param-item"><span class="param-k">k inicial</span><span class="param-v">4</span></span>
+              <span class="param-item"><span class="param-k">Optimización k</span><span class="param-v">2–8 (Silhouette)</span></span>
+              <span class="param-item"><span class="param-k">Muestra</span><span class="param-v">3 000 registros (aleatorio fijo)</span></span>
+              <span class="param-item"><span class="param-k">Evaluación</span><span class="param-v">Silhouette Plot / Box Plot</span></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    
+    <section class="mineria-section">
+      <div class="mineria-section-header">
+        <span class="mineria-eyebrow">Flujo del workflow</span>
+      </div>
+      <div class="flujo-diagram">
+        <div class="flujo-node flujo-source">Python Script<br><small>carga + aplana JSON</small></div>
+        <div class="flujo-arrow">→</div>
+        <div class="flujo-branch">
+          <div class="flujo-row">
+            <div class="flujo-node flujo-data">Tabla de datos</div>
+          </div>
+          <div class="flujo-row">
+            <div class="flujo-node flujo-learn">Random Forest</div>
+            <div class="flujo-arrow">→</div>
+            <div class="flujo-node flujo-eval">Test &amp; Score</div>
+            <div class="flujo-arrow">→</div>
+            <div class="flujo-node flujo-viz">Confusion Matrix</div>
+            <div class="flujo-arrow">→</div>
+            <div class="flujo-node flujo-viz">ROC Analysis</div>
+          </div>
+          <div class="flujo-row">
+            <div class="flujo-node flujo-sample">Data Sampler<br><small>3 000</small></div>
+            <div class="flujo-arrow">→</div>
+            <div class="flujo-node flujo-learn">k-Means</div>
+            <div class="flujo-arrow">→</div>
+            <div class="flujo-node flujo-viz">Silhouette Plot</div>
+            <div class="flujo-arrow">→</div>
+            <div class="flujo-node flujo-viz">Box Plot</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="mineria-section">
+      <div class="mineria-section-header">
+        <span class="mineria-eyebrow">Análisis de resultados</span>
+      </div>
+
+      <div class="analisis-grid">
+
+        <div class="analisis-card analisis-positivo">
+          <div class="analisis-card-header">
+            <span class="analisis-tag">Random Forest — Clasificación</span>
+            <span class="analisis-status analisis-status-ok">AUC 0.897</span>
+          </div>
+          <p>El modelo clasifica correctamente el 83.6% de los 196.152 siniestros. El AUC de 0.897 indica buena capacidad discriminatoria general. El balanceo de clases triplicó el recall de Con Muertos: de 174 aciertos (5.8%) a 506 aciertos (16.9%), a costa de bajar la accuracy global ~3 puntos.</p>
+          <div class="analisis-metricas">
+            <div class="analisis-metrica"><span class="am-k">AUC</span><span class="am-v">0.897</span></div>
+            <div class="analisis-metrica"><span class="am-k">CA</span><span class="am-v">0.836</span></div>
+            <div class="analisis-metrica"><span class="am-k">F1</span><span class="am-v">0.839</span></div>
+            <div class="analisis-metrica"><span class="am-k">MCC</span><span class="am-v">0.647</span></div>
+          </div>
+        </div>
+
+        <div class="analisis-card analisis-alerta">
+          <div class="analisis-card-header">
+            <span class="analisis-tag">Punto crítico — Con Muertos</span>
+            <span class="analisis-status analisis-status-warn">Recall 16.9%</span>
+          </div>
+          <p>Con Muertos representa solo el 1.5% del dataset (2.995 de 196.152 registros). Aunque el balanceo mejoró su recall de 5.8% a 16.9%, el modelo sigue clasificando incorrectamente el 83% de los accidentes fatales. Esto refleja que las variables disponibles (hora, clase, localidad, hipótesis, vehículo) no capturan completamente los factores que determinan la fatalidad de un siniestro.</p>
+        </div>
+
+        <div class="analisis-card analisis-neutro">
+          <div class="analisis-card-header">
+            <span class="analisis-tag">k-Means — Clustering</span>
+            <span class="analisis-status analisis-status-neutral">k=2 óptimo</span>
+          </div>
+          <p>El algoritmo identifica dos grandes grupos de siniestros con Silhouette = 0.226. Los scores negativos para k≥5 confirman que los datos no soportan más de 2 clusters con estas variables. El Box Plot revela que Solo Daños tiene el Silhouette más alto (0.590) y más estable, mientras que Con Muertos tiene el menor (0.511) con mayor dispersión, indicando que los accidentes fatales son los más heterogéneos y difíciles de agrupar.</p>
+          <div class="analisis-metricas">
+            <div class="analisis-metrica"><span class="am-k">k óptimo</span><span class="am-v">2</span></div>
+            <div class="analisis-metrica"><span class="am-k">Silhouette</span><span class="am-v">0.226</span></div>
+            <div class="analisis-metrica"><span class="am-k">Muestra</span><span class="am-v">3.000</span></div>
+            <div class="analisis-metrica"><span class="am-k">ANOVA p</span><span class="am-v">≈ 0</span></div>
+          </div>
+        </div>
+
+        <div class="analisis-card analisis-neutro">
+          <div class="analisis-card-header">
+            <span class="analisis-tag">Conclusión general</span>
+            <span class="analisis-status analisis-status-neutral">196.152 siniestros</span>
+          </div>
+          <p>Con 7 variables derivadas del JSON original, el modelo predice la gravedad con precisión razonable para Con Heridos y Solo Daños, pero limitada para Con Muertos por su escasez en el dataset. Para mejorar: agregar variables temporales (día de semana, mes, año), características de la vía o condiciones climáticas, y evaluar técnicas de oversampling como SMOTE sobre la clase minoritaria.</p>
+        </div>
+
+      </div>
+    </section>
+
+    
+    {% set pasos = [
+      ("1.png",  "Flujo completo del workflow",
+       "Canvas final con 10 nodos en dos ramas: clasificación (Python Script → Random Forest → Test &amp; Score → Matriz de confusión + ROC Analysis) y clustering (Python Script → Data Sampler → Preprocess → k-Means → Box Plot). El ⚠️ en Random Forest es informativo: indica que el balanceo de clases está activo, lo cual puede reducir la accuracy global pero mejora la detección de accidentes fatales."),
+      ("2.png",  "Carga y aplanado del JSON",
+       "El Python Script carga siniestros_detalle_completo.json y aplana su estructura anidada. La consola confirma: 196.152 registros totales, tabla resultante de 196.152 filas con 7 atributos, y tres clases objetivo detectadas: Con Heridos, Con Muertos y Solo Daños."),
+      ("3.png",  "Tabla de datos aplanada",
+       "Data Table con las 196.152 instancias y 0% de datos faltantes. Las 7 variables de entrada son: hora, clase_siniestro, localidad, hipotesis, tipo_vehiculo, num_vehiculos y num_actores. La columna gravedad es la variable objetivo (target) con 3 valores posibles, coloreada por clase."),
+      ("4.png",  "Configuración del Random Forest — con balanceo",
+       "100 árboles, Replicable training activado (semilla fija para reproducibilidad) y Balance class distribution activado. Esta última opción corrige el desbalance severo: Con Muertos es solo el 1.5% del dataset (2.995 de 196.152 registros). El aviso inferior confirma el trade-off: el balanceo puede reducir la accuracy global pero es necesario para detectar accidentes fatales."),
+      ("5.png",  "Resultados — 10-fold CV con balanceo de clases",
+       "Validación cruzada estratificada con 10 pliegues. Con balanceo: AUC = 0.897, CA = 0.836, F1 = 0.839, Precision = 0.842, Recall = 0.836, MCC = 0.647. Comparado con la versión sin balanceo (AUC = 0.903, CA = 0.866), la accuracy baja ~3 puntos pero el recall de Con Muertos se triplica, que es el objetivo principal."),
+      ("6.png",  "Matriz de confusión — efecto del balanceo",
+       "Con balanceo activado, Con Muertos mejora de 174 aciertos (5.8% recall) a 506 aciertos (16.9% recall), casi triplicando la detección de accidentes fatales. El costo es un leve aumento de falsos positivos: 3.225 Con Heridos predichos como Con Muertos y 1.436 Solo Daños clasificados como Con Muertos. Con Heridos y Solo Daños mantienen buen rendimiento con 47.719 y 115.781 aciertos respectivamente."),
+      ("7.png",  "ROC Analysis — clase Con Muertos",
+       "Curva ROC para la clase Con Muertos (la más crítica, 2% del dataset). La curva se aleja de la diagonal y alcanza ~80% de sensibilidad con ~25% de tasa de falsos positivos. Comparado con Con Heridos (imagen anterior), la discriminación es menor —esperado por ser clase minoritaria— pero el modelo sigue siendo considerablemente mejor que el azar. El umbral 0.5 se marca con la línea de rendimiento negra."),
+      ("8.png",  "k-Means — Silhouette Scores tras preprocesamiento",
+       "Con Continuize + Normalize [0,1] aplicados, los Silhouette Scores son: k=2: 0.226 (óptimo), k=3: 0.003, k=4: 0.115, k=5: -0.005, k=6: -0.026, k=7: -0.066, k=8: 0.005. k=2 gana claramente. Scores negativos en k=5,6,7 indican que más clusters generan agrupamientos sin sentido con estos datos."),
+      ("9.png",  "Configuración del Preprocess",
+       "Pipeline de preprocesamiento en dos pasos: (1) Continuize Discrete Variables con One feature per value — one-hot encoding de las variables categóricas; (2) Normalize Features con Normalize to interval [0, 1] — escala todas las columnas al mismo rango. La barra inferior confirma que los 3.000 registros del Data Sampler pasan correctamente al k-Means."),
+      ("10.png", "Box Plot — Silhouette por clase de gravedad",
+       "Distribución del coeficiente de silueta individual agrupado por clase de gravedad (N=3.000). Solo Daños tiene el mayor Silhouette (0.590 ± 0.022) con muy poca varianza, indicando que estos registros están bien asignados a sus clusters. Con Heridos obtiene 0.532 ± 0.061. Con Muertos registra el menor score (0.511 ± 0.059) con mayor dispersión, reflejando que los accidentes fatales son los más difíciles de agrupar. ANOVA: F=741.8, p≈0 — las diferencias entre clases son estadísticamente significativas."),
+      ("11.png", "Data Sampler — 3.000 registros estratificados",
+       "Fixed sample size de 3.000 instancias sobre los 196.152 registros (≈1.5%). Replicable (deterministic) sampling activado para reproducibilidad y Stratify sample activado para mantener la proporción de las tres clases. La barra inferior confirma: entrada 196k → salida 3.000 registros listos para el Preprocess.")
+    ] %}
+
+    {% for fname, titulo, desc in pasos %}
+      {% set cargada = fname in imagenes %}
+      <section class="mineria-section paso-section">
+        <div class="mineria-section-header">
+          <div class="paso-header-left">
+            <span class="paso-num">{{ loop.index }}</span>
+            <div>
+              <span class="mineria-eyebrow">Paso {{ loop.index }} / {{ pasos | length }}</span>
+              <h2 class="paso-titulo">{{ titulo }}</h2>
+            </div>
+          </div>
+          {% if cargada %}
+            <span class="paso-badge-ok">Disponible</span>
+          {% endif %}
+        </div>
+
+        <div class="paso-body">
+          <p class="paso-desc">{{ desc }}</p>
+          {% if cargada %}
+            {% set img_url = url_for('static', filename='mining/' + fname) %}
+            <div class="paso-img-wrap"
+                 data-bs-toggle="modal"
+                 data-bs-target="#visorModal"
+                 data-src="{{ img_url }}"
+                 data-titulo="{{ titulo }}">
+              <img src="{{ img_url }}" alt="{{ titulo }}" class="paso-img" loading="lazy">
+              <div class="paso-img-overlay">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/>
+                </svg>
+                <span>Ver detalle</span>
+              </div>
+            </div>
+          {% else %}
+            <div class="paso-placeholder">
+              <div class="paso-placeholder-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 3h18a.75.75 0 01.75.75v16.5A.75.75 0 0121 21H3a.75.75 0 01-.75-.75V3.75A.75.75 0 013 3z"/>
+                </svg>
+                <span>Imagen no disponible</span>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </section>
+    {% endfor %}
+
+  </main>
+
+  
+  <div class="modal fade" id="visorModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content visor-content">
+        <div class="modal-header visor-header">
+          <span class="visor-titulo" id="visorTitulo"></span>
+          <button type="button" class="visor-close" data-bs-dismiss="modal" aria-label="Cerrar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body visor-body p-0">
+          <div class="visor-img-wrap">
+            <img id="visorImg" src="" alt="" class="visor-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const modal = document.getElementById('visorModal');
+      modal.addEventListener('show.bs.modal', function (e) {
+        const trigger = e.relatedTarget;
+        document.getElementById('visorTitulo').textContent = trigger.dataset.titulo || '';
+        document.getElementById('visorImg').src = trigger.dataset.src || '';
+      });
+      modal.addEventListener('hidden.bs.modal', function () {
+        document.getElementById('visorImg').src = '';
+      });
+    })();
+  </script>
+
+</body>
+</html>

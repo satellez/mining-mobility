@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -10,20 +10,22 @@
 </head>
 <body class="dash-body">
 
-  <!-- TOPBAR -->
+  
   <header class="topbar">
     <div class="topbar-logo">MDatos / Bogotá 2026</div>
     <nav class="topbar-nav">
       <a class="topbar-link" href="/">Inicio</a>
       <a class="topbar-link active" href="/dashboard">Dashboard</a>
       <a class="topbar-link" href="/modelado">Modelado</a>
+      <a class="topbar-link" href="/mineria">Minería</a>
+      <a class="topbar-link" href="/spark">Spark</a>
     </nav>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL -->
+  
   <main class="dash-main">
 
-    <!-- ENCABEZADO -->
+    
     <div class="dash-page-header">
       <div>
         <div class="dash-page-tag">Siniestros Viales Consolidados — Bogotá D.C.</div>
@@ -35,7 +37,7 @@
       </div>
     </div>
 
-    <!-- KPI CARDS -->
+    
     <div class="kpi-row">
       <div class="kpi-card">
         <div class="kpi-label">Total siniestros</div>
@@ -59,7 +61,7 @@
       </div>
     </div>
 
-    <!-- FILA 1: Tendencia mensual + Por hora -->
+    
     <div class="chart-card chart-span-2">
       <div class="chart-card-header">
         <span class="chart-card-title">Tendencia mensual de siniestros (2015–2020)</span>
@@ -79,7 +81,7 @@
       </div>
     </div>
 
-    <!-- FILA 2: Localidades (full width) -->
+    
     <div class="chart-card chart-span-3">
       <div class="chart-card-header">
         <span class="chart-card-title">Top 10 localidades por siniestros — desglose por gravedad</span>
@@ -90,7 +92,7 @@
       </div>
     </div>
 
-    <!-- FILA 3: Por clase + Hipótesis -->
+    
     <div class="chart-card">
       <div class="chart-card-header">
         <span class="chart-card-title">Clase de siniestro</span>
@@ -111,7 +113,7 @@
       </div>
     </div>
 
-    <!-- FILA 4: Vehículo + Condición actor -->
+    
     <div class="chart-card chart-span-2">
       <div class="chart-card-header">
         <span class="chart-card-title">Tipo de vehículo involucrado</span>
@@ -134,7 +136,7 @@
 
   </main>
 
-  <!-- DATA EMBEBIDA desde Flask -->
+  
   <script>
     const DATA_AGG       = {{ agg | tojson }};
     const DATA_LOC       = {{ localidades | tojson }};
