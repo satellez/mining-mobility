@@ -76,9 +76,14 @@ def legado_mining():
 
 @app.route('/modelado')
 def modelado():
-    def fetch():
-        return db_query_batch(MODELADO_QUERIES)
-    data = _cached('modelado', fetch)
+    if not DB_URL:
+        return '<h2>Error de configuración: DB_URL no está definida en las variables de entorno.</h2>', 500
+    try:
+        def fetch():
+            return db_query_batch(MODELADO_QUERIES)
+        data = _cached('modelado', fetch)
+    except Exception as e:
+        return f'<h2>Error de conexión a la base de datos:</h2><pre>{e}</pre>', 500
     return render_template('modelado.html',
         conteos          = {r['tabla']: r['filas'] for r in data['_conteos']},
         gravedad         = data['gravedad'],
@@ -114,5 +119,6 @@ def mineria():
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    port  = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_DEBUG', '1') == '1'
+    app.run(host='0.0.0.0', port=port, debug=debug)
