@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const revealEls = document.querySelectorAll('.reveal');
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
           entry.target.classList.add('visible');
@@ -16,35 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealEls.forEach(el => observer.observe(el));
 
-  // Nav active link on scroll
+  // Scroll sin hash — botones del hero y links del sidebar
+  function scrollToSection(targetId) {
+    const target = document.getElementById(targetId);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  document.querySelectorAll('[data-scroll]').forEach(btn => {
+    btn.addEventListener('click', () => scrollToSection(btn.dataset.scroll));
+  });
+
+  document.querySelectorAll('.side-nav-link[data-target]').forEach(link => {
+    link.addEventListener('click', () => scrollToSection(link.dataset.target));
+  });
+
+  // Sidebar: marcar sección activa al hacer scroll
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
+  const sideItems = document.querySelectorAll('.side-nav-item');
 
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.style.color = link.getAttribute('href') === '#' + entry.target.id
-            ? 'var(--text)'
-            : '';
+        sideItems.forEach(item => {
+          const link = item.querySelector('.side-nav-link');
+          item.classList.toggle('active', link && link.dataset.target === entry.target.id);
         });
       }
     });
   }, { threshold: 0.4 });
 
   sections.forEach(s => sectionObserver.observe(s));
-
-  // Animar barras y corredores al hacer scroll
-  const animTargets = document.querySelectorAll('.bar-chart, .zones-list');
-  const animObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animated');
-        animObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.25 });
-
-  animTargets.forEach(el => animObserver.observe(el));
 
 });

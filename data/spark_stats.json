@@ -1,0 +1,314 @@
+{
+  "total_registros": 196152,
+  "tiempo_carga_s": 2.47,
+  "tiempo_total_s": 118.4,
+  "por_gravedad": [
+    {
+      "gravedad": "Solo Daños",
+      "total": 127919,
+      "pct": 65.2
+    },
+    {
+      "gravedad": "Con Heridos",
+      "total": 65238,
+      "pct": 33.3
+    },
+    {
+      "gravedad": "Con Muertos",
+      "total": 2995,
+      "pct": 1.5
+    }
+  ],
+  "top_localidades": [
+    {
+      "localidad": 8,
+      "total": 22282,
+      "con_muertos": 417
+    },
+    {
+      "localidad": 10,
+      "total": 19777,
+      "con_muertos": 274
+    },
+    {
+      "localidad": 1,
+      "total": 19621,
+      "con_muertos": 159
+    },
+    {
+      "localidad": 11,
+      "total": 17759,
+      "con_muertos": 234
+    },
+    {
+      "localidad": 9,
+      "total": 15598,
+      "con_muertos": 211
+    },
+    {
+      "localidad": 16,
+      "total": 13876,
+      "con_muertos": 219
+    },
+    {
+      "localidad": 2,
+      "total": 11502,
+      "con_muertos": 86
+    },
+    {
+      "localidad": 12,
+      "total": 10467,
+      "con_muertos": 104
+    },
+    {
+      "localidad": 13,
+      "total": 10317,
+      "con_muertos": 96
+    },
+    {
+      "localidad": 7,
+      "total": 9684,
+      "con_muertos": 189
+    }
+  ],
+  "por_hora": [
+    {
+      "hora": 0,
+      "total": 2363
+    },
+    {
+      "hora": 1,
+      "total": 1747
+    },
+    {
+      "hora": 2,
+      "total": 1559
+    },
+    {
+      "hora": 3,
+      "total": 1895
+    },
+    {
+      "hora": 4,
+      "total": 2329
+    },
+    {
+      "hora": 5,
+      "total": 5564
+    },
+    {
+      "hora": 6,
+      "total": 9548
+    },
+    {
+      "hora": 7,
+      "total": 11605
+    },
+    {
+      "hora": 8,
+      "total": 10996
+    },
+    {
+      "hora": 9,
+      "total": 10086
+    },
+    {
+      "hora": 10,
+      "total": 10676
+    },
+    {
+      "hora": 11,
+      "total": 11437
+    },
+    {
+      "hora": 12,
+      "total": 11788
+    },
+    {
+      "hora": 13,
+      "total": 12227
+    },
+    {
+      "hora": 14,
+      "total": 12987
+    },
+    {
+      "hora": 15,
+      "total": 11378
+    },
+    {
+      "hora": 16,
+      "total": 11140
+    },
+    {
+      "hora": 17,
+      "total": 11046
+    },
+    {
+      "hora": 18,
+      "total": 9891
+    },
+    {
+      "hora": 19,
+      "total": 10448
+    },
+    {
+      "hora": 20,
+      "total": 9493
+    },
+    {
+      "hora": 21,
+      "total": 7017
+    },
+    {
+      "hora": 22,
+      "total": 5315
+    },
+    {
+      "hora": 23,
+      "total": 3617
+    }
+  ],
+  "por_clase": [
+    {
+      "clase": "Choque",
+      "total": 167915
+    },
+    {
+      "clase": "Atropello",
+      "total": 20101
+    },
+    {
+      "clase": "Caida de ocupante",
+      "total": 4694
+    },
+    {
+      "clase": "Volcamiento",
+      "total": 2615
+    },
+    {
+      "clase": "Otro",
+      "total": 788
+    },
+    {
+      "clase": "Incendio",
+      "total": 25
+    },
+    {
+      "clase": "Autolesion",
+      "total": 14
+    }
+  ],
+  "hipotesis_top": [
+    {
+      "hipotesis": "No mantener distancia de seguridad (conductor en general)",
+      "total": 48148
+    },
+    {
+      "hipotesis": "Adelantar cerrando (conductor en general)",
+      "total": 29686
+    },
+    {
+      "hipotesis": "Otra (conductor en general)",
+      "total": 27202
+    },
+    {
+      "hipotesis": "Desobedecer señales (conductor en general)",
+      "total": 21200
+    },
+    {
+      "hipotesis": "Reverso imprudente (conductor en general)",
+      "total": 5947
+    },
+    {
+      "hipotesis": "Otras (peatón)",
+      "total": 5008
+    },
+    {
+      "hipotesis": "Semáforo en rojo (conductor en general)",
+      "total": 4189
+    },
+    {
+      "hipotesis": "No respetar prelación (conductor en general)",
+      "total": 3941
+    }
+  ],
+  "vehiculo_top": [
+    {
+      "tipo_vehiculo": "Automovil",
+      "total": 81026
+    },
+    {
+      "tipo_vehiculo": "Camioneta",
+      "total": 27310
+    },
+    {
+      "tipo_vehiculo": "Motocicleta",
+      "total": 26286
+    },
+    {
+      "tipo_vehiculo": "Bus",
+      "total": 24311
+    },
+    {
+      "tipo_vehiculo": "Camion, Furgon",
+      "total": 11261
+    },
+    {
+      "tipo_vehiculo": "Campero",
+      "total": 8448
+    },
+    {
+      "tipo_vehiculo": "Microbus",
+      "total": 5924
+    },
+    {
+      "tipo_vehiculo": "Buseta",
+      "total": 3227
+    }
+  ],
+  "tendencia_anual": [
+    {
+      "anio": 2015,
+      "total": 31341,
+      "con_muertos": 529,
+      "con_heridos": 10738,
+      "solo_danos": 20074
+    },
+    {
+      "anio": 2016,
+      "total": 34988,
+      "con_muertos": 567,
+      "con_heridos": 10578,
+      "solo_danos": 23843
+    },
+    {
+      "anio": 2017,
+      "total": 35171,
+      "con_muertos": 538,
+      "con_heridos": 10381,
+      "solo_danos": 24252
+    },
+    {
+      "anio": 2018,
+      "total": 36953,
+      "con_muertos": 500,
+      "con_heridos": 12609,
+      "solo_danos": 23844
+    },
+    {
+      "anio": 2019,
+      "total": 34990,
+      "con_muertos": 492,
+      "con_heridos": 12371,
+      "solo_danos": 22127
+    },
+    {
+      "anio": 2020,
+      "total": 22709,
+      "con_muertos": 369,
+      "con_heridos": 8561,
+      "solo_danos": 13779
+    }
+  ]
+}

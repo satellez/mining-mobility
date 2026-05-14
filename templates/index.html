@@ -6,56 +6,143 @@
   <title>Movilidad Bogotá — Minería de Datos</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo">MDatos / Bogotá 2026</div>
-    <ul class="nav-links">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#problematica">Problemática</a></li>
-      <li><a href="#objetivos">Objetivos</a></li>
-      <li><a href="#metodologia">Metodología</a></li>
+  <header class="topbar">
+    <div class="topbar-logo">MDatos / Bogotá 2026</div>
+    <nav class="topbar-nav">
+      <a class="topbar-link active" href="/">Inicio</a>
+      <a class="topbar-link" href="/dashboard">Dashboard</a>
+      <a class="topbar-link" href="/modelado">Modelado</a>
+      <a class="topbar-link" href="/mineria">Minería</a>
+      <a class="topbar-link" href="/spark">Spark</a>
+    </nav>
+  </header>
+
+  <nav class="side-nav" id="side-nav">
+    <div class="side-nav-logo">§</div>
+    <ul class="side-nav-items">
+
+      <li class="side-nav-item">
+        <a class="side-nav-link" data-target="inicio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 12L12 3l9 9M5 10v9a1 1 0 001 1h4v-4h4v4h4a1 1 0 001-1v-9"/>
+          </svg>
+          <span class="side-nav-tooltip">Inicio</span>
+        </a>
+      </li>
+
+      <li class="side-nav-item">
+        <a class="side-nav-link" data-target="problematica">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 17v-5m0-4h.01"/>
+          </svg>
+          <span class="side-nav-tooltip">Contexto</span>
+        </a>
+      </li>
+
+      <li class="side-nav-item">
+        <a class="side-nav-link" data-target="objetivos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/>
+            <path d="M12 3v3m0 12v3M3 12h3m12 0h3"/>
+          </svg>
+          <span class="side-nav-tooltip">Objetivos</span>
+        </a>
+      </li>
+
+      <li class="side-nav-item">
+        <a class="side-nav-link" data-target="metodologia">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 3v4m0 10v4M3 12h4m10 0h4m-7.07-7.07 2.83 2.83M7.24 16.76l2.83-2.83M16.76 16.76l-2.83-2.83M7.24 7.24l2.83 2.83"/>
+            <circle cx="12" cy="12" r="2"/>
+          </svg>
+          <span class="side-nav-tooltip">Metodología</span>
+        </a>
+      </li>
+
+      <li class="side-nav-item">
+        <a class="side-nav-link" data-target="vistas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+          <span class="side-nav-tooltip">Vistas</span>
+        </a>
+      </li>
+
+      <li class="side-nav-item">
+        <a class="side-nav-link" data-target="dataset">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <ellipse cx="12" cy="7" rx="8" ry="3"/>
+            <path d="M4 7v5c0 1.66 3.58 3 8 3s8-1.34 8-3V7M4 12v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/>
+          </svg>
+          <span class="side-nav-tooltip">Dataset</span>
+        </a>
+      </li>
+
+      <li class="side-nav-item">
+        <a class="side-nav-link" data-target="tecnologias">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+          <span class="side-nav-tooltip">Stack</span>
+        </a>
+      </li>
+
+      <li class="side-nav-item">
+        <a class="side-nav-link" data-target="modelos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
+            <path d="M12 7v4m0 0-5 7m5-7 5 7"/>
+          </svg>
+          <span class="side-nav-tooltip">Modelos</span>
+        </a>
+      </li>
+
     </ul>
+    <div class="side-nav-footer">2026</div>
   </nav>
 
-  <!-- HERO -->
+
   <section id="inicio">
     <div class="hero">
       <div class="hero-bg-text">BOGOTÁ</div>
 
       <div class="hero-content">
-        <div class="hero-tag">Proyecto de Minería de Datos</div>
+        <div class="hero-tag">Proyecto de Minería de Datos — Unicundinamarca</div>
         <h1 class="hero-title">
           Inteligencia de Datos<br>
-          para la <span>Movilidad</span><br>
+          sobre la <span>Accidentalidad</span><br>
           en Bogotá
         </h1>
         <p class="hero-description">
-          Bienvenido a nuestra plataforma de análisis. Este proyecto aplica técnicas avanzadas
-          de minería de datos para decodificar, entender y predecir los patrones de movilidad
-          en Bogotá. Al transformar grandes volúmenes de datos crudos en información visual y
-          estructurada, buscamos ofrecer una perspectiva clara sobre cómo se mueve la ciudad.
+          Plataforma de análisis que aplica minería de datos, modelado relacional y
+          procesamiento distribuido con Apache Spark sobre los siniestros viales
+          de Bogotá (2015–2020). Cuatro vistas especializadas transforman
+          196 mil registros en conocimiento accionable.
         </p>
         <div class="hero-cta">
-          <a href="#problematica" class="btn-primary">Explorar el proyecto</a>
-          <a href="#objetivos" class="btn-secondary">Ver objetivos</a>
+          <button class="btn-primary" data-scroll="vistas">Explorar las vistas</button>
+          <button class="btn-secondary" data-scroll="dataset">Ver el dataset</button>
         </div>
       </div>
 
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-number">+<span>8M</span></div>
-          <div class="stat-label">Habitantes analizados</div>
+          <div class="stat-number">+<span>196k</span></div>
+          <div class="stat-label">Siniestros analizados</div>
         </div>
         <div class="stat-item">
           <div class="stat-number"><span>4</span></div>
-          <div class="stat-label">Técnicas de minería</div>
+          <div class="stat-label">Vistas analíticas</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number"><span>1</span></div>
-          <div class="stat-label">Dashboard interactivo</div>
+          <div class="stat-number"><span>82</span>%</div>
+          <div class="stat-label">Precisión modelo ML</div>
         </div>
       </div>
 
@@ -63,56 +150,57 @@
     </div>
   </section>
 
-  <!-- PROBLEMÁTICA -->
+
   <section id="problematica">
     <div class="section-inner">
       <div class="section-label">02 — Contexto</div>
-      <h2 class="section-title reveal">El Desafío del<br>Tráfico Bogotano</h2>
+      <h2 class="section-title reveal">Siniestros Viales<br>en Bogotá D.C.</h2>
 
       <div class="problem-grid">
         <div>
           <p class="problem-text reveal" data-delay="100">
-            Bogotá es históricamente reconocida como una de las ciudades con mayor congestión
-            vehicular en el mundo. El crecimiento demográfico, la topografía de la ciudad, los
-            frentes de obra simultáneos y la saturación del transporte público (TransMilenio y
-            SITP) generan tiempos de desplazamiento excesivos.
+            Entre 2015 y 2020 la Secretaría Distrital de Movilidad registró más de 196 mil
+            siniestros viales en Bogotá. Estos eventos —choques, atropellos, volcamientos—
+            afectaron a conductores, motociclistas, peatones y pasajeros en las 20 localidades
+            del Distrito Capital.
           </p>
           <blockquote class="problem-highlight reveal" data-delay="200">
-            La principal barrera actual no es la falta de datos, sino la ausencia de herramientas
-            centralizadas que analicen esta información históricamente.
+            Los datos existen pero no se articulaban: 5 tablas relacionales, miles de registros
+            de actores viales, vehículos e hipótesis de causa dispersas en hojas de cálculo sin
+            análisis integrado.
           </blockquote>
           <p class="problem-text reveal" data-delay="300">
-            Esta realidad no solo representa una pérdida millonaria en términos de productividad
-            económica, sino que afecta drásticamente la calidad de vida de los ciudadanos y
-            aumenta la huella de carbono de la ciudad.
+            Este proyecto construye la infraestructura analítica que faltaba: un esquema
+            relacional en PostgreSQL, pipelines de minería con Orange y Spark, y un dashboard
+            interactivo que centraliza todos los hallazgos.
           </p>
         </div>
 
         <div class="problem-cards">
           <div class="problem-card reveal" data-delay="150">
             <div class="problem-card-icon">01</div>
-            <h4>Congestión histórica</h4>
-            <p>Bogotá figura consistentemente entre las ciudades con mayor tiempo perdido en
-            tráfico a nivel mundial, según índices de movilidad urbana.</p>
+            <h4>196 mil siniestros</h4>
+            <p>Dataset oficial de la Secretaría de Movilidad: 6 años de registros (2015–2020)
+            con gravedad, clase, hipótesis de causa y actores viales involucrados.</p>
           </div>
           <div class="problem-card reveal" data-delay="250">
             <div class="problem-card-icon">02</div>
-            <h4>Impacto económico</h4>
-            <p>Los tiempos de desplazamiento excesivos representan pérdidas significativas
-            de productividad para empresas y trabajadores de la capital.</p>
+            <h4>5 tablas relacionales</h4>
+            <p>SINIESTROS, ACTOR_VIAL, VEHICULOS, HIPOTESIS y DICCIONARIO articuladas
+            por CODIGO_ACCIDENTE como llave primaria central.</p>
           </div>
           <div class="problem-card reveal" data-delay="350">
             <div class="problem-card-icon">03</div>
-            <h4>Datos sin centralizar</h4>
-            <p>Existen múltiples fuentes de información vial (GPS, APIs, estadísticas
-            oficiales) que no se analizan de forma integrada ni predictiva.</p>
+            <h4>Impacto COVID-19</h4>
+            <p>La caída abrupta de siniestros en abril 2020 durante el confinamiento
+            es visible en la tendencia mensual y valida la calidad del dataset.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OBJETIVOS -->
+
   <section id="objetivos">
     <div class="section-inner">
       <div class="section-label">03 — Metas</div>
@@ -122,158 +210,454 @@
         <div class="general-obj reveal">
           <div class="obj-tag">Objetivo General</div>
           <p>
-            Analizar los patrones de movilidad y tráfico en Bogotá mediante algoritmos de
-            minería de datos, con el fin de extraer conocimiento útil que permita optimizar
-            los tiempos de desplazamiento y apoyar la planificación urbana.
+            Analizar los patrones de accidentalidad vial en Bogotá mediante técnicas de
+            minería de datos —clustering, clasificación y procesamiento distribuido—
+            para extraer conocimiento útil que apoye la prevención de siniestros y la
+            planificación de la movilidad urbana.
           </p>
         </div>
 
         <div class="specific-list">
           <div class="specific-item reveal" data-delay="100">
             <div class="specific-item-num">01</div>
-            <h4>Identificar Patrones</h4>
-            <p>Detectar las zonas de mayor criticidad y los horarios pico con mayor
-            incidencia de accidentes o embotellamientos.</p>
+            <h4>Modelado Relacional</h4>
+            <p>Construir un esquema estrella en PostgreSQL/Supabase con las 5 tablas
+            del dataset y exponer 10 consultas analíticas precalculadas.</p>
           </div>
           <div class="specific-item reveal" data-delay="200">
             <div class="specific-item-num">02</div>
-            <h4>Modelado Predictivo</h4>
-            <p>Desarrollar modelos que permitan anticipar el comportamiento del tráfico
-            basándose en datos históricos, clima y días de la semana.</p>
+            <h4>Minería con Orange</h4>
+            <p>Aplicar K-Means y Random Forest sobre una muestra de 3.000 registros
+            en Orange Data Mining, documentando el flujo completo de 11 pasos.</p>
           </div>
           <div class="specific-item reveal" data-delay="300">
             <div class="specific-item-num">03</div>
-            <h4>Transporte Público</h4>
-            <p>Analizar la eficiencia y los tiempos de espera en las principales troncales
-            del sistema de transporte masivo de la ciudad.</p>
+            <h4>Procesamiento con Spark</h4>
+            <p>Escalar el análisis al dataset completo (196k registros) con Apache
+            Spark y MLlib: Random Forest que alcanza 82% de precisión.</p>
           </div>
           <div class="specific-item reveal" data-delay="400">
             <div class="specific-item-num">04</div>
             <h4>Visualización Interactiva</h4>
-            <p>Proveer a los usuarios de un dashboard dinámico y accesible para interpretar
-            los hallazgos de manera intuitiva.</p>
+            <p>Dashboard con 8 gráficas en tiempo real (Chart.js) que expone tendencias,
+            franjas horarias críticas y distribución geográfica por localidad.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- METODOLOGÍA E IMPACTO -->
+
   <section id="metodologia">
     <div class="section-inner">
       <div class="section-label">04 — Enfoque</div>
-      <h2 class="section-title reveal">Cómo lo Hacemos<br>y Por Qué Importa</h2>
+      <h2 class="section-title reveal">Cómo Funciona<br>la Plataforma</h2>
 
       <div class="method-grid">
         <div class="method-item reveal" data-delay="100">
-          <div class="method-tag">Entrada de datos</div>
-          <h4>Fuentes de Datos</h4>
-          <p>Nos alimentamos de conjuntos de datos públicos (Open Data Bogotá), registros
-          de GPS, APIs de tráfico y estadísticas de accidentalidad de la Secretaría de
-          Movilidad de Bogotá.</p>
+          <div class="method-tag">Fuente de datos</div>
+          <h4>Open Data Bogotá</h4>
+          <p>Dataset público de siniestros viales 2015–2020 de la Secretaría Distrital
+          de Movilidad. Cargado en PostgreSQL (Supabase) bajo un esquema relacional de
+          5 tablas con 10 campos en la entidad central.</p>
         </div>
 
         <div class="method-item reveal" data-delay="200">
-          <div class="method-tag">Procesamiento</div>
-          <h4>Técnicas de Minería</h4>
-          <p>Aplicamos clustering para identificar zonas críticas de tráfico y análisis
-          de series de tiempo para la predicción de la demanda vehicular en tiempo real.</p>
+          <div class="method-tag">Análisis SQL</div>
+          <h4>Modelado y Consultas</h4>
+          <p>Esquema estrella en PostgreSQL con vistas analíticas, índices optimizados
+          y 10 consultas que calculan tendencias, distribución por hora, localidad,
+          gravedad, actores viales y causas fatales.</p>
         </div>
 
         <div class="method-item reveal" data-delay="300">
-          <div class="method-tag">Propósito</div>
-          <h4>Impacto Social</h4>
-          <p>El proyecto busca empoderar al ciudadano común para que planifique mejor
-          sus rutas, mientras ofrece un insumo técnico invaluable para las autoridades
-          locales en la toma de decisiones sobre infraestructura.</p>
+          <div class="method-tag">Minería visual</div>
+          <h4>Orange Data Mining</h4>
+          <p>Flujo visual de 11 pasos: preprocesamiento, selección de atributos,
+          clustering K-Means (Silhouette), árbol de decisión y Random Forest sobre
+          una muestra de 3.000 registros con validación cruzada.</p>
         </div>
 
         <div class="method-item reveal" data-delay="400">
-          <div class="method-tag">Visión</div>
-          <h4>Escalabilidad</h4>
-          <p>Diseñado bajo una arquitectura web moderna, el sistema está preparado para
-          integrar nuevas variables como el impacto de la primera línea del Metro de
-          Bogotá o nuevas ciclovías.</p>
+          <div class="method-tag">Procesamiento distribuido</div>
+          <h4>Apache Spark + MLlib</h4>
+          <p>Pipeline PySpark sobre el dataset completo (196k registros): StringIndexer,
+          OneHotEncoder, VectorAssembler y Random Forest con 100 árboles, profundidad 8
+          y 82% de precisión sobre el conjunto de prueba.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VISTA PREVIA -->
-  <section id="preview">
+
+  <section id="vistas">
     <div class="section-inner">
-      <div class="section-label">05 — Dashboard</div>
-      <h2 class="section-title reveal">Vista Previa<br>del Análisis</h2>
+      <div class="section-label">05 — Módulos</div>
+      <h2 class="section-title reveal">Las Cuatro Vistas<br>de la Plataforma</h2>
       <p class="preview-subtitle reveal">
-        Representación conceptual del panel en desarrollo. Las visualizaciones mostrarán
-        en tiempo real los patrones de movilidad identificados por los algoritmos de minería.
+        Cada vista aborda el mismo dataset desde un ángulo distinto: desde la exploración
+        estadística hasta el procesamiento distribuido a escala completa.
       </p>
 
-      <div class="dashboard-frame reveal" data-delay="200">
+      <div class="views-grid">
 
-        <!-- Barra de título -->
+        <div class="view-card reveal" data-delay="100">
+          <div class="view-num">01</div>
+          <div class="view-badge view-badge-dash">Chart.js / SQL</div>
+          <h3 class="view-name">Dashboard</h3>
+          <p class="view-desc">
+            Visualización estadística interactiva del dataset completo. Ocho gráficas
+            generadas desde datos precalculados en PostgreSQL muestran la tendencia
+            mensual, distribución por franja horaria, top de localidades, clase de
+            siniestro, hipótesis de causa, tipo de vehículo y condición del actor vial.
+          </p>
+          <div class="view-meta">
+            <div class="view-meta-item"><strong>8</strong> Gráficas</div>
+            <div class="view-meta-item"><strong>4</strong> KPIs</div>
+            <div class="view-meta-item"><strong>2015–2020</strong></div>
+          </div>
+          <a href="/dashboard" class="view-link">Abrir dashboard &rarr;</a>
+        </div>
+
+        <div class="view-card reveal" data-delay="200">
+          <div class="view-num">02</div>
+          <div class="view-badge view-badge-model">PostgreSQL / Supabase</div>
+          <h3 class="view-name">Modelado</h3>
+          <p class="view-desc">
+            Documentación del modelo de datos relacional y resultados de las consultas
+            analíticas en tiempo real contra la base de datos en Supabase. Incluye
+            diagrama del esquema estrella, conteo de registros por tabla, evolución
+            de gravedad, perfil de actores viales y ranking de localidades críticas.
+          </p>
+          <div class="view-meta">
+            <div class="view-meta-item"><strong>5</strong> Tablas</div>
+            <div class="view-meta-item"><strong>10</strong> Consultas SQL</div>
+            <div class="view-meta-item"><strong>Live</strong> Supabase</div>
+          </div>
+          <a href="/modelado" class="view-link">Abrir modelado &rarr;</a>
+        </div>
+
+        <div class="view-card reveal" data-delay="300">
+          <div class="view-num">03</div>
+          <div class="view-badge view-badge-mining">Orange Data Mining</div>
+          <h3 class="view-name">Minería</h3>
+          <p class="view-desc">
+            Documentación paso a paso del flujo de minería en Orange Data Mining:
+            carga de datos, preprocesamiento, selección de atributos, clustering
+            K-Means con análisis Silhouette, árbol de decisión, Random Forest
+            y evaluación del modelo sobre 3.000 registros de muestra.
+          </p>
+          <div class="view-meta">
+            <div class="view-meta-item"><strong>11</strong> Pasos</div>
+            <div class="view-meta-item"><strong>3k</strong> Registros</div>
+            <div class="view-meta-item"><strong>K-Means + RF</strong></div>
+          </div>
+          <a href="/mineria" class="view-link">Abrir minería &rarr;</a>
+        </div>
+
+        <div class="view-card reveal" data-delay="400">
+          <div class="view-num">04</div>
+          <div class="view-badge view-badge-spark">Apache Spark / MLlib</div>
+          <h3 class="view-name">Spark</h3>
+          <p class="view-desc">
+            Análisis de gran escala con PySpark sobre los 196 mil registros completos.
+            Pipeline MLlib con StringIndexer, OneHotEncoder, VectorAssembler y Random
+            Forest (100 árboles, profundidad 8). Comparativa directa con el enfoque de
+            Orange Data Mining en muestra reducida.
+          </p>
+          <div class="view-meta">
+            <div class="view-meta-item"><strong>196k</strong> Registros</div>
+            <div class="view-meta-item"><strong>82%</strong> Precisión</div>
+            <div class="view-meta-item"><strong>100</strong> Árboles</div>
+          </div>
+          <a href="/spark" class="view-link">Abrir spark &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="dataset">
+    <div class="section-inner">
+      <div class="section-label">06 — Dataset</div>
+      <h2 class="section-title reveal">Siniestros Viales<br>Consolidados — Bogotá</h2>
+      <p class="preview-subtitle reveal">
+        Fuente oficial:
+        <a class="ds-source-link" href="https://datosabiertos.bogota.gov.co/dataset/siniestros-viales-consolidados-bogota-d-c" target="_blank" rel="noopener">
+          datosabiertos.bogota.gov.co
+        </a>
+        — Secretaría Distrital de Movilidad. Esquema relacional de 5 tablas con
+        <strong>SINIESTROS</strong> como entidad central.
+      </p>
+
+      <div class="dataset-grid reveal" data-delay="100">
+        <div class="dataset-card">
+          <div class="dataset-card-label">Entidad principal</div>
+          <div class="dataset-card-value">SINIESTROS</div>
+          <p class="dataset-card-desc">Tabla central con 10 campos. Llave primaria CODIGO_ACCIDENTE que articula todas las relaciones.</p>
+        </div>
+        <div class="dataset-card">
+          <div class="dataset-card-label">Estructura</div>
+          <div class="dataset-card-value">5 Tablas</div>
+          <p class="dataset-card-desc">Esquema relacional 1:N — ACTOR_VIAL, VEHICULOS e HIPOTESIS se unen a SINIESTROS por CODIGO_ACCIDENTE.</p>
+        </div>
+        <div class="dataset-card">
+          <div class="dataset-card-label">Cobertura geográfica</div>
+          <div class="dataset-card-value">20 localidades</div>
+          <p class="dataset-card-desc">CODIGO_LOCALIDAD (1–20) permite cruzar los datos con capas SIG del Distrito Capital.</p>
+        </div>
+        <div class="dataset-card">
+          <div class="dataset-card-label">Niveles de gravedad</div>
+          <div class="dataset-card-value">3 niveles</div>
+          <p class="dataset-card-desc">Muertos (1), Heridos (2) y Solo daños (3), codificados como FK decodificable por DICCIONARIO.</p>
+        </div>
+      </div>
+
+      <div class="schema-wrapper reveal" data-delay="150">
+        <div class="schema-layout">
+
+          <div class="schema-table schema-main-table">
+            <div class="schema-table-head">
+              <span class="schema-table-name">SINIESTROS</span>
+              <span class="schema-central-badge">Tabla central</span>
+            </div>
+            <div class="schema-fields">
+              <div class="schema-field-row">
+                <span class="schema-field-name s-pk">CODIGO_ACCIDENTE</span>
+                <span class="schema-field-type">Integer (PK)</span>
+              </div>
+              <div class="schema-field-row">
+                <span class="schema-field-name">FECHA</span>
+                <span class="schema-field-type">Date DD/MM/YYYY</span>
+              </div>
+              <div class="schema-field-row">
+                <span class="schema-field-name">HORA</span>
+                <span class="schema-field-type">Time HH:MM:SS</span>
+              </div>
+              <div class="schema-field-row">
+                <span class="schema-field-name s-fk">GRAVEDAD</span>
+                <span class="schema-field-type">FK → Muertos / Heridos / Daños</span>
+              </div>
+              <div class="schema-field-row">
+                <span class="schema-field-name s-fk">CLASE</span>
+                <span class="schema-field-type">FK → Choque / Atropello / ...</span>
+              </div>
+              <div class="schema-field-row">
+                <span class="schema-field-name s-fk">CHOQUE</span>
+                <span class="schema-field-type">FK → Vehículo / Tren / ...</span>
+              </div>
+              <div class="schema-field-row">
+                <span class="schema-field-name s-fk">OBJETO_FIJO</span>
+                <span class="schema-field-type">FK → Poste / Árbol / ...</span>
+              </div>
+              <div class="schema-field-row">
+                <span class="schema-field-name">DIRECCION</span>
+                <span class="schema-field-type">String</span>
+              </div>
+              <div class="schema-field-row">
+                <span class="schema-field-name">CODIGO_LOCALIDAD</span>
+                <span class="schema-field-type">Integer (1–20)</span>
+              </div>
+              <div class="schema-field-row">
+                <span class="schema-field-name">DISENO_LUGAR</span>
+                <span class="schema-field-type">Integer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="schema-secondary-grid">
+
+            <div class="schema-table">
+              <div class="schema-table-head">
+                <span class="schema-table-name">ACTOR_VIAL</span>
+                <span class="schema-rel-badge">1 : N</span>
+              </div>
+              <div class="schema-fields">
+                <div class="schema-field-row">
+                  <span class="schema-field-name s-fk">CODIGO_ACCIDENTE</span>
+                  <span class="schema-field-type">FK</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name">CONDICION</span>
+                  <span class="schema-field-type">Conductor / Peatón / ...</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name">ESTADO</span>
+                  <span class="schema-field-type">Ileso / Herido / Muerto</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name">EDAD</span>
+                  <span class="schema-field-type">Integer (nullable)</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name">SEXO</span>
+                  <span class="schema-field-type">Masc. / Fem.</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name s-fk">VEHICULO</span>
+                  <span class="schema-field-type">FK → VEHICULOS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="schema-table">
+              <div class="schema-table-head">
+                <span class="schema-table-name">VEHICULOS</span>
+                <span class="schema-rel-badge">1 : N</span>
+              </div>
+              <div class="schema-fields">
+                <div class="schema-field-row">
+                  <span class="schema-field-name s-fk">CODIGO_ACCIDENTE</span>
+                  <span class="schema-field-type">FK</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name s-pk">VEHICULO</span>
+                  <span class="schema-field-type">String (PK)</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name s-fk">CLASE</span>
+                  <span class="schema-field-type">FK → Automóvil / Moto / ...</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name s-fk">SERVICIO</span>
+                  <span class="schema-field-type">FK → Particular / Público / ...</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name s-fk">MODALIDAD</span>
+                  <span class="schema-field-type">FK</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name">ENFUGA</span>
+                  <span class="schema-field-type">S / N</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="schema-table">
+              <div class="schema-table-head">
+                <span class="schema-table-name">HIPOTESIS</span>
+                <span class="schema-rel-badge">1 : N</span>
+              </div>
+              <div class="schema-fields">
+                <div class="schema-field-row">
+                  <span class="schema-field-name s-fk">CODIGO_ACCIDENTE</span>
+                  <span class="schema-field-type">FK</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name s-fk">CODIGO_CAUSA</span>
+                  <span class="schema-field-type">FK → Embriaguez / Exc. vel. / ...</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="schema-table schema-meta-table">
+              <div class="schema-table-head">
+                <span class="schema-table-name">DICCIONARIO</span>
+                <span class="schema-meta-badge">Metadatos</span>
+              </div>
+              <div class="schema-fields">
+                <div class="schema-field-row">
+                  <span class="schema-field-name">HOJA</span>
+                  <span class="schema-field-type">Nombre de tabla</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name">CAMPO</span>
+                  <span class="schema-field-type">Nombre de columna</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name">CODIGO</span>
+                  <span class="schema-field-type">Integer</span>
+                </div>
+                <div class="schema-field-row">
+                  <span class="schema-field-name">DESCRIPCION</span>
+                  <span class="schema-field-type">Texto decodificado</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="dataset-tags reveal" data-delay="250">
+        <span class="ds-tag ds-pk">CODIGO_ACCIDENTE</span>
+        <span class="ds-tag">FECHA</span>
+        <span class="ds-tag">HORA</span>
+        <span class="ds-tag ds-fk">GRAVEDAD</span>
+        <span class="ds-tag ds-fk">CLASE</span>
+        <span class="ds-tag ds-fk">CHOQUE</span>
+        <span class="ds-tag ds-fk">OBJETO_FIJO</span>
+        <span class="ds-tag">DIRECCION</span>
+        <span class="ds-tag">CODIGO_LOCALIDAD</span>
+        <span class="ds-tag">DISENO_LUGAR</span>
+        <span class="ds-tag">CONDICION</span>
+        <span class="ds-tag">ESTADO</span>
+        <span class="ds-tag">EDAD</span>
+        <span class="ds-tag">SEXO</span>
+        <span class="ds-tag ds-pk">VEHICULO</span>
+        <span class="ds-tag ds-fk">SERVICIO</span>
+        <span class="ds-tag ds-fk">MODALIDAD</span>
+        <span class="ds-tag">ENFUGA</span>
+        <span class="ds-tag ds-fk">CODIGO_CAUSA</span>
+      </div>
+
+      <div class="dashboard-frame reveal" data-delay="350">
         <div class="dash-header">
           <div class="dash-header-left">
             <span class="dash-dot" style="background:#ef4444"></span>
             <span class="dash-dot" style="background:#f59e0b"></span>
             <span class="dash-dot" style="background:#22c55e"></span>
-            <span class="dash-title-text">Panel de Movilidad — Bogotá 2026</span>
+            <span class="dash-title-text">Vista previa — Siniestros Bogotá 2015–2020</span>
           </div>
           <div class="dash-header-right">
-            <span class="dash-badge">● En desarrollo</span>
+            <span class="dash-badge">● Datos reales</span>
           </div>
         </div>
 
-        <!-- Métricas -->
         <div class="dash-metrics">
           <div class="dash-metric">
-            <div class="dash-metric-num">18<span>km/h</span></div>
-            <div class="dash-metric-label">Velocidad promedio en hora pico</div>
+            <div class="dash-metric-num">196<span>k</span></div>
+            <div class="dash-metric-label">Siniestros totales en el dataset</div>
           </div>
           <div class="dash-metric accent-green">
-            <div class="dash-metric-num">89<span>%</span></div>
-            <div class="dash-metric-label">Ocupación TransMilenio — hora pico</div>
+            <div class="dash-metric-num">20<span>loc.</span></div>
+            <div class="dash-metric-label">Localidades con registros</div>
           </div>
           <div class="dash-metric accent-sky">
-            <div class="dash-metric-num">14</div>
-            <div class="dash-metric-label">Zonas críticas identificadas</div>
+            <div class="dash-metric-num">3</div>
+            <div class="dash-metric-label">Niveles de gravedad — GRAVEDAD (FK)</div>
           </div>
           <div class="dash-metric accent-red">
-            <div class="dash-metric-num">1.240</div>
-            <div class="dash-metric-label">Incidentes registrados / semana</div>
+            <div class="dash-metric-num">6</div>
+            <div class="dash-metric-label">Años de cobertura (2015–2020)</div>
           </div>
         </div>
 
-        <!-- Gráficas -->
         <div class="dash-charts">
-
-          <!-- Gráfica de barras -->
           <div class="dash-chart-box">
-            <div class="chart-title">Nivel de congestión por franja horaria</div>
+            <div class="chart-title">Siniestros por franja horaria</div>
             <div class="bar-chart">
-              <div class="bar-wrap"><div class="bar" data-level="low"  style="--h:20%"></div><span>06h</span></div>
-              <div class="bar-wrap"><div class="bar" data-level="high" style="--h:75%"></div><span>07h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="low"  style="--h:18%"></div><span>06h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="high" style="--h:78%"></div><span>07h</span></div>
               <div class="bar-wrap"><div class="bar" data-level="peak" style="--h:95%"></div><span>08h</span></div>
-              <div class="bar-wrap"><div class="bar" data-level="mid"  style="--h:50%"></div><span>12h</span></div>
-              <div class="bar-wrap"><div class="bar" data-level="high" style="--h:85%"></div><span>17h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="mid"  style="--h:45%"></div><span>12h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="high" style="--h:82%"></div><span>17h</span></div>
               <div class="bar-wrap"><div class="bar" data-level="peak" style="--h:100%"></div><span>18h</span></div>
-              <div class="bar-wrap"><div class="bar" data-level="high" style="--h:72%"></div><span>19h</span></div>
-              <div class="bar-wrap"><div class="bar" data-level="low"  style="--h:28%"></div><span>21h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="high" style="--h:68%"></div><span>19h</span></div>
+              <div class="bar-wrap"><div class="bar" data-level="low"  style="--h:22%"></div><span>21h</span></div>
             </div>
             <div class="chart-legend">
-              <span class="leg-item low">Fluido</span>
+              <span class="leg-item low">Bajo</span>
               <span class="leg-item mid">Moderado</span>
-              <span class="leg-item high">Congestionado</span>
-              <span class="leg-item peak">Crítico</span>
+              <span class="leg-item high">Alto</span>
+              <span class="leg-item peak">Pico</span>
             </div>
           </div>
 
-          <!-- Panel derecho -->
           <div class="dash-right">
-
-            <!-- Gráfica de línea -->
             <div class="dash-chart-box">
-              <div class="chart-title">Incidentes por día de la semana</div>
+              <div class="chart-title">Tendencia semanal de siniestros (campo FECHA)</div>
               <svg class="line-chart" viewBox="0 0 280 80" preserveAspectRatio="none">
                 <defs>
                   <linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1">
@@ -281,135 +665,143 @@
                     <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
                   </linearGradient>
                 </defs>
-                <path class="line-area" d="M0,20 L46.7,28 L93.3,16 L140,32 L186.7,8 L233.3,52 L280,62 L280,80 L0,80 Z"/>
-                <polyline class="line-path" points="0,20 46.7,28 93.3,16 140,32 186.7,8 233.3,52 280,62"/>
-                <circle class="line-dot" cx="0"     cy="20" r="3"/>
-                <circle class="line-dot" cx="46.7"  cy="28" r="3"/>
-                <circle class="line-dot" cx="93.3"  cy="16" r="3"/>
-                <circle class="line-dot" cx="140"   cy="32" r="3"/>
-                <circle class="line-dot peak-dot"   cx="186.7" cy="8"  r="4.5"/>
-                <circle class="line-dot" cx="233.3" cy="52" r="3"/>
-                <circle class="line-dot" cx="280"   cy="62" r="3"/>
+                <path class="line-area" d="M0,30 L46.7,22 L93.3,18 L140,25 L186.7,6 L233.3,48 L280,58 L280,80 L0,80 Z"/>
+                <polyline class="line-path" points="0,30 46.7,22 93.3,18 140,25 186.7,6 233.3,48 280,58"/>
+                <circle class="line-dot" cx="0"     cy="30" r="3"/>
+                <circle class="line-dot" cx="46.7"  cy="22" r="3"/>
+                <circle class="line-dot" cx="93.3"  cy="18" r="3"/>
+                <circle class="line-dot" cx="140"   cy="25" r="3"/>
+                <circle class="line-dot peak-dot"   cx="186.7" cy="6"  r="4.5"/>
+                <circle class="line-dot" cx="233.3" cy="48" r="3"/>
+                <circle class="line-dot" cx="280"   cy="58" r="3"/>
               </svg>
               <div class="line-days">
                 <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
               </div>
             </div>
 
-            <!-- Estado de corredores -->
             <div class="dash-chart-box">
-              <div class="chart-title">Estado de corredores viales</div>
+              <div class="chart-title">Actores viales — campo CONDICION (ACTOR_VIAL)</div>
               <div class="zones-list">
-                <div class="zone-row peak"><span class="zone-name">Calle 80</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:92%"></div></div><span class="zone-val">Crítico</span></div>
-                <div class="zone-row peak"><span class="zone-name">Autopista Norte</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:88%"></div></div><span class="zone-val">Crítico</span></div>
-                <div class="zone-row high"><span class="zone-name">Av. Caracas</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:74%"></div></div><span class="zone-val">Alto</span></div>
-                <div class="zone-row mid"><span class="zone-name">NQS</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:55%"></div></div><span class="zone-val">Moderado</span></div>
-                <div class="zone-row low"><span class="zone-name">Av. Suba</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:32%"></div></div><span class="zone-val">Fluido</span></div>
+                <div class="zone-row peak"><span class="zone-name">Conductor</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:91%"></div></div><span class="zone-val">91 %</span></div>
+                <div class="zone-row high"><span class="zone-name">Motociclista</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:76%"></div></div><span class="zone-val">76 %</span></div>
+                <div class="zone-row mid"><span class="zone-name">Peatón</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:52%"></div></div><span class="zone-val">52 %</span></div>
+                <div class="zone-row low"><span class="zone-name">Pasajero</span><div class="zone-bar-track"><div class="zone-bar-fill" style="--zw:28%"></div></div><span class="zone-val">28 %</span></div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- TECNOLOGÍAS -->
+
   <section id="tecnologias">
     <div class="section-inner">
-      <div class="section-label">06 — Stack</div>
+      <div class="section-label">07 — Stack</div>
       <h2 class="section-title reveal">Tecnologías<br>Utilizadas</h2>
 
-      <!-- Frontend -->
       <div class="tech-group-label reveal">Interfaz y visualización</div>
       <div class="tech-grid reveal" data-delay="100">
         <div class="tech-item">
           <div class="tech-icon" style="background:var(--accent-3)">HT</div>
           <div class="tech-info">
             <div class="tech-name">HTML5 / CSS3</div>
-            <div class="tech-desc">Estructura semántica y estilos avanzados para una interfaz limpia y accesible.</div>
+            <div class="tech-desc">Estructura semántica y sistema de diseño con variables CSS para consistencia visual en todas las vistas.</div>
           </div>
         </div>
         <div class="tech-item">
           <div class="tech-icon" style="background:#7c3aed">BS</div>
           <div class="tech-info">
             <div class="tech-name">Bootstrap 5</div>
-            <div class="tech-desc">Framework CSS para un diseño responsivo, consistente y fácil de mantener.</div>
+            <div class="tech-desc">Framework CSS para modales, grid responsivo y componentes de interfaz reutilizables.</div>
           </div>
         </div>
         <div class="tech-item">
           <div class="tech-icon" style="background:#ca8a04">JS</div>
           <div class="tech-info">
             <div class="tech-name">JavaScript ES6</div>
-            <div class="tech-desc">Interactividad del dashboard, animaciones y comunicación con el servidor Flask.</div>
+            <div class="tech-desc">Interactividad del dashboard, animaciones scroll y comunicación con el servidor Flask.</div>
           </div>
         </div>
         <div class="tech-item">
           <div class="tech-icon" style="background:#db2777">CJ</div>
           <div class="tech-info">
-            <div class="tech-name">Chart.js</div>
-            <div class="tech-desc">Librería para renderizar las gráficas interactivas de los resultados de minería.</div>
+            <div class="tech-name">Chart.js 4</div>
+            <div class="tech-desc">8 gráficas interactivas en el dashboard: líneas de tendencia, barras apiladas y donut.</div>
           </div>
         </div>
       </div>
 
-      <!-- Backend y datos -->
-      <div class="tech-group-label reveal" data-delay="100">Análisis de datos y servidor</div>
+      <div class="tech-group-label reveal" data-delay="100">Procesamiento y análisis</div>
       <div class="tech-grid reveal" data-delay="200">
         <div class="tech-item">
           <div class="tech-icon">PY</div>
           <div class="tech-info">
             <div class="tech-name">Python 3.11</div>
-            <div class="tech-desc">Lenguaje principal para el procesamiento, análisis y modelado de datos de movilidad.</div>
+            <div class="tech-desc">Lenguaje principal para el procesamiento, scripts ETL y servidor Flask.</div>
           </div>
         </div>
         <div class="tech-item">
-          <div class="tech-icon">PD</div>
+          <div class="tech-icon" style="background:#e25822">SP</div>
           <div class="tech-info">
-            <div class="tech-name">Pandas</div>
-            <div class="tech-desc">Manipulación y limpieza de los conjuntos de datos de la Secretaría de Movilidad.</div>
+            <div class="tech-name">Apache Spark 4</div>
+            <div class="tech-desc">Procesamiento distribuido sobre 196k registros. Pipeline MLlib con Random Forest (82% precisión).</div>
           </div>
         </div>
         <div class="tech-item">
-          <div class="tech-icon">SK</div>
+          <div class="tech-icon" style="background:#5a8f3c">OR</div>
           <div class="tech-info">
-            <div class="tech-name">Scikit-learn</div>
-            <div class="tech-desc">Implementación de algoritmos de clustering K-Means y modelos de clasificación predictiva.</div>
+            <div class="tech-name">Orange Data Mining</div>
+            <div class="tech-desc">Flujo visual de 11 pasos: K-Means, árbol de decisión y Random Forest sobre muestra de 3.000 registros.</div>
           </div>
         </div>
         <div class="tech-item">
           <div class="tech-icon">FL</div>
           <div class="tech-info">
-            <div class="tech-name">Flask</div>
-            <div class="tech-desc">Framework web ligero para servir la aplicación y las rutas del dashboard interactivo.</div>
-          </div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-icon">NP</div>
-          <div class="tech-info">
-            <div class="tech-name">NumPy</div>
-            <div class="tech-desc">Cómputo numérico y operaciones vectoriales de alta eficiencia sobre los datos.</div>
-          </div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-icon">OD</div>
-          <div class="tech-info">
-            <div class="tech-name">Open Data Bogotá</div>
-            <div class="tech-desc">Fuente principal de datos públicos: accidentalidad, tráfico y estadísticas de movilidad.</div>
+            <div class="tech-name">Flask 3</div>
+            <div class="tech-desc">Framework web ligero que sirve las 5 vistas, gestiona caché y conecta a Supabase.</div>
           </div>
         </div>
       </div>
+
+      <div class="tech-group-label reveal" data-delay="200">Base de datos y despliegue</div>
+      <div class="tech-grid reveal" data-delay="300" style="grid-template-columns: repeat(3, 1fr)">
+        <div class="tech-item">
+          <div class="tech-icon" style="background:#3ecf8e">SB</div>
+          <div class="tech-info">
+            <div class="tech-name">Supabase / PostgreSQL</div>
+            <div class="tech-desc">Base de datos relacional en la nube. Usuario de solo lectura para el dashboard en producción.</div>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" style="background:#00bfff">RD</div>
+          <div class="tech-info">
+            <div class="tech-name">Render</div>
+            <div class="tech-desc">Plataforma de despliegue del servidor Flask. Los resultados de Spark se precomputan y se sirven como JSON estático.</div>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-icon" style="background:#444">GH</div>
+          <div class="tech-info">
+            <div class="tech-name">GitHub</div>
+            <div class="tech-desc">Control de versiones del código y artefactos de datos (spark_stats.json, spark_ml.json).</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- MODELOS -->
+
   <section id="modelos">
     <div class="section-inner">
-      <div class="section-label">07 — Modelos</div>
-      <h2 class="section-title reveal">Modelos de Minería<br>Aplicables al Proyecto</h2>
+      <div class="section-label">08 — Modelos</div>
+      <h2 class="section-title reveal">Modelos de Minería<br>Aplicados al Proyecto</h2>
       <p class="preview-subtitle reveal">
-        Técnicas de minería de datos seleccionadas según la naturaleza del problema de movilidad.
-        Cada modelo aporta un ángulo distinto de análisis sobre los datos de tráfico bogotano.
+        Técnicas seleccionadas según la naturaleza del problema. Se distingue entre modelos
+        ya implementados en las vistas y los propuestos como trabajo futuro.
       </p>
 
       <div class="models-grid">
@@ -417,39 +809,39 @@
         <div class="model-card reveal" data-delay="100">
           <div class="model-type clustering">Clustering</div>
           <h4 class="model-name">K-Means</h4>
-          <p class="model-desc">Agrupa zonas geográficas de Bogotá según sus patrones de congestión, identificando clusters de alto, medio y bajo tráfico a lo largo del día.</p>
+          <p class="model-desc">Agrupa siniestros según variables de gravedad, hora y localidad. Implementado en Orange Data Mining con análisis Silhouette para validar el número óptimo de clusters.</p>
           <div class="model-footer">
-            <span class="model-use">Segmentación zonal</span>
-            <span class="model-status">Propuesto</span>
+            <span class="model-use">Orange Data Mining</span>
+            <span class="model-status">Implementado</span>
           </div>
         </div>
 
         <div class="model-card reveal" data-delay="150">
-          <div class="model-type clustering">Clustering</div>
-          <h4 class="model-name">DBSCAN</h4>
-          <p class="model-desc">Detecta zonas de alta densidad de accidentes e incidentes viales sin necesidad de definir el número de grupos previamente, ideal para datos con ruido.</p>
+          <div class="model-type clasificacion">Clasificación</div>
+          <h4 class="model-name">Random Forest</h4>
+          <p class="model-desc">Clasifica la gravedad del siniestro a partir de hora, localidad, clase y tipo de vehículo. Implementado en Orange (muestra) y en Spark MLlib (196k registros, 82% accuracy).</p>
           <div class="model-footer">
-            <span class="model-use">Zonas críticas</span>
-            <span class="model-status">Propuesto</span>
+            <span class="model-use">Orange + Spark MLlib</span>
+            <span class="model-status">Implementado</span>
           </div>
         </div>
 
         <div class="model-card reveal" data-delay="200">
-          <div class="model-type prediccion">Predicción</div>
-          <h4 class="model-name">Regresión Lineal</h4>
-          <p class="model-desc">Estima los tiempos de desplazamiento en función de variables como la hora, el día de la semana, condiciones climáticas y eventos especiales.</p>
+          <div class="model-type prediccion">Análisis SQL</div>
+          <h4 class="model-name">Consultas Analíticas</h4>
+          <p class="model-desc">10 consultas SQL sobre el esquema estrella en PostgreSQL/Supabase: tendencias por mes, franja horaria, localidad, actores, hipótesis de causa y evolución de gravedad.</p>
           <div class="model-footer">
-            <span class="model-use">Tiempos de viaje</span>
-            <span class="model-status">Propuesto</span>
+            <span class="model-use">PostgreSQL / Supabase</span>
+            <span class="model-status">Implementado</span>
           </div>
         </div>
 
         <div class="model-card reveal" data-delay="250">
-          <div class="model-type clasificacion">Clasificación</div>
-          <h4 class="model-name">Random Forest</h4>
-          <p class="model-desc">Clasifica el nivel de riesgo vial por corredor y franja horaria, combinando múltiples árboles de decisión para una predicción más robusta y precisa.</p>
+          <div class="model-type clustering">Clustering</div>
+          <h4 class="model-name">DBSCAN</h4>
+          <p class="model-desc">Detecta zonas de alta densidad de accidentes sin definir el número de grupos a priori, ideal para identificar focos geográficos con datos ruidosos.</p>
           <div class="model-footer">
-            <span class="model-use">Riesgo vial</span>
+            <span class="model-use">Zonas críticas geográficas</span>
             <span class="model-status">Propuesto</span>
           </div>
         </div>
@@ -457,19 +849,18 @@
         <div class="model-card reveal" data-delay="300">
           <div class="model-type series">Series de Tiempo</div>
           <h4 class="model-name">ARIMA</h4>
-          <p class="model-desc">Pronostica la demanda vehicular por franjas horarias usando patrones históricos, estacionalidad semanal y tendencias de largo plazo en el tráfico.</p>
+          <p class="model-desc">Pronosticaría la demanda de siniestros por franja horaria usando patrones históricos y la estacionalidad semanal visible en el campo FECHA.</p>
           <div class="model-footer">
-            <span class="model-use">Demanda vehicular</span>
+            <span class="model-use">Demanda futura</span>
             <span class="model-status">Propuesto</span>
           </div>
         </div>
-
 
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+
   <footer>
     <div class="footer-left">Proyecto Minería de Datos — Universidad de Cundinamarca 2026</div>
     <div class="footer-team">Luis Alejandro Chabur Guevara · Santiago Tellez Ochoa</div>
