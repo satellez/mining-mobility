@@ -38,27 +38,63 @@
     </div>
 
     
-    <div class="kpi-row">
-      <div class="kpi-card">
-        <div class="kpi-label">Total siniestros</div>
-        <div class="kpi-value" id="kpi-total">—</div>
-        <div class="kpi-sub">registros en el dataset</div>
+    <div class="filter-bar">
+
+      <div class="filter-group">
+        <span class="filter-label">Año</span>
+        <div class="filter-pills" id="filter-anio">
+          <button class="filter-pill active" data-val="all">Todos</button>
+          <button class="filter-pill" data-val="2015">2015</button>
+          <button class="filter-pill" data-val="2016">2016</button>
+          <button class="filter-pill" data-val="2017">2017</button>
+          <button class="filter-pill" data-val="2018">2018</button>
+          <button class="filter-pill" data-val="2019">2019</button>
+          <button class="filter-pill" data-val="2020">2020</button>
+        </div>
       </div>
-      <div class="kpi-card kpi-red">
-        <div class="kpi-label">Con muertos</div>
-        <div class="kpi-value" id="kpi-muertos">—</div>
-        <div class="kpi-sub" id="kpi-muertos-pct">% del total</div>
+
+      <div class="filter-divider"></div>
+
+      <div class="filter-group">
+        <span class="filter-label">Gravedad</span>
+        <div class="filter-pills" id="filter-gravedad">
+          <button class="filter-pill active"   data-val="all">Todas</button>
+          <button class="filter-pill fp-red"   data-val="Con Muertos">Muertos</button>
+          <button class="filter-pill fp-amber" data-val="Con Heridos">Heridos</button>
+          <button class="filter-pill fp-sky"   data-val="Solo Daños">Solo Daños</button>
+        </div>
       </div>
-      <div class="kpi-card kpi-amber">
-        <div class="kpi-label">Con heridos</div>
-        <div class="kpi-value" id="kpi-heridos">—</div>
-        <div class="kpi-sub" id="kpi-heridos-pct">% del total</div>
+
+      <div class="filter-divider"></div>
+
+      <div class="filter-group">
+        <span class="filter-label">Top localidades</span>
+        <div class="filter-pills" id="filter-topn">
+          <button class="filter-pill" data-val="5">5</button>
+          <button class="filter-pill active" data-val="10">10</button>
+          <button class="filter-pill" data-val="20">20</button>
+        </div>
       </div>
-      <div class="kpi-card kpi-green">
-        <div class="kpi-label">Solo daños</div>
-        <div class="kpi-value" id="kpi-danos">—</div>
-        <div class="kpi-sub" id="kpi-danos-pct">% del total</div>
+
+      <div class="filter-stats">
+        <div class="fstat">
+          <span class="fstat-n" id="fstat-total">—</span>
+          <span class="fstat-l">Siniestros</span>
+        </div>
+        <div class="fstat fstat-red">
+          <span class="fstat-n" id="fstat-muertos">—</span>
+          <span class="fstat-l">Con muertos</span>
+        </div>
+        <div class="fstat fstat-amber">
+          <span class="fstat-n" id="fstat-heridos">—</span>
+          <span class="fstat-l">Con heridos</span>
+        </div>
+        <div class="fstat fstat-sky">
+          <span class="fstat-n" id="fstat-danos">—</span>
+          <span class="fstat-l">Solo daños</span>
+        </div>
       </div>
+
     </div>
 
     
