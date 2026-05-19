@@ -41,22 +41,24 @@ function resetCanvas(id) {
 
 /* ─── STATS ─────────────────────────────────────────────────────────────────── */
 function updateStats() {
-  const { anio } = FILTERS;
+  const { anio, gravedad } = FILTERS;
+  const t = anio === 'all' ? DATA_AGG.totales : DATA_ANIO.por_anio[anio];
 
-  if (anio === 'all') {
-    const t = DATA_AGG.totales;
-    document.getElementById('fstat-total').textContent   = fmt(t.siniestros);
-    document.getElementById('fstat-muertos').textContent = fmt(t.con_muertos);
-    document.getElementById('fstat-heridos').textContent = fmt(t.con_heridos);
-    document.getElementById('fstat-danos').textContent   = fmt(t.solo_danos);
-  } else {
-    const filtrado = DATA_TEND.filter(d => String(d['AÑO']) === anio);
-    const total = filtrado.reduce((s, d) => s + d.TOTAL_ACCIDENTES, 0);
-    document.getElementById('fstat-total').textContent   = fmt(total);
-    document.getElementById('fstat-muertos').textContent = '—';
-    document.getElementById('fstat-heridos').textContent = '—';
-    document.getElementById('fstat-danos').textContent   = '—';
-  }
+  const total   = anio === 'all' ? t.siniestros : t.total;
+  const muertos = anio === 'all' ? t.con_muertos : t.con_muertos;
+  const heridos = anio === 'all' ? t.con_heridos : t.con_heridos;
+  const danos   = anio === 'all' ? t.solo_danos  : t.solo_danos;
+
+  let shown;
+  if (gravedad === 'all')         shown = total;
+  else if (gravedad === 'Con Muertos') shown = muertos;
+  else if (gravedad === 'Con Heridos') shown = heridos;
+  else                                  shown = danos;
+
+  document.getElementById('fstat-total').textContent   = fmt(shown);
+  document.getElementById('fstat-muertos').textContent = fmt(muertos);
+  document.getElementById('fstat-heridos').textContent = fmt(heridos);
+  document.getElementById('fstat-danos').textContent   = fmt(danos);
 }
 
 /* ─── TENDENCIA MENSUAL ─────────────────────────────────────────────────────── */
@@ -144,10 +146,12 @@ function renderHora() {
 
 /* ─── LOCALIDADES × GRAVEDAD ────────────────────────────────────────────────── */
 function renderLocalidades() {
-  const { gravedad, topn } = FILTERS;
+  const { anio, gravedad, topn } = FILTERS;
+
+  const source = anio === 'all' ? DATA_LOC : (DATA_ANIO.localidades_por_anio[anio] || []);
 
   const byLoc = {};
-  DATA_LOC.forEach(d => {
+  source.forEach(d => {
     if (!byLoc[d.CODIGO_LOCALIDAD]) byLoc[d.CODIGO_LOCALIDAD] = { Heridos: 0, Muertos: 0, Danos: 0 };
     if (d.GRAVEDAD === 'Con Heridos') byLoc[d.CODIGO_LOCALIDAD].Heridos = d.TOTAL;
     if (d.GRAVEDAD === 'Con Muertos') byLoc[d.CODIGO_LOCALIDAD].Muertos = d.TOTAL;
@@ -329,9 +333,9 @@ function renderCondicion() {
 
 /* ─── APLICAR FILTROS ────────────────────────────────────────────────────────── */
 function applyFilters() {
+  updateStats();
   renderTendencia();
   renderLocalidades();
-  updateStats();
 }
 
 /* ─── SETUP FILTROS ──────────────────────────────────────────────────────────── */

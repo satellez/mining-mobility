@@ -59,6 +59,7 @@ def dashboard():
         agg         = _load('dashboard_agregaciones.json'),
         localidades = _load('dashboard_localidades_gravedad.json'),
         tendencia   = _load('dashboard_tendencia_mensual.json'),
+        anio_stats  = _load('dashboard_anio_stats.json'),
     )
 
 
@@ -94,6 +95,7 @@ def modelado():
         actores_estado   = data['actores_estado'],
         hora_fatal       = data['hora_fatal'],
         causas_fatales   = data['causas_fatales'],
+        clase_gravedad   = data['clase_gravedad'],
         tabla_localidades= data['tabla_localidades'],
     )
 

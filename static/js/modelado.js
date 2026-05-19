@@ -41,48 +41,77 @@ function renderKPIs() {
   document.getElementById('kpi-danos-pct').textContent   = ((danos   / total) * 100).toFixed(1) + '% del total';
 }
 
-/* ─── TENDENCIA MENSUAL ─────────────────────────────────────────────────────── */
-function renderTendencia() {
-  const labels  = DATA_TENDENCIA.map(d => `${MESES[d.mes - 1]} ${d.anio}`);
-  const valores = DATA_TENDENCIA.map(d => d.total);
+/* ─── CLASE × GRAVEDAD (fact ⋈ dim_clase ⋈ dim_gravedad) ────────────────────── */
+function renderClaseGravedad() {
+  const totalesPorClase = {};
+  DATA_CLASE_GRAVEDAD.forEach(d => {
+    totalesPorClase[d.clase] = (totalesPorClase[d.clase] || 0) + d.total;
+  });
+  const clases = Object.keys(totalesPorClase).sort((a, b) => totalesPorClase[b] - totalesPorClase[a]);
 
-  new Chart(document.getElementById('chart-tendencia'), {
-    type: 'line',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Siniestros / mes',
-        data: valores,
-        borderColor: C_BLUE,
-        backgroundColor: 'rgba(59,130,246,0.08)',
-        borderWidth: 1.5,
-        pointRadius: 0,
-        pointHoverRadius: 4,
-        fill: true,
-        tension: 0.35,
-      }],
-    },
+  const gravedades  = ['Solo Daños', 'Con Heridos', 'Con Muertos'];
+  const graveColors = { 'Con Muertos': C_RED, 'Con Heridos': C_AMBER, 'Solo Daños': 'rgba(59,130,246,0.6)' };
+
+  const datasets = gravedades.map(g => ({
+    label: g,
+    data: clases.map(c => {
+      const r = DATA_CLASE_GRAVEDAD.find(d => d.clase === c && d.gravedad === g);
+      return r ? r.total : 0;
+    }),
+    backgroundColor: graveColors[g],
+    borderWidth: 0,
+    borderRadius: 2,
+  }));
+
+  new Chart(document.getElementById('chart-clase-gravedad'), {
+    type: 'bar',
+    data: { labels: clases, datasets },
     options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: { color: '#6b82a8', font: { family: "'DM Mono', monospace", size: 10 } },
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${fmt(ctx.parsed.x)}`,
+            footer: items => {
+              const total = items.reduce((s, i) => s + i.parsed.x, 0);
+              const pct   = ((items[0].parsed.x / total) * 100).toFixed(1);
+              return `Total clase: ${fmt(totalesPorClase[items[0].label])}`;
+            },
+          },
+        },
+      },
       scales: {
-        x: { grid: GRID, ticks: { ...TICKS, maxTicksLimit: 12,
-          callback(v, i) { return labels[i].startsWith('Ene') ? labels[i] : ''; }, maxRotation: 0 } },
-        y: { grid: GRID, ticks: { ...TICKS, callback: v => fmt(v) }, min: 0 },
+        x: { stacked: true, grid: GRID, ticks: { ...TICKS, callback: v => fmt(v) } },
+        y: { stacked: true, grid: { display: false }, ticks: TICKS },
       },
     },
   });
 }
 
-/* ─── EVOLUCIÓN ANUAL POR GRAVEDAD ──────────────────────────────────────────── */
+/* ─── EVOLUCIÓN ANUAL % NORMALIZADO (fact ⋈ dim_fecha ⋈ dim_gravedad) ──────── */
 function renderEvolucion() {
   const anios = [...new Set(DATA_EVOLUCION.map(d => d.anio))].sort();
-  const graveColors = { 'Con Muertos': C_RED, 'Con Heridos': C_AMBER, 'Solo Daños': 'rgba(59,130,246,0.6)' };
   const gravedades  = ['Con Muertos', 'Con Heridos', 'Solo Daños'];
+  const graveColors = { 'Con Muertos': C_RED, 'Con Heridos': C_AMBER, 'Solo Daños': 'rgba(59,130,246,0.6)' };
+
+  /* Calcular totales por año para normalizar */
+  const totalAnio = {};
+  anios.forEach(a => {
+    totalAnio[a] = DATA_EVOLUCION.filter(d => d.anio === a).reduce((s, d) => s + d.total, 0);
+  });
 
   const datasets = gravedades.map(g => ({
     label: g,
-    data: anios.map(a => { const r = DATA_EVOLUCION.find(d => d.anio === a && d.descripcion === g); return r ? r.total : 0; }),
+    data: anios.map(a => {
+      const r = DATA_EVOLUCION.find(d => d.anio === a && d.descripcion === g);
+      return r && totalAnio[a] ? +((r.total / totalAnio[a]) * 100).toFixed(2) : 0;
+    }),
     backgroundColor: graveColors[g],
     borderColor: graveColors[g],
     borderWidth: 1,
@@ -93,18 +122,25 @@ function renderEvolucion() {
     type: 'bar',
     data: { labels: anios, datasets },
     options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { position: 'top', labels: { color: '#6b82a8', font: { family: "'DM Mono', monospace", size: 9 } } },
-        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${fmt(ctx.parsed.y)}` } } },
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { color: '#6b82a8', font: { family: "'DM Mono', monospace", size: 9 } } },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%`,
+          },
+        },
+      },
       scales: {
-        x: { grid: GRID, ticks: TICKS },
-        y: { grid: GRID, ticks: { ...TICKS, callback: v => fmt(v) } },
+        x: { stacked: true, grid: GRID, ticks: TICKS },
+        y: { stacked: true, grid: GRID, min: 0, max: 100, ticks: { ...TICKS, callback: v => v + '%' } },
       },
     },
   });
 }
 
-/* ─── HORA FATAL DUAL AXIS ──────────────────────────────────────────────────── */
+/* ─── HORA FATAL DUAL AXIS (fact ⋈ dim_gravedad GROUP BY hora) ──────────────── */
 function renderHoraFatal() {
   const labels  = DATA_HORA_FATAL.map(d => `${String(d.hora).padStart(2,'0')}h`);
   const totales = DATA_HORA_FATAL.map(d => d.total);
@@ -115,62 +151,71 @@ function renderHoraFatal() {
     data: {
       labels,
       datasets: [
-        { label: 'Total accidentes', data: totales, backgroundColor: 'rgba(59,130,246,0.25)', borderWidth: 0, borderRadius: 2, yAxisID: 'y' },
-        { label: 'Con muertos', data: muertos, type: 'line', borderColor: C_RED,
-          backgroundColor: 'transparent', borderWidth: 2, pointRadius: 2, pointHoverRadius: 5, tension: 0.3, yAxisID: 'y2' },
+        {
+          label: 'Total accidentes',
+          data: totales,
+          backgroundColor: 'rgba(59,130,246,0.22)',
+          borderWidth: 0,
+          borderRadius: 2,
+          yAxisID: 'y',
+        },
+        {
+          label: 'Con muertos',
+          data: muertos,
+          type: 'line',
+          borderColor: C_RED,
+          backgroundColor: 'rgba(239,68,68,0.08)',
+          borderWidth: 2,
+          pointRadius: 2.5,
+          pointHoverRadius: 5,
+          tension: 0.35,
+          fill: true,
+          yAxisID: 'y2',
+        },
       ],
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { position: 'top', labels: { color: '#6b82a8', font: { family: "'DM Mono', monospace", size: 10 } } } },
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { color: '#6b82a8', font: { family: "'DM Mono', monospace", size: 10 } } },
+        tooltip: {
+          callbacks: {
+            label: ctx => ctx.datasetIndex === 0
+              ? ` Total: ${fmt(ctx.parsed.y)}`
+              : ` Con muertos: ${fmt(ctx.parsed.y)}`,
+          },
+        },
+      },
       scales: {
         x:  { grid: GRID, ticks: { ...TICKS, font: { size: 9 }, maxRotation: 0 } },
         y:  { grid: GRID, ticks: { ...TICKS, callback: v => fmt(v) }, position: 'left' },
-        y2: { grid: { display: false }, ticks: { ...TICKS, color: C_RED + 'cc' }, position: 'right' },
+        y2: { grid: { display: false }, ticks: { ...TICKS, color: C_RED + 'bb' }, position: 'right' },
       },
     },
   });
 }
 
-/* ─── SINIESTROS POR HORA ───────────────────────────────────────────────────── */
-function renderHora() {
-  const labels = DATA_HORA.map(d => `${String(d.hora).padStart(2,'0')}h`);
-  const vals   = DATA_HORA.map(d => d.total);
-  const maxVal = Math.max(...vals);
-  const bgColors = vals.map(v => {
-    const r = v / maxVal;
-    if (r > 0.85) return C_RED;
-    if (r > 0.65) return C_AMBER;
-    if (r > 0.40) return C_BLUE;
-    return 'rgba(59,130,246,0.35)';
-  });
-
-  new Chart(document.getElementById('chart-hora'), {
-    type: 'bar',
-    data: { labels, datasets: [{ data: vals, backgroundColor: bgColors, borderWidth: 0, borderRadius: 2 }] },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { grid: GRID, ticks: { ...TICKS, font: { size: 9 }, maxRotation: 0 } },
-        y: { grid: GRID, ticks: { ...TICKS, callback: v => fmt(v) } },
-      },
-    },
-  });
-}
-
-/* ─── CAUSAS FATALES ────────────────────────────────────────────────────────── */
+/* ─── CAUSAS FATALES (fact ⋈ dim_hipotesis ⋈ dim_gravedad WHERE nivel=1) ─────── */
 function renderCausas() {
   const labels = DATA_CAUSAS.map(d => d.descripcion.length > 44 ? d.descripcion.slice(0,44)+'…' : d.descripcion);
   new Chart(document.getElementById('chart-causas'), {
     type: 'bar',
     data: {
       labels,
-      datasets: [{ label: 'Accidentes mortales', data: DATA_CAUSAS.map(d => d.total),
-        backgroundColor: C_RED + '99', borderColor: C_RED, borderWidth: 1, borderRadius: 2 }],
+      datasets: [{
+        label: 'Accidentes mortales',
+        data: DATA_CAUSAS.map(d => d.total),
+        backgroundColor: C_RED + '88',
+        borderColor: C_RED,
+        borderWidth: 1,
+        borderRadius: 2,
+      }],
     },
     options: {
-      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
         x: { grid: GRID, ticks: { ...TICKS, callback: v => fmt(v) } },
@@ -180,50 +225,69 @@ function renderCausas() {
   });
 }
 
-/* ─── ESTADO ACTORES ────────────────────────────────────────────────────────── */
-function renderActores() {
-  const condiciones = [...new Set(DATA_ACTORES.map(d => d.condicion))];
-  const estados = ['ILESO', 'HERIDO', 'MUERTO'];
-  const colors  = { ILESO: C_GREEN+'99', HERIDO: C_AMBER+'cc', MUERTO: C_RED };
-  const labels  = condiciones.map(c => c.charAt(0) + c.slice(1).toLowerCase());
-
-  const datasets = estados.map(e => ({
-    label: e.charAt(0) + e.slice(1).toLowerCase(),
-    data: condiciones.map(c => { const r = DATA_ACTORES.find(d => d.condicion === c && d.estado === e); return r ? r.total : 0; }),
-    backgroundColor: colors[e], borderWidth: 0,
-  }));
-
-  new Chart(document.getElementById('chart-actores'), {
-    type: 'bar',
-    data: { labels, datasets },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { position: 'top', labels: { color: '#6b82a8', font: { family: "'DM Mono', monospace", size: 9 } } },
-        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${fmt(ctx.parsed.y)}` } } },
-      scales: {
-        x: { stacked: true, grid: GRID, ticks: { ...TICKS, font: { size: 9 } } },
-        y: { stacked: true, grid: GRID, ticks: { ...TICKS, callback: v => fmt(v) } },
-      },
-    },
+/* ─── TASA DE MORTALIDAD POR ACTOR VIAL (fact ⋈ dim_actor) ─────────────────── */
+function renderActorFatalidad() {
+  const byCondicion = {};
+  DATA_ACTORES.forEach(d => {
+    if (!byCondicion[d.condicion]) byCondicion[d.condicion] = { muertos: 0, heridos: 0, ilesos: 0, total: 0 };
+    byCondicion[d.condicion].total += d.total;
+    if (d.estado === 'MUERTO') byCondicion[d.condicion].muertos = d.total;
+    if (d.estado === 'HERIDO') byCondicion[d.condicion].heridos = d.total;
+    if (d.estado === 'ILESO')  byCondicion[d.condicion].ilesos  = d.total;
   });
-}
 
-/* ─── HIPÓTESIS GENERALES ───────────────────────────────────────────────────── */
-function renderHipotesis() {
-  const labels = DATA_HIPOTESIS.map(d => d.descripcion.length > 44 ? d.descripcion.slice(0,44)+'…' : d.descripcion);
-  new Chart(document.getElementById('chart-hipotesis'), {
+  const MAP = {
+    CONDUCTOR: 'Conductor', MOTOCICLISTA: 'Motociclista',
+    'PASAJERO/ACOMPAÑANTE': 'Pasajero', PEATON: 'Peatón', CICLISTA: 'Ciclista',
+  };
+
+  const data = Object.entries(byCondicion)
+    .map(([c, v]) => ({
+      label: MAP[c] || c,
+      tasa: v.total > 0 ? +(v.muertos / v.total * 1000).toFixed(2) : 0,
+      muertos: v.muertos,
+      total: v.total,
+    }))
+    .sort((a, b) => b.tasa - a.tasa);
+
+  const maxTasa = Math.max(...data.map(d => d.tasa));
+  const bgColors = data.map(d => {
+    const r = d.tasa / maxTasa;
+    if (r > 0.7) return C_RED;
+    if (r > 0.4) return C_AMBER;
+    return C_SKY;
+  });
+
+  new Chart(document.getElementById('chart-actor-fatalidad'), {
     type: 'bar',
     data: {
-      labels,
-      datasets: [{ label: 'Frecuencia', data: DATA_HIPOTESIS.map(d => d.total),
-        backgroundColor: 'rgba(56,189,248,0.5)', borderColor: C_SKY, borderWidth: 1, borderRadius: 2 }],
+      labels: data.map(d => d.label),
+      datasets: [{
+        label: 'Tasa mortalidad (‰)',
+        data: data.map(d => d.tasa),
+        backgroundColor: bgColors,
+        borderWidth: 0,
+        borderRadius: 3,
+      }],
     },
     options: {
-      indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.parsed.y.toFixed(2)}‰ de mortalidad`,
+            afterLabel: ctx => {
+              const d = data[ctx.dataIndex];
+              return ` ${fmt(d.muertos)} muertos de ${fmt(d.total)} actores`;
+            },
+          },
+        },
+      },
       scales: {
-        x: { grid: GRID, ticks: { ...TICKS, callback: v => fmt(v) } },
-        y: { grid: { display: false }, ticks: { ...TICKS, font: { size: 10 } } },
+        x: { grid: GRID, ticks: TICKS },
+        y: { grid: GRID, ticks: { ...TICKS, callback: v => v.toFixed(1) + '‰' }, min: 0 },
       },
     },
   });
@@ -234,7 +298,6 @@ function initTable() {
   let sortCol = 'con_muertos';
   let sortDir = 'desc';
 
-  // Fila de totales en tfoot (sobre datos completos)
   const totalSin = DATA_TABLA.reduce((s, r) => s + Number(r.total), 0);
   const totalMue = DATA_TABLA.reduce((s, r) => s + Number(r.con_muertos), 0);
   const totalHer = DATA_TABLA.reduce((s, r) => s + Number(r.con_heridos), 0);
@@ -249,14 +312,12 @@ function initTable() {
     <td></td>
   `;
 
-  // ── Lógica de filtrado ──────────────────────────────────────────────────────
   function applyFilters() {
     const nombre  = document.getElementById('filter-nombre').value.trim().toLowerCase();
     const tasaMin = parseFloat(document.getElementById('filter-tasa').value) || 0;
     const tbody   = document.getElementById('tabla-body');
     const rows    = [...tbody.querySelectorAll('tr')];
 
-    // 1. Mostrar / ocultar filas según filtros
     let visible = 0;
     rows.forEach(row => {
       const matchNombre = row.dataset.nombre.toLowerCase().includes(nombre);
@@ -266,7 +327,6 @@ function initTable() {
       if (show) visible++;
     });
 
-    // 2. Ordenar las visibles
     const visibles = rows.filter(r => r.style.display !== 'none');
     visibles.sort((a, b) => {
       const va = a.dataset[sortCol];
@@ -277,18 +337,13 @@ function initTable() {
       return sortDir === 'asc' ? cmp : -cmp;
     });
     visibles.forEach(r => tbody.appendChild(r));
-    // Mueve las ocultas al final (sin alterar orden visible)
     rows.filter(r => r.style.display === 'none').forEach(r => tbody.appendChild(r));
 
-    // 3. Actualizar contador
     document.getElementById('filter-count').textContent =
       visible === DATA_TABLA.length ? `${visible} localidades` : `${visible} de ${DATA_TABLA.length}`;
-
-    // 4. Mensaje vacío
     document.getElementById('table-empty').style.display = visible === 0 ? '' : 'none';
   }
 
-  // ── Ordenar desde cabecera de la tabla ─────────────────────────────────────
   function setSortCol(col) {
     if (sortCol === col) {
       sortDir = sortDir === 'asc' ? 'desc' : 'asc';
@@ -296,11 +351,9 @@ function initTable() {
       sortCol = col;
       sortDir = col === 'nombre' ? 'asc' : 'desc';
     }
-    // Sincronizar pills si la columna coincide
     document.querySelectorAll('.filter-pill').forEach(p => {
       p.classList.toggle('active', p.dataset.sort === col);
     });
-    // Actualizar icono de cabecera
     document.querySelectorAll('.data-table th.sortable').forEach(th => {
       th.classList.remove('sort-asc', 'sort-desc');
     });
@@ -309,21 +362,14 @@ function initTable() {
     applyFilters();
   }
 
-  // ── Eventos ────────────────────────────────────────────────────────────────
-  document.getElementById('filter-nombre')
-    .addEventListener('input', applyFilters);
-
-  document.getElementById('filter-tasa')
-    .addEventListener('change', applyFilters);
-
+  document.getElementById('filter-nombre').addEventListener('input', applyFilters);
+  document.getElementById('filter-tasa').addEventListener('change', applyFilters);
   document.querySelectorAll('.filter-pill').forEach(btn => {
     btn.addEventListener('click', () => setSortCol(btn.dataset.sort));
   });
-
   document.querySelectorAll('.data-table th.sortable').forEach(th => {
     th.addEventListener('click', () => setSortCol(th.dataset.col));
   });
-
   document.getElementById('filter-reset').addEventListener('click', () => {
     document.getElementById('filter-nombre').value = '';
     document.getElementById('filter-tasa').value   = '0';
@@ -336,19 +382,16 @@ function initTable() {
     applyFilters();
   });
 
-  // Estado inicial
   setSortCol('con_muertos');
 }
 
 /* ─── INIT ───────────────────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   renderKPIs();
-  renderTendencia();
-  renderEvolucion();
+  renderClaseGravedad();
   renderHoraFatal();
-  renderHora();
+  renderEvolucion();
   renderCausas();
-  renderActores();
-  renderHipotesis();
+  renderActorFatalidad();
   initTable();
 });
