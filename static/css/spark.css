@@ -599,11 +599,204 @@
 
 .spark-conclusion strong { color: var(--text); font-weight: 500; }
 
+/* ─── CHARTS (Chart.js) ──────────────────────────────────────────────────── */
+.spark-charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.spark-chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 1.3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.spark-chart-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.spark-chart-title {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.spark-chart-sub {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  opacity: 0.6;
+  margin-top: -0.4rem;
+}
+
+.spark-chart-canvas-wrap {
+  position: relative;
+  height: 240px;
+}
+
+.spark-chart-canvas-wrap.tall {
+  height: 300px;
+}
+
+/* ─── MATRIZ DE CONFUSION ────────────────────────────────────────────────── */
+.conf-matrix-wrap {
+  overflow-x: auto;
+}
+
+.conf-matrix {
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  width: 100%;
+}
+
+.conf-matrix th {
+  padding: 0.5rem 0.8rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.02);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.conf-matrix td {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--border);
+  text-align: center;
+  color: var(--text);
+  position: relative;
+}
+
+.conf-matrix td.conf-diag {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.conf-matrix td.conf-off {
+  background: rgba(239, 68, 68, 0.06);
+  color: var(--text-muted);
+}
+
+.conf-axis-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.6;
+  margin-bottom: 0.4rem;
+}
+
+/* ─── KMEANS STATS ───────────────────────────────────────────────────────── */
+.km-info-bar {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid #8b5cf6;
+  padding: 1rem 1.4rem;
+  flex-wrap: wrap;
+}
+
+.km-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.km-info-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.km-info-value {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: #c084fc;
+  line-height: 1;
+}
+
+.km-cluster-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+
+.km-cluster-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.km-cluster-table th {
+  padding: 0.55rem 1rem;
+  text-align: left;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 400;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid var(--border);
+}
+
+.km-cluster-table td {
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: var(--text-muted);
+  vertical-align: middle;
+}
+
+.km-cluster-table tr:last-child td { border-bottom: none; }
+.km-cluster-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+.km-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.km-grav-bar {
+  display: flex;
+  height: 6px;
+  border-radius: 2px;
+  overflow: hidden;
+  width: 100%;
+  min-width: 80px;
+}
+
+.km-grav-muertos { background: #ef4444; }
+.km-grav-heridos  { background: #f59e0b; }
+.km-grav-danos    { background: #10b981; }
+
+.km-dot.km-c0 { background: #3b82f6; }
+.km-dot.km-c1 { background: #10b981; }
+.km-dot.km-c2 { background: #f59e0b; }
+.km-dot.km-c3 { background: #8b5cf6; }
+.km-dot.km-c4 { background: #ef4444; }
+
 /* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .spark-why-grid   { grid-template-columns: 1fr; }
-  .spark-code-grid  { grid-template-columns: 1fr; }
-  .spark-agg-grid   { grid-template-columns: 1fr; }
+  .spark-why-grid    { grid-template-columns: 1fr; }
+  .spark-code-grid   { grid-template-columns: 1fr; }
+  .spark-agg-grid    { grid-template-columns: 1fr; }
+  .spark-charts-row  { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -613,4 +806,5 @@
   .spl-fork          { flex-direction: column; }
   .spl-branch        { flex-direction: column; align-items: flex-start; }
   .spark-section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .km-info-bar       { gap: 1rem; }
 }

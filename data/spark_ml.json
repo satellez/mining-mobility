@@ -1,12 +1,151 @@
 {
   "algoritmo": "Random Forest (MLlib)",
-  "num_arboles": 100,
-  "max_depth": 8,
+  "num_arboles": 50,
+  "max_depth": 6,
   "train_size": 156769,
   "test_size": 39383,
-  "accuracy": 0.8218,
-  "f1": 0.8012,
-  "weighted_precision": 0.8219,
-  "weighted_recall": 0.8218,
-  "tiempo_entrenamiento_s": 101.2
+  "accuracy": 0.868,
+  "f1": 0.857,
+  "weighted_precision": 0.8662,
+  "weighted_recall": 0.868,
+  "tiempo_entrenamiento_s": 131.7,
+  "labels": [
+    "Solo Daños",
+    "Con Heridos",
+    "Con Muertos"
+  ],
+  "feature_importance": [
+    {
+      "feature": "clase",
+      "importance": 0.2886
+    },
+    {
+      "feature": "num_vehiculos",
+      "importance": 0.2666
+    },
+    {
+      "feature": "num_actores",
+      "importance": 0.1857
+    },
+    {
+      "feature": "tipo_vehiculo",
+      "importance": 0.1339
+    },
+    {
+      "feature": "hipotesis",
+      "importance": 0.1186
+    },
+    {
+      "feature": "localidad",
+      "importance": 0.0046
+    },
+    {
+      "feature": "hora",
+      "importance": 0.002
+    }
+  ],
+  "confusion_matrix": {
+    "labels": [
+      "Solo Daños",
+      "Con Heridos",
+      "Con Muertos"
+    ],
+    "matrix": [
+      [
+        24887,
+        717,
+        1
+      ],
+      [
+        3879,
+        9288,
+        5
+      ],
+      [
+        128,
+        468,
+        10
+      ]
+    ]
+  },
+  "kmeans": {
+    "k": 5,
+    "silhouette": 0.2974,
+    "tiempo_s": 9.0,
+    "features_usadas": [
+      "hora",
+      "localidad",
+      "num_vehiculos",
+      "num_actores",
+      "clase",
+      "tipo_vehiculo"
+    ],
+    "clusters": [
+      {
+        "cluster_id": 0,
+        "size": 60097,
+        "pct": 30.6,
+        "hora_media": 17.4,
+        "num_actores_media": 2.16,
+        "num_vehiculos_media": 2.04,
+        "gravedad": {
+          "Con Muertos": 411,
+          "Con Heridos": 14706,
+          "Solo Danios": 44980
+        }
+      },
+      {
+        "cluster_id": 1,
+        "size": 28056,
+        "pct": 14.3,
+        "hora_media": 13.3,
+        "num_actores_media": 2.02,
+        "num_vehiculos_media": 0.98,
+        "gravedad": {
+          "Con Muertos": 1626,
+          "Con Heridos": 25571,
+          "Solo Danios": 859
+        }
+      },
+      {
+        "cluster_id": 2,
+        "size": 714,
+        "pct": 0.4,
+        "hora_media": 12.2,
+        "num_actores_media": 9.75,
+        "num_vehiculos_media": 2.82,
+        "gravedad": {
+          "Con Muertos": 28,
+          "Con Heridos": 653,
+          "Solo Danios": 33
+        }
+      },
+      {
+        "cluster_id": 3,
+        "size": 52044,
+        "pct": 26.5,
+        "hora_media": 13.0,
+        "num_actores_media": 2.1,
+        "num_vehiculos_media": 2.01,
+        "gravedad": {
+          "Con Muertos": 402,
+          "Con Heridos": 9740,
+          "Solo Danios": 41902
+        }
+      },
+      {
+        "cluster_id": 4,
+        "size": 55241,
+        "pct": 28.2,
+        "hora_media": 7.7,
+        "num_actores_media": 2.16,
+        "num_vehiculos_media": 2.03,
+        "gravedad": {
+          "Con Muertos": 528,
+          "Con Heridos": 14568,
+          "Solo Danios": 40145
+        }
+      }
+    ]
+  }
 }
